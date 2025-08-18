@@ -1,0 +1,22 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\blazesym\capi\include\blazesym.h,True,True,"struct blaze_normalized_user_output *blaze_normalize_user_addrs_opts(const blaze_normalizer *normalizer,
+                                                                     uint32_t pid,
+                                                                     const uint64_t *addrs,
+                                                                     size_t addr_cnt,
+                                                                     const struct blaze_normalize_opts *opts);",5,"(1247, 1251)"
+Rust,E:\rust_projects\c\blazesym\capi\src\normalize.rs,False,True,"pub unsafe extern ""C"" fn blaze_normalize_user_addrs_opts(
+    normalizer: *const blaze_normalizer,
+    pid: u32,
+    addrs: *const Addr,
+    addr_cnt: usize,
+    opts: *const blaze_normalize_opts,
+) -> *mut blaze_normalized_user_output {
+    if !input_zeroed!(opts, blaze_normalize_opts) {
+        let () = set_last_err(blaze_err::INVALID_INPUT);
+        return ptr::null_mut()
+    }
+    let opts = input_sanitize!(opts, blaze_normalize_opts);
+    let opts = NormalizeOpts::from(opts);
+
+    unsafe { blaze_normalize_user_addrs_impl(normalizer, pid, addrs, addr_cnt, &opts) }
+}",15,"(721, 736)"

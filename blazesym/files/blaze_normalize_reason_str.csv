@@ -1,0 +1,12 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\blazesym\capi\include\blazesym.h,True,True,const char *blaze_normalize_reason_str(blaze_normalize_reason err);,1,"(1200, 1200)"
+Rust,E:\rust_projects\c\blazesym\capi\src\normalize.rs,False,True,"pub extern ""C"" fn blaze_normalize_reason_str(err: blaze_normalize_reason) -> *const c_char {
+    match err {
+        blaze_normalize_reason::UNMAPPED => Reason::Unmapped.as_bytes().as_ptr().cast(),
+        blaze_normalize_reason::MISSING_COMPONENT => {
+            Reason::MissingComponent.as_bytes().as_ptr().cast()
+        }
+        blaze_normalize_reason::UNSUPPORTED => Reason::Unsupported.as_bytes().as_ptr().cast(),
+        _ => b""unknown reason\0"".as_ptr().cast(),
+    }
+}",10,"(452, 461)"

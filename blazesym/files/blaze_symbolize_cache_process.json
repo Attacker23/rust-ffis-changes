@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "blaze_symbolize_cache_process",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "4f9b8936ec0912cfabe8e16db63af9040cb3b106",
+                "commit_title": "capi: Add support for pre-caching process VMA metadata\n\nHook up the support for pre-caching process VMA metadata to the C API\nbindings.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Mon Feb 10 14:34:35 2025 -0800",
+                "added_functions": [
+                    "void blaze_symbolize_cache_process(blaze_symbolizer *symbolizer,\n                                   const struct blaze_cache_src_process *cache);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_symbolize_cache_process",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "4f9b8936ec0912cfabe8e16db63af9040cb3b106",
+                "commit_title": "capi: Add support for pre-caching process VMA metadata\n\nHook up the support for pre-caching process VMA metadata to the C API\nbindings.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Mon Feb 10 14:34:35 2025 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_cache_process(\n    symbolizer: *mut blaze_symbolizer,\n    cache: *const blaze_cache_src_process,\n) {"
+                ]
+            }
+        ]
+    }
+]

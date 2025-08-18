@@ -1,0 +1,54 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\blazesym\capi\include\blazesym.h,True,True,"uint8_t *blaze_read_elf_build_id(const char *path,
+                                 size_t *len);",2,"(1089, 1090)"
+Rust,E:\rust_projects\c\blazesym\capi\src\helper.rs,False,True,"pub unsafe extern ""C"" fn blaze_read_elf_build_id(path: *const c_char, len: *mut usize) -> *mut u8 {
+    #[inline]
+    fn inner(path: *const c_char, len: *mut usize) -> Result<Option<BuildId<'static>>> {
+        // SAFETY: The caller is required to pass in a valid pointer.
+        let path = unsafe { CStr::from_ptr(path) };
+        let path = bytes_to_path(path.to_bytes())?;
+        let build_id = read_elf_build_id(path)?;
+        if !len.is_null() {
+            // SAFETY: If `len` is not `NULL`, the caller must ensure
+            //         that it points to valid writable memory.
+            let () = unsafe {
+                len.write(
+                    build_id
+                        .as_ref()
+                        .map(|build_id| build_id.len())
+                        .unwrap_or_default(),
+                )
+            };
+        }
+        Ok(build_id)
+    }
+
+    let result = inner(path, len);
+    let err = result
+        .as_ref()
+        .map(|_| blaze_err::OK)
+        .unwrap_or_else(|err| err.kind().into());
+    let () = set_last_err(err);
+
+    // NB: We don't specify what `len` is set to in case of
+    //     error, so we don't even attempt to change it below.
+
+    match result {
+        Ok(None) | Err(..) => ptr::null_mut(),
+        Ok(Some(build_id)) => {
+            let len = build_id.len();
+            // SAFETY: `malloc` is always safe to call.
+            let dst = unsafe { libc::malloc(len) }.cast::<u8>();
+            if dst.is_null() {
+                let () = set_last_err(blaze_err::OUT_OF_MEMORY);
+            } else {
+                // SAFETY: `build_id` is trivially valid and `dst` is
+                //         coming from a `malloc` already checked for
+                //         `NULL`; hence, it is valid as well here. Both
+                //         buffers are `len` bytes in size.
+                let () = unsafe { ptr::copy_nonoverlapping(build_id.as_ptr(), dst, len) };
+            }
+            dst
+        }
+    }
+}",38,"(57, 107)"

@@ -1,0 +1,5 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\blazesym\capi\include\blazesym.h,True,True,blaze_err blaze_err_last(void);,1,"(1048, 1048)"
+Rust,E:\rust_projects\c\blazesym\capi\src\error.rs,False,True,"pub extern ""C"" fn blaze_err_last() -> blaze_err {
+    LAST_ERR.with(Cell::get)
+}",3,"(79, 81)"

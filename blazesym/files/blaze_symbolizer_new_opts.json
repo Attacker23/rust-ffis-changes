@@ -1,0 +1,114 @@
+[
+    {
+        "function_name": "blaze_symbolizer_new_opts",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 7,
+        "commits": [
+            {
+                "commit_info": "f553c676653d156237f168794f3250f3b5921fa3",
+                "commit_title": "Introduce builder for Symbolizer creation\n\nIntroduce a builder for creation of Symbolizer objects. Enable all\nfeatures by default. Adjust the C API to use an opts struct. Remove all\nthe existing feature types and logic.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu May 4 09:12:11 2023 -0700",
+                "added_functions": [
+                    "blaze_symbolizer *blaze_symbolizer_new_opts(const struct blaze_symbolizer_opts *opts);"
+                ]
+            },
+            {
+                "commit_info": "b86897e8dd8b4d56acd5d1e7c54231dbf5c8e31e",
+                "commit_title": "Rename blazesym -> blaze_symbolizer in C API\n\nRename blazesym to blaze_symbolizer in the C API. That is done for\nconsistency with the rest of the recently introduced inspector and\nnormalizer APIs.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue May 2 14:09:10 2023 -0700",
+                "added_functions": [
+                    "blaze_symbolizer *blaze_symbolizer_new_opts(const struct blazesym_feature *features,\n                                            size_t feature_cnt);"
+                ]
+            },
+            {
+                "commit_info": "3273656b34a625c6f126609251c51088be8b8e41",
+                "commit_title": "Rename blazesym_{new,free}\n\nReplace the blazesym_ prefix in with blaze_ in blazesym_{new,free}.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue May 2 14:07:55 2023 -0700",
+                "added_functions": [
+                    "blazesym *blaze_symbolizer_new_opts(const struct blazesym_feature *features,\n                                    size_t feature_cnt);"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "blazesym_new_opts",
+                    "new_name": "blaze_symbolizer_new_opts"
+                }
+            },
+            {
+                "commit_info": "4cb0bd339adbaa4e7245633be347a18fd2f724b5",
+                "commit_title": "Stop renaming function arguments in C header\n\nIt's unclear why we'd ever opt to use \"gecko case\" style renaming of\nfunction arguments. Just leave them be.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Apr 25 09:11:24 2023 -0700",
+                "added_functions": [
+                    "blazesym *blazesym_new_opts(const struct blazesym_feature *features,\n                            size_t nfeatures);"
+                ]
+            },
+            {
+                "commit_info": "9fb0d000584ece05c543cca7ad7892b78fdc2bbf",
+                "commit_title": "Map usize to size_t\n\nIt looks weird to see size values in C definitions have type uintptr_t.\nMap them to size_t instead for good measure.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Apr 4 15:30:26 2023 -0700",
+                "added_functions": [
+                    "struct blazesym *blazesym_new_opts(const struct blazesym_feature *aFeatures,\n                                   size_t aNfeatures);"
+                ]
+            },
+            {
+                "commit_info": "5e8b4edbbe37d0400e39209fc674620d9bdc65ff",
+                "commit_title": "Remove unnecessary indirection in blazesym C type\n\nThe blazesym type is heap allocated and all it contains is a heap\nallocated pointer. Stop this wasteful and unnecessary complex practice\nby removing the indirection.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Apr 4 11:21:19 2023 -0700",
+                "added_functions": [
+                    "blazesym *blazesym_new_opts(const struct blazesym_feature *aFeatures,\n                            size_t aNfeatures);"
+                ]
+            },
+            {
+                "commit_info": "781c0799e43ed374d7300071b1174a680de66873",
+                "commit_title": "Check in generated C header file\n\nWith this change we check in the generated C header for the library.\nThis will make it easier to consume it from user code. Subsequent\nchanges will ensure that it is always kept up-to-date.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Mar 10 13:56:05 2023 -0800",
+                "added_functions": [
+                    "struct blazesym *blazesym_new_opts(const struct blazesym_feature *aFeatures,\n                                   uintptr_t aNfeatures);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_symbolizer_new_opts",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs",
+        "commit_count": 4,
+        "commits": [
+            {
+                "commit_info": "f553c676653d156237f168794f3250f3b5921fa3",
+                "commit_title": "Introduce builder for Symbolizer creation\n\nIntroduce a builder for creation of Symbolizer objects. Enable all\nfeatures by default. Adjust the C API to use an opts struct. Remove all\nthe existing feature types and logic.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu May 4 09:12:11 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolizer_new_opts(\n    opts: *const blaze_symbolizer_opts,\n) -> *mut blaze_symbolizer {"
+                ]
+            },
+            {
+                "commit_info": "b86897e8dd8b4d56acd5d1e7c54231dbf5c8e31e",
+                "commit_title": "Rename blazesym -> blaze_symbolizer in C API\n\nRename blazesym to blaze_symbolizer in the C API. That is done for\nconsistency with the rest of the recently introduced inspector and\nnormalizer APIs.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue May 2 14:09:10 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolizer_new_opts(\n    features: *const blazesym_feature,\n    feature_cnt: usize,\n) -> *mut blaze_symbolizer {"
+                ]
+            },
+            {
+                "commit_info": "3273656b34a625c6f126609251c51088be8b8e41",
+                "commit_title": "Rename blazesym_{new,free}\n\nReplace the blazesym_ prefix in with blaze_ in blazesym_{new,free}.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue May 2 14:07:55 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolizer_new_opts(\n     features: *const blazesym_feature,\n    feature_cnt: usize,\n ) -> *mut blazesym {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "blazesym_new_opts",
+                    "new_name": "blaze_symbolizer_new_opts"
+                }
+            },
+            {
+                "commit_info": "50408a3b55c341ef954465a678ee334956c6399c",
+                "commit_title": "Move C API functionality into c_api module\n\nMove C API functionality into `c_api` module to clean up `lib.rs`.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed Feb 8 14:58:24 2023 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blazesym_new_opts(\n    features: *const blazesym_feature,\n    nfeatures: usize,\n) -> *mut blazesym {"
+                ]
+            }
+        ]
+    }
+]

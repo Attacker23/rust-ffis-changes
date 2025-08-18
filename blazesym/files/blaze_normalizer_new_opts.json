@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "blaze_normalizer_new_opts",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "d35aa2d0f62478d28ea7693bc1dcaacda439379f",
+                "commit_title": "capi: Add blaze_normalizer_new_opts() constructor\n\nThis change adds the blaze_normalizer_new_opts() constructor for\nblaze_normalizer objects to the C API. Using it users can control the\navailability of build IDs as part of the normalization output.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Mon Jan 29 10:10:32 2024 -0800",
+                "added_functions": [
+                    "blaze_normalizer *blaze_normalizer_new_opts(const struct blaze_normalizer_opts *opts);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_normalizer_new_opts",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\normalize.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "d35aa2d0f62478d28ea7693bc1dcaacda439379f",
+                "commit_title": "capi: Add blaze_normalizer_new_opts() constructor\n\nThis change adds the blaze_normalizer_new_opts() constructor for\nblaze_normalizer objects to the C API. Using it users can control the\navailability of build IDs as part of the normalization output.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Mon Jan 29 10:10:32 2024 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_normalizer_new_opts(\n    opts: *const blaze_normalizer_opts,\n) -> *mut blaze_normalizer {"
+                ]
+            }
+        ]
+    }
+]

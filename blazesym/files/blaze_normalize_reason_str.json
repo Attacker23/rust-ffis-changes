@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "blaze_normalize_reason_str",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "d28c65724618ccb1cef95999512a24f32cccd232",
+                "commit_title": "capi: Introduce blaze_normalize_reason_str() helper function\n\nThis change introduces the blaze_normalize_reason_str() helper function\nthat can be used to retrieve a textual representation of a reason for a\nnormalization failure.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Fri May 3 14:36:13 2024 -0700",
+                "added_functions": [
+                    "const char *blaze_normalize_reason_str(blaze_normalize_reason err);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_normalize_reason_str",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\normalize.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "d28c65724618ccb1cef95999512a24f32cccd232",
+                "commit_title": "capi: Introduce blaze_normalize_reason_str() helper function\n\nThis change introduces the blaze_normalize_reason_str() helper function\nthat can be used to retrieve a textual representation of a reason for a\nnormalization failure.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Fri May 3 14:36:13 2024 -0700",
+                "added_functions": [
+                    "pub extern \"C\" fn blaze_normalize_reason_str(err: blaze_normalize_reason) -> *const c_char {"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,412 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_symbolize_elf_virt_offsets",
+    "older_commit": "4a4a204ae984a421ea95fa0410dd044ed9134b60",
+    "newer_commit": "6c71136cbba17f071eaa0d96ea9ea1cc97c24c4e",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "const uintptr_t",
+          "new": "const uint64_t"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_symbolize_elf_virt_offsets",
+    "older_commit": "e8512e706563e6f52cc1cd5233ea2e95c56c70d7",
+    "newer_commit": "4a4a204ae984a421ea95fa0410dd044ed9134b60",
+    "changes": {
+      "return_type_changed": {
+        "old": "const struct blaze_result *",
+        "new": "const struct blaze_syms *"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_symbolize_elf_file_addrs",
+    "older_commit": "e36e863ee13abe0e462d2acf45bbbab6b269870b",
+    "newer_commit": "e8512e706563e6f52cc1cd5233ea2e95c56c70d7",
+    "changes": {
+      "function_renamed": {
+        "old": "blaze_symbolize_elf_file_addrs",
+        "new": "blaze_symbolize_elf_virt_offsets"
+      },
+      "name_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "*addrs",
+          "new": "*virt_offsets"
+        },
+        {
+          "index_old": 3,
+          "index_new": 3,
+          "old": "addr_cnt",
+          "new": "virt_offset_cnt"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_symbolize_elf",
+    "older_commit": "2e5429141332ae981ca503715a27fe8137146a9c",
+    "newer_commit": "e36e863ee13abe0e462d2acf45bbbab6b269870b",
+    "changes": {
+      "function_renamed": {
+        "old": "blaze_symbolize_elf",
+        "new": "blaze_symbolize_elf_file_addrs"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_symbolize_elf",
+    "older_commit": "38754a8cc51ba5035ab061091fe65b105478d22f",
+    "newer_commit": "2e5429141332ae981ca503715a27fe8137146a9c",
+    "changes": {
+      "return_type_changed": {
+        "old": "const struct blazesym_result *",
+        "new": "const struct blaze_result *"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_symbolize_elf",
+    "older_commit": "21ae1df786515f26d3eb22ca216086202b365f3f",
+    "newer_commit": "38754a8cc51ba5035ab061091fe65b105478d22f",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "const struct blazesym_ssc_elf",
+          "new": "const struct blaze_symbolize_src_elf"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_symbolize",
+    "older_commit": "13d141ef2d5b6461e843224f3f3a35b6ca24125b",
+    "newer_commit": "21ae1df786515f26d3eb22ca216086202b365f3f",
+    "changes": {
+      "function_renamed": {
+        "old": "blaze_symbolize",
+        "new": "blaze_symbolize_elf"
+      },
+      "type_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "const struct blazesym_sym_src_cfg",
+          "new": "const struct blazesym_ssc_elf"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_symbolize",
+    "older_commit": "b86897e8dd8b4d56acd5d1e7c54231dbf5c8e31e",
+    "newer_commit": "13d141ef2d5b6461e843224f3f3a35b6ca24125b",
+    "changes": {
+      "name_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "*cfg",
+          "new": "*src"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_symbolize",
+    "older_commit": "a59107f67950d37c11f079fe34a3cd52d945c62d",
+    "newer_commit": "b86897e8dd8b4d56acd5d1e7c54231dbf5c8e31e",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "blazesym",
+          "new": "blaze_symbolizer"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blazesym_symbolize",
+    "older_commit": "00e2ea93131ba8b7b8e0b48cd6c8a227b1ab2b87",
+    "newer_commit": "a59107f67950d37c11f079fe34a3cd52d945c62d",
+    "changes": {
+      "function_renamed": {
+        "old": "blazesym_symbolize",
+        "new": "blaze_symbolize"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blazesym_symbolize",
+    "older_commit": "4cb0bd339adbaa4e7245633be347a18fd2f724b5",
+    "newer_commit": "00e2ea93131ba8b7b8e0b48cd6c8a227b1ab2b87",
+    "changes": {
+      "name_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "*sym_srcs",
+          "new": "*cfg"
+        }
+      ],
+      "removed": [
+        {
+          "index_old": 2,
+          "name": "sym_srcs_len",
+          "type": "size_t"
+        }
+      ],
+      "param_count_changed": {
+        "added": [],
+        "removed": [
+          {
+            "index_old": 2,
+            "name": "sym_srcs_len",
+            "type": "size_t"
+          }
+        ],
+        "delta": -1
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blazesym_symbolize",
+    "older_commit": "04521a1ca028cb62b49bd34de82f20cc796d5610",
+    "newer_commit": "4cb0bd339adbaa4e7245633be347a18fd2f724b5",
+    "changes": {
+      "name_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "*aSymSrcs",
+          "new": "*sym_srcs"
+        },
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "aSymSrcsLen",
+          "new": "sym_srcs_len"
+        },
+        {
+          "index_old": 3,
+          "index_new": 3,
+          "old": "*aAddrs",
+          "new": "*addrs"
+        },
+        {
+          "index_old": 4,
+          "index_new": 2,
+          "old": "aAddrCnt",
+          "new": "sym_srcs_len"
+        }
+      ],
+      "both_changed": [
+        {
+          "index_old": 0,
+          "index_new": 4,
+          "old_name": "*aSymbolizer",
+          "old_type": "struct blazesym",
+          "new_name": "addr_cnt",
+          "new_type": "size_t"
+        }
+      ],
+      "added": [
+        {
+          "index_new": 0,
+          "name": "*symbolizer",
+          "type": "blazesym"
+        }
+      ],
+      "notes": "suspect_param_merge"
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blazesym_symbolize",
+    "older_commit": "9fb0d000584ece05c543cca7ad7892b78fdc2bbf",
+    "newer_commit": "04521a1ca028cb62b49bd34de82f20cc796d5610",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "uint32_t",
+          "new": "size_t"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blazesym_symbolize",
+    "older_commit": "5e8b4edbbe37d0400e39209fc674620d9bdc65ff",
+    "newer_commit": "9fb0d000584ece05c543cca7ad7892b78fdc2bbf",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "blazesym",
+          "new": "struct blazesym"
+        },
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "size_t",
+          "new": "uint32_t"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blazesym_symbolize",
+    "older_commit": "19ac92640f80664bd10b32e9c4ff72a1b22d20d3",
+    "newer_commit": "5e8b4edbbe37d0400e39209fc674620d9bdc65ff",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "struct blazesym",
+          "new": "blazesym"
+        },
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "uint32_t",
+          "new": "size_t"
+        },
+        {
+          "index_old": 3,
+          "index_new": 3,
+          "old": "const uint64_t",
+          "new": "const uintptr_t"
+        },
+        {
+          "index_old": 4,
+          "index_new": 4,
+          "old": "uintptr_t",
+          "new": "size_t"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blazesym_symbolize",
+    "older_commit": "781c0799e43ed374d7300071b1174a680de66873",
+    "newer_commit": "19ac92640f80664bd10b32e9c4ff72a1b22d20d3",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "const struct sym_src_cfg",
+          "new": "const struct blazesym_sym_src_cfg"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blazesym_symbolize",
+    "older_commit": "174c649b8bafb89d408048be3c9061ecb6d25374",
+    "newer_commit": "781c0799e43ed374d7300071b1174a680de66873",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "const struct blazesym_sym_src_cfg",
+          "new": "const struct sym_src_cfg"
+        },
+        {
+          "index_old": 3,
+          "index_new": 3,
+          "old": "const uintptr_t",
+          "new": "const uint64_t"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs:blaze_symbolize_elf_virt_offsets",
+    "older_commit": "e8512e706563e6f52cc1cd5233ea2e95c56c70d7",
+    "newer_commit": "4a4a204ae984a421ea95fa0410dd044ed9134b60",
+    "changes": {
+      "return_type_changed": {
+        "old": "*const blaze_result",
+        "new": "*const blaze_syms"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs:blaze_symbolize_elf_file_addrs",
+    "older_commit": "e36e863ee13abe0e462d2acf45bbbab6b269870b",
+    "newer_commit": "e8512e706563e6f52cc1cd5233ea2e95c56c70d7",
+    "changes": {
+      "function_renamed": {
+        "old": "blaze_symbolize_elf_file_addrs",
+        "new": "blaze_symbolize_elf_virt_offsets"
+      },
+      "name_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "addrs",
+          "new": "virt_offsets"
+        },
+        {
+          "index_old": 3,
+          "index_new": 3,
+          "old": "addr_cnt",
+          "new": "virt_offset_cnt"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs:blaze_symbolize_elf",
+    "older_commit": "2e5429141332ae981ca503715a27fe8137146a9c",
+    "newer_commit": "e36e863ee13abe0e462d2acf45bbbab6b269870b",
+    "changes": {
+      "function_renamed": {
+        "old": "blaze_symbolize_elf",
+        "new": "blaze_symbolize_elf_file_addrs"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs:blaze_symbolize_elf",
+    "older_commit": "38754a8cc51ba5035ab061091fe65b105478d22f",
+    "newer_commit": "2e5429141332ae981ca503715a27fe8137146a9c",
+    "changes": {
+      "return_type_changed": {
+        "old": "*const blazesym_result",
+        "new": "*const blaze_result"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs:blaze_symbolize_elf",
+    "older_commit": "21ae1df786515f26d3eb22ca216086202b365f3f",
+    "newer_commit": "38754a8cc51ba5035ab061091fe65b105478d22f",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "*const blazesym_ssc_elf",
+          "new": "*const blaze_symbolize_src_elf"
+        }
+      ]
+    }
+  }
+]

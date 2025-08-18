@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "blaze_read_elf_build_id",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "5a15e2e4f07400eaa6d56453dbbfc9018c386d50",
+                "commit_title": "capi: Introduce blaze_read_elf_build_id() helper\n\nIntroduce the blaze_read_elf_build_id() helper function, providing the\nmeans to read a build ID from an ELF file similar to what the\nhelper::read_elf_build_id() Rust correspondent does.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Wed Sep 18 22:32:42 2024 +0200",
+                "added_functions": [
+                    "uint8_t *blaze_read_elf_build_id(const char *path,\n                                 size_t *len);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_read_elf_build_id",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\helper.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "5a15e2e4f07400eaa6d56453dbbfc9018c386d50",
+                "commit_title": "capi: Introduce blaze_read_elf_build_id() helper\n\nIntroduce the blaze_read_elf_build_id() helper function, providing the\nmeans to read a build ID from an ELF file similar to what the\nhelper::read_elf_build_id() Rust correspondent does.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Wed Sep 18 22:32:42 2024 +0200",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_read_elf_build_id(path: *const c_char, len: *mut usize) -> *mut u8 {"
+                ]
+            }
+        ]
+    }
+]

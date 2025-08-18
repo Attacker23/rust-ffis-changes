@@ -1,0 +1,18 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\blazesym\capi\include\blazesym.h,True,True,const char *blaze_symbolize_reason_str(blaze_symbolize_reason err);,1,"(1268, 1268)"
+Rust,E:\rust_projects\c\blazesym\capi\src\symbolize.rs,False,True,"pub extern ""C"" fn blaze_symbolize_reason_str(err: blaze_symbolize_reason) -> *const c_char {
+    match err {
+        blaze_symbolize_reason::SUCCESS => b""success\0"".as_ptr().cast(),
+        blaze_symbolize_reason::UNMAPPED => Reason::Unmapped.as_bytes().as_ptr().cast(),
+        blaze_symbolize_reason::INVALID_FILE_OFFSET => {
+            Reason::InvalidFileOffset.as_bytes().as_ptr().cast()
+        }
+        blaze_symbolize_reason::MISSING_COMPONENT => {
+            Reason::MissingComponent.as_bytes().as_ptr().cast()
+        }
+        blaze_symbolize_reason::MISSING_SYMS => Reason::MissingSyms.as_bytes().as_ptr().cast(),
+        blaze_symbolize_reason::UNKNOWN_ADDR => Reason::UnknownAddr.as_bytes().as_ptr().cast(),
+        blaze_symbolize_reason::UNSUPPORTED => Reason::Unsupported.as_bytes().as_ptr().cast(),
+        _ => b""unknown reason\0"".as_ptr().cast(),
+    }
+}",16,"(507, 522)"

@@ -1,0 +1,24 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_normalizer_new",
+    "older_commit": "66e4c3a1c478297f21ecba6c1e845c39a88e2bdf",
+    "newer_commit": "5c0b6e36d7a828adebffa1311ccef7a6e3676ff1",
+    "changes": {
+      "return_type_changed": {
+        "old": "struct blaze_normalizer *",
+        "new": "blaze_normalizer *"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\normalize.rs:blaze_normalizer_new",
+    "older_commit": "66e4c3a1c478297f21ecba6c1e845c39a88e2bdf",
+    "newer_commit": "5c0b6e36d7a828adebffa1311ccef7a6e3676ff1",
+    "changes": {
+      "return_type_changed": {
+        "old": "*mut Normalizer",
+        "new": "*mut blaze_normalizer"
+      }
+    }
+  }
+]

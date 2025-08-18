@@ -1,0 +1,20 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\blazesym\capi\include\blazesym.h,True,True,const char *blaze_err_str(blaze_err err);,1,"(1053, 1053)"
+Rust,E:\rust_projects\c\blazesym\capi\src\error.rs,False,True,"pub extern ""C"" fn blaze_err_str(err: blaze_err) -> *const c_char {
+    match err {
+        blaze_err::OK => b""success\0"".as_ptr().cast(),
+        blaze_err::NOT_FOUND => ErrorKind::NotFound.as_bytes().as_ptr().cast(),
+        blaze_err::PERMISSION_DENIED => ErrorKind::PermissionDenied.as_bytes().as_ptr().cast(),
+        blaze_err::ALREADY_EXISTS => ErrorKind::AlreadyExists.as_bytes().as_ptr().cast(),
+        blaze_err::WOULD_BLOCK => ErrorKind::WouldBlock.as_bytes().as_ptr().cast(),
+        blaze_err::INVALID_INPUT => ErrorKind::InvalidInput.as_bytes().as_ptr().cast(),
+        blaze_err::INVALID_DATA => ErrorKind::InvalidData.as_bytes().as_ptr().cast(),
+        blaze_err::INVALID_DWARF => ErrorKind::InvalidDwarf.as_bytes().as_ptr().cast(),
+        blaze_err::TIMED_OUT => ErrorKind::TimedOut.as_bytes().as_ptr().cast(),
+        blaze_err::WRITE_ZERO => ErrorKind::WriteZero.as_bytes().as_ptr().cast(),
+        blaze_err::UNSUPPORTED => ErrorKind::Unsupported.as_bytes().as_ptr().cast(),
+        blaze_err::UNEXPECTED_EOF => ErrorKind::UnexpectedEof.as_bytes().as_ptr().cast(),
+        blaze_err::OUT_OF_MEMORY => ErrorKind::OutOfMemory.as_bytes().as_ptr().cast(),
+        _ => ErrorKind::Other.as_bytes().as_ptr().cast(),
+    }
+}",18,"(91, 108)"

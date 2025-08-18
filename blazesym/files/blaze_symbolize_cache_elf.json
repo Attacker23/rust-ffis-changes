@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "blaze_symbolize_cache_elf",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "345428acfd1bbcf48e57a763f235879a8c826c31",
+                "commit_title": "capi: Add support for caching of ELF data\n\nHook up the support for pre-caching ELF symbolization data to the C API\nbindings.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Thu Mar 6 13:59:57 2025 -0800",
+                "added_functions": [
+                    "void blaze_symbolize_cache_elf(blaze_symbolizer *symbolizer,\n                               const struct blaze_cache_src_elf *cache);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_symbolize_cache_elf",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "345428acfd1bbcf48e57a763f235879a8c826c31",
+                "commit_title": "capi: Add support for caching of ELF data\n\nHook up the support for pre-caching ELF symbolization data to the C API\nbindings.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Thu Mar 6 13:59:57 2025 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_cache_elf(\n    symbolizer: *mut blaze_symbolizer,\n    cache: *const blaze_cache_src_elf,\n) {"
+                ]
+            }
+        ]
+    }
+]

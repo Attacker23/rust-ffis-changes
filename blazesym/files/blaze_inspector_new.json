@@ -1,0 +1,48 @@
+[
+    {
+        "function_name": "blaze_inspector_new",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "5c0b6e36d7a828adebffa1311ccef7a6e3676ff1",
+                "commit_title": "Introduce blazesym-c crate\n\nThis change moves all C API functionality into the blazesym-c crate in\nthe existing workspace. Doing so ensures better isolation between the\ncore Rust part and the C API and it will allow us to version the C API\ndifferent from the main Rust crate.\n\nCloses: #344\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu Nov 16 13:55:59 2023 -0800",
+                "added_functions": [
+                    "blaze_inspector *blaze_inspector_new(void);"
+                ]
+            },
+            {
+                "commit_info": "9133cc3be66fcce9b3ba6fc67b9590109021dfab",
+                "commit_title": "Introduce inspector C API\n\nThis change introduces C bindings for the inspector API.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue May 2 11:47:56 2023 -0700",
+                "added_functions": [
+                    "struct blaze_inspector *blaze_inspector_new(void);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_inspector_new",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\inspect.rs",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "5c0b6e36d7a828adebffa1311ccef7a6e3676ff1",
+                "commit_title": "Introduce blazesym-c crate\n\nThis change moves all C API functionality into the blazesym-c crate in\nthe existing workspace. Doing so ensures better isolation between the\ncore Rust part and the C API and it will allow us to version the C API\ndifferent from the main Rust crate.\n\nCloses: #344\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu Nov 16 13:55:59 2023 -0800",
+                "added_functions": [
+                    "pub extern \"C\" fn blaze_inspector_new() -> *mut blaze_inspector {"
+                ]
+            },
+            {
+                "commit_info": "9133cc3be66fcce9b3ba6fc67b9590109021dfab",
+                "commit_title": "Introduce inspector C API\n\nThis change introduces C bindings for the inspector API.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue May 2 11:47:56 2023 -0700",
+                "added_functions": [
+                    "pub extern \"C\" fn blaze_inspector_new() -> *mut Inspector {"
+                ]
+            }
+        ]
+    }
+]

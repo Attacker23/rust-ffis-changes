@@ -1,0 +1,180 @@
+[
+    {
+        "function_name": "blaze_normalize_user_addrs_opts",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 10,
+        "commits": [
+            {
+                "commit_info": "6c71136cbba17f071eaa0d96ea9ea1cc97c24c4e",
+                "commit_title": "Fix addresses being represented as uintptr_t\n\nAs of commit f3c8d248a198 (\"Make Addr a u64\") all addresses were\nsupposed to be represented as 64 bit integers. However, that changed did\nnot adjust the C API bindings. Usually that would have been picked up\ntransparently in the C header, except that cbindgen required us to\nexplicitly specify the address type, leading to a mismatch. Fix it up.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Oct 29 09:23:59 2024 -0700",
+                "added_functions": [
+                    "struct blaze_normalized_user_output *blaze_normalize_user_addrs_opts(const blaze_normalizer *normalizer,\n                                                                     uint32_t pid,\n                                                                     const uint64_t *addrs,\n                                                                     size_t addr_cnt,\n                                                                     const struct blaze_normalize_opts *opts);"
+                ]
+            },
+            {
+                "commit_info": "991ae6a22e3827aafc46758fb07e3c21e56c8367",
+                "commit_title": "Introduce normalize::NormalizerOpts\n\nWe may reasonably want to make normalization more customizable in the\nfuture. To make that possible without an exponential explosion of new\nvariant methods on the normalizer, this change introduces an option type\nthat is to be passed to the method used for address normalization.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed May 29 16:16:33 2024 -0700",
+                "added_functions": [
+                    "struct blaze_normalized_user_output *blaze_normalize_user_addrs_opts(const blaze_normalizer *normalizer,\n                                                                     uint32_t pid,\n                                                                     const uintptr_t *addrs,\n                                                                     size_t addr_cnt,\n                                                                     const struct blaze_normalize_opts *opts);"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "blaze_normalize_user_addrs_sorted",
+                    "new_name": "blaze_normalize_user_addrs_opts"
+                }
+            },
+            {
+                "commit_info": "1d78b0b1e5805a3ca097b3650a75648f46aeb85f",
+                "commit_title": "Reorder pid argument in normalization APIs\n\nThe pid argument in the normalization APIs fulfills pretty much the same\njob as the src in the symbolization logic. As such, we should order them\nconsistently with respect to the addresses provided.\nWith this change we move the argument before the address list.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Dec 19 11:22:50 2023 -0800",
+                "added_functions": [
+                    "struct blaze_normalized_user_output *blaze_normalize_user_addrs_sorted(const blaze_normalizer *normalizer,\n                                                                       uint32_t pid,\n                                                                       const uintptr_t *addrs,\n                                                                       size_t addr_cnt);"
+                ]
+            },
+            {
+                "commit_info": "5c0b6e36d7a828adebffa1311ccef7a6e3676ff1",
+                "commit_title": "Introduce blazesym-c crate\n\nThis change moves all C API functionality into the blazesym-c crate in\nthe existing workspace. Doing so ensures better isolation between the\ncore Rust part and the C API and it will allow us to version the C API\ndifferent from the main Rust crate.\n\nCloses: #344\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu Nov 16 13:55:59 2023 -0800",
+                "added_functions": [
+                    "struct blaze_normalized_user_output *blaze_normalize_user_addrs_sorted(const blaze_normalizer *normalizer,\n                                                                        const uintptr_t *addrs,\n                                                                        size_t addr_cnt,\n                                                                        uint32_t pid);"
+                ]
+            },
+            {
+                "commit_info": "8cd5dc97f007c7e516706ee2ff53f108405f1fd0",
+                "commit_title": "Rename various normalization related types\n\nWith upcoming changes our normalization functionality will return file\noffsets instead of normalized addresses. That renders a bunch of the\nexisting names containing \"addr\" unusable.\nRename all those types, opting for \"output\" or similar terminology\ninstead of \"addr\".\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed Oct 11 14:14:22 2023 -0700",
+                "added_functions": [
+                    "struct blaze_normalized_user_output *blaze_normalize_user_addrs_sorted(const struct blaze_normalizer *normalizer,\n                                                                       const uintptr_t *addrs,\n                                                                       size_t addr_cnt,\n                                                                       uint32_t pid);"
+                ]
+            },
+            {
+                "commit_info": "cb29de1c9ab1f931ffbe5f25e412e276180cf58a",
+                "commit_title": "Rename count -> cnt\n\nWe use count and the shorter cnt for the same purposes. Converge on\nusing only 'cnt' for brevity.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed Oct 11 10:09:49 2023 -0700",
+                "added_functions": [
+                    "struct blaze_normalized_user_addrs *blaze_normalize_user_addrs_sorted(const struct blaze_normalizer *normalizer,\n                                                                      const uintptr_t *addrs,\n                                                                      size_t addr_cnt,\n                                                                      uint32_t pid);"
+                ]
+            },
+            {
+                "commit_info": "66e4c3a1c478297f21ecba6c1e845c39a88e2bdf",
+                "commit_title": "Introduce Normalizer type\n\nIn the future we may want to support more features in the realm of\naddress normalization. To make that possible without breaking\ncompatibility, introduce a Normalizer type that can store configuration,\nfor example. Having such an object around will also allow us to cache\nmore state between invocations.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed Apr 26 10:16:07 2023 -0700",
+                "added_functions": [
+                    "struct blaze_normalized_user_addrs *blaze_normalize_user_addrs_sorted(const struct blaze_normalizer *normalizer,\n                                                                      const uintptr_t *addrs,\n                                                                       size_t addr_count,\n                                                                       uint32_t pid);"
+                ]
+            },
+            {
+                "commit_info": "c24a4a561126dba18da5878d70dba1eb31aac66c",
+                "commit_title": "Rename normalize_user_addrs -> normalize_user_addrs_sorted\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Apr 25 13:44:02 2023 -0700",
+                "added_functions": [
+                    "struct blaze_normalized_user_addrs *blaze_normalize_user_addrs_sorted(const uintptr_t *addrs,\n                                                                      size_t addr_count,\n                                                                      uint32_t pid);"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "blaze_normalize_user_addrs",
+                    "new_name": "blaze_normalize_user_addrs_sorted"
+                }
+            },
+            {
+                "commit_info": "4cb0bd339adbaa4e7245633be347a18fd2f724b5",
+                "commit_title": "Stop renaming function arguments in C header\n\nIt's unclear why we'd ever opt to use \"gecko case\" style renaming of\nfunction arguments. Just leave them be.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Apr 25 09:11:24 2023 -0700",
+                "added_functions": [
+                    "struct blaze_normalized_user_addrs *blaze_normalize_user_addrs(const uintptr_t *addrs,\n                                                               size_t addr_count,\n                                                               uint32_t pid);"
+                ]
+            },
+            {
+                "commit_info": "a376ff3cc9e8a2b7b6a0dc00b291180727e8d3e8",
+                "commit_title": "Introduce address normalization C API\n\nThis change adds C API bindings for the address normalization\nfunctionality.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Apr 18 21:03:12 2023 -0700",
+                "added_functions": [
+                    "struct blaze_normalized_user_addrs *blaze_normalize_user_addrs(const uintptr_t *aAddrs,\n                                                               size_t aAddrCount,\n                                                               uint32_t aPid);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_normalize_user_addrs_opts",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\normalize.rs",
+        "commit_count": 8,
+        "commits": [
+            {
+                "commit_info": "991ae6a22e3827aafc46758fb07e3c21e56c8367",
+                "commit_title": "Introduce normalize::NormalizerOpts\n\nWe may reasonably want to make normalization more customizable in the\nfuture. To make that possible without an exponential explosion of new\nvariant methods on the normalizer, this change introduces an option type\nthat is to be passed to the method used for address normalization.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed May 29 16:16:33 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_normalize_user_addrs_opts(\n     normalizer: *const blaze_normalizer,\n     pid: u32,\n     addrs: *const Addr,\n     addr_cnt: usize,\n    opts: *const blaze_normalize_opts,\n ) -> *mut blaze_normalized_user_output {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "blaze_normalize_user_addrs_sorted",
+                    "new_name": "blaze_normalize_user_addrs_opts"
+                }
+            },
+            {
+                "commit_info": "1d78b0b1e5805a3ca097b3650a75648f46aeb85f",
+                "commit_title": "Reorder pid argument in normalization APIs\n\nThe pid argument in the normalization APIs fulfills pretty much the same\njob as the src in the symbolization logic. As such, we should order them\nconsistently with respect to the addresses provided.\nWith this change we move the argument before the address list.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Dec 19 11:22:50 2023 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_normalize_user_addrs_sorted(\n    normalizer: *const blaze_normalizer,\n    pid: u32,\n    addrs: *const Addr,\n    addr_cnt: usize,\n) -> *mut blaze_normalized_user_output {"
+                ]
+            },
+            {
+                "commit_info": "5c0b6e36d7a828adebffa1311ccef7a6e3676ff1",
+                "commit_title": "Introduce blazesym-c crate\n\nThis change moves all C API functionality into the blazesym-c crate in\nthe existing workspace. Doing so ensures better isolation between the\ncore Rust part and the C API and it will allow us to version the C API\ndifferent from the main Rust crate.\n\nCloses: #344\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu Nov 16 13:55:59 2023 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_normalize_user_addrs_sorted(\n    normalizer: *const blaze_normalizer,\n    addrs: *const Addr,\n    addr_cnt: usize,\n    pid: u32,\n) -> *mut blaze_normalized_user_output {"
+                ]
+            },
+            {
+                "commit_info": "8cd5dc97f007c7e516706ee2ff53f108405f1fd0",
+                "commit_title": "Rename various normalization related types\n\nWith upcoming changes our normalization functionality will return file\noffsets instead of normalized addresses. That renders a bunch of the\nexisting names containing \"addr\" unusable.\nRename all those types, opting for \"output\" or similar terminology\ninstead of \"addr\".\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed Oct 11 14:14:22 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_normalize_user_addrs_sorted(\n    normalizer: *const Normalizer,\n    addrs: *const Addr,\n    addr_cnt: usize,\n    pid: u32,\n) -> *mut blaze_normalized_user_output {"
+                ]
+            },
+            {
+                "commit_info": "cb29de1c9ab1f931ffbe5f25e412e276180cf58a",
+                "commit_title": "Rename count -> cnt\n\nWe use count and the shorter cnt for the same purposes. Converge on\nusing only 'cnt' for brevity.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed Oct 11 10:09:49 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_normalize_user_addrs_sorted(\n    normalizer: *const Normalizer,\n    addrs: *const Addr,\n    addr_cnt: usize,\n    pid: u32,\n) -> *mut blaze_normalized_user_addrs {"
+                ]
+            },
+            {
+                "commit_info": "66e4c3a1c478297f21ecba6c1e845c39a88e2bdf",
+                "commit_title": "Introduce Normalizer type\n\nIn the future we may want to support more features in the realm of\naddress normalization. To make that possible without breaking\ncompatibility, introduce a Normalizer type that can store configuration,\nfor example. Having such an object around will also allow us to cache\nmore state between invocations.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed Apr 26 10:16:07 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_normalize_user_addrs_sorted(\n    normalizer: *const Normalizer,\n    addrs: *const Addr,\n    addr_count: usize,\n    pid: u32,\n) -> *mut blaze_normalized_user_addrs {"
+                ]
+            },
+            {
+                "commit_info": "c24a4a561126dba18da5878d70dba1eb31aac66c",
+                "commit_title": "Rename normalize_user_addrs -> normalize_user_addrs_sorted\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Apr 25 13:44:02 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_normalize_user_addrs_sorted(\n     addrs: *const Addr,\n     addr_count: usize,\n     pid: u32,\n ) -> *mut blaze_normalized_user_addrs {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "blaze_normalize_user_addrs",
+                    "new_name": "blaze_normalize_user_addrs_sorted"
+                }
+            },
+            {
+                "commit_info": "a376ff3cc9e8a2b7b6a0dc00b291180727e8d3e8",
+                "commit_title": "Introduce address normalization C API\n\nThis change adds C API bindings for the address normalization\nfunctionality.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Apr 18 21:03:12 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_normalize_user_addrs(\n    addrs: *const Addr,\n    addr_count: usize,\n    pid: u32,\n) -> *mut blaze_normalized_user_addrs {"
+                ]
+            }
+        ]
+    }
+]

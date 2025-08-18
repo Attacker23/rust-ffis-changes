@@ -1,0 +1,40 @@
+[
+    {
+        "function_name": "blaze_err_str",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "215d9aa26d64c9c6cce7f050ba1aa86938f6dd79",
+                "commit_title": "capi: Fix layout of blaze_err and blaze_trace_lvl\n\nFixate the layout of the blaze_err and blaze_trace_lvl types to make it\nwell defined and more future proof. It also seems like the right thing\nin terms of consistency of the code.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Mon Mar 17 16:11:22 2025 -0700",
+                "added_functions": [
+                    "const char *blaze_err_str(blaze_err err);"
+                ]
+            },
+            {
+                "commit_info": "afa76a42b68c08f33b2fadfd55d457541b2f9df8",
+                "commit_title": "capi: Add blaze_err_str() function\n\nThis change introduces the blaze_err_str() helper function, which can be\nused to convert a blaze_err into its textual representation.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Fri Mar 29 14:29:29 2024 -0700",
+                "added_functions": [
+                    "const char *blaze_err_str(enum blaze_err err);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_err_str",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\error.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "1f0c7ef73a44d0ddb8e9e660f72930cb8eb55813",
+                "commit_title": "capi: Move error functionality into module of same name\n\nMove the error functionality into a separate module to clean up the main\nlib.rs file a little bit.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Tue Nov 12 10:18:25 2024 -0800",
+                "added_functions": [
+                    "pub extern \"C\" fn blaze_err_str(err: blaze_err) -> *const c_char {"
+                ]
+            }
+        ]
+    }
+]

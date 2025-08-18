@@ -1,0 +1,13 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_err_last",
+    "older_commit": "b55c4955fb637dd111cebbdb9b7b8b65e6932064",
+    "newer_commit": "215d9aa26d64c9c6cce7f050ba1aa86938f6dd79",
+    "changes": {
+      "return_type_changed": {
+        "old": "enum blaze_err",
+        "new": "blaze_err"
+      }
+    }
+  }
+]

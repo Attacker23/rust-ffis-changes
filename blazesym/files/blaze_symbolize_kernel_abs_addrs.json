@@ -1,0 +1,153 @@
+[
+    {
+        "function_name": "blaze_symbolize_kernel_abs_addrs",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 8,
+        "commits": [
+            {
+                "commit_info": "6c71136cbba17f071eaa0d96ea9ea1cc97c24c4e",
+                "commit_title": "Fix addresses being represented as uintptr_t\n\nAs of commit f3c8d248a198 (\"Make Addr a u64\") all addresses were\nsupposed to be represented as 64 bit integers. However, that changed did\nnot adjust the C API bindings. Usually that would have been picked up\ntransparently in the C header, except that cbindgen required us to\nexplicitly specify the address type, leading to a mismatch. Fix it up.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Oct 29 09:23:59 2024 -0700",
+                "added_functions": [
+                    "const struct blaze_syms *blaze_symbolize_kernel_abs_addrs(blaze_symbolizer *symbolizer,\n                                                          const struct blaze_symbolize_src_kernel *src,\n                                                          const uint64_t *abs_addrs,\n                                                          size_t abs_addr_cnt);"
+                ]
+            },
+            {
+                "commit_info": "4a4a204ae984a421ea95fa0410dd044ed9134b60",
+                "commit_title": "capi: Rename blaze_result to blaze_syms\n\nRename the blaze_result type to blaze_syms, which more aptly reflects\nthe intention and will help with future API extensions. Furthermore\nrename blaze_result_free() to blaze_syms_free() to preserve consistency.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Jul 12 09:13:13 2024 -0700",
+                "added_functions": [
+                    "const struct blaze_syms *blaze_symbolize_kernel_abs_addrs(blaze_symbolizer *symbolizer,\n                                                          const struct blaze_symbolize_src_kernel *src,\n                                                          const uintptr_t *abs_addrs,\n                                                          size_t abs_addr_cnt);"
+                ]
+            },
+            {
+                "commit_info": "e8512e706563e6f52cc1cd5233ea2e95c56c70d7",
+                "commit_title": "capi: Use our \"Input\" terminology in C API\n\nThere is a divergence between the terminology we use for the Input enum\nin Rust code and the suffixes we added to the symbolization functions in\nthe C API.\nThis change unifies the two to minimize the potential for confusion.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed Dec 20 10:55:55 2023 -0800",
+                "added_functions": [
+                    "const struct blaze_result *blaze_symbolize_kernel_abs_addrs(blaze_symbolizer *symbolizer,\n                                                            const struct blaze_symbolize_src_kernel *src,\n                                                            const uintptr_t *abs_addrs,\n                                                            size_t abs_addr_cnt);"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "blaze_symbolize_kernel_virt_addrs",
+                    "new_name": "blaze_symbolize_kernel_abs_addrs"
+                }
+            },
+            {
+                "commit_info": "e36e863ee13abe0e462d2acf45bbbab6b269870b",
+                "commit_title": "Introduce Input enum for symbolization APIs\n\nWith upcoming changes we are going to rework what amount of work is\nperformed as part of normalization (#321). As a result of this rework,\nnormalization will produce file offsets as opposed to (normalized)\naddresses.\nIn order to keep supporting end-to-end symbolization workflow where the\noutput of normalization is fed to the symbolization APIs, this change\nintroduces the Input enum. This enum can be used to convey to the\nsymbolization APIs what kind of input is being provided. Not all sources\nsupport all input types and a runtime error will be reported if an\nunsupported input combination is used. This enum effectively formalizes\n(via the type system) part of what previously was implicit knowledge:\nthat different symbolization sources require different inputs.\nSpecifically, process symbolization will work with what we refer to as\nabsolute addresses while ELF/Gsym will work with virtual offsets.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Sep 29 14:57:23 2023 -0700",
+                "added_functions": [
+                    "const struct blaze_result *blaze_symbolize_kernel_virt_addrs(blaze_symbolizer *symbolizer,\n                                                             const struct blaze_symbolize_src_kernel *src,\n                                                             const uintptr_t *addrs,\n                                                             size_t addr_cnt);"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "blaze_symbolize_kernel",
+                    "new_name": "blaze_symbolize_kernel_virt_addrs"
+                }
+            },
+            {
+                "commit_info": "2e5429141332ae981ca503715a27fe8137146a9c",
+                "commit_title": "Rename blazesym_result -> blaze_result\n\nRename blazesym_result to blaze_result. Ultimately we want to rename it\nto something more meaningful or get rid of it altogether, but as a first\nstep just fix up the prefix to unblock the alpha release.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu May 4 14:07:41 2023 -0700",
+                "added_functions": [
+                    "const struct blaze_result *blaze_symbolize_kernel(blaze_symbolizer *symbolizer,\n                                                  const struct blaze_symbolize_src_kernel *src,\n                                                  const uintptr_t *addrs,\n                                                  size_t addr_cnt);"
+                ]
+            },
+            {
+                "commit_info": "38754a8cc51ba5035ab061091fe65b105478d22f",
+                "commit_title": "Rename blazesym_ssc_ stuff\n\nRename blazesym_ssc_ stuff to blaze_symbolize_src_* to improve\nreadability and for the sake of consistency with existing inspect APIs.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu May 4 09:56:59 2023 -0700",
+                "added_functions": [
+                    "const struct blazesym_result *blaze_symbolize_kernel(blaze_symbolizer *symbolizer,\n                                                     const struct blaze_symbolize_src_kernel *src,\n                                                     const uintptr_t *addrs,\n                                                     size_t addr_cnt);"
+                ]
+            },
+            {
+                "commit_info": "21ae1df786515f26d3eb22ca216086202b365f3f",
+                "commit_title": "Split blaze_symbolize C API into various variants\n\nSplit the blaze_symbolize C API function into blaze_symbolize_{process,\nkernel, elf, gsym} variants. This allows us to eliminate a bunch of\nunion usage, which is really not very convenient for users (or\nimplementors, for that matter).\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu May 4 09:43:07 2023 -0700",
+                "added_functions": [
+                    "const struct blazesym_result *blaze_symbolize_kernel(blaze_symbolizer *symbolizer,\n                                                     const struct blazesym_ssc_kernel *src,\n                                                     const uintptr_t *addrs,\n                                                     size_t addr_cnt);"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "blazesym_result_free",
+                    "new_name": "blaze_symbolize_kernel"
+                }
+            },
+            {
+                "commit_info": "781c0799e43ed374d7300071b1174a680de66873",
+                "commit_title": "Check in generated C header file\n\nWith this change we check in the generated C header for the library.\nThis will make it easier to consume it from user code. Subsequent\nchanges will ensure that it is always kept up-to-date.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Mar 10 13:56:05 2023 -0800",
+                "added_functions": [
+                    "* The returned pointer should be freed by [`blazesym_result_free()`].\n *\n */"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_symbolize_kernel_abs_addrs",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs",
+        "commit_count": 6,
+        "commits": [
+            {
+                "commit_info": "4a4a204ae984a421ea95fa0410dd044ed9134b60",
+                "commit_title": "capi: Rename blaze_result to blaze_syms\n\nRename the blaze_result type to blaze_syms, which more aptly reflects\nthe intention and will help with future API extensions. Furthermore\nrename blaze_result_free() to blaze_syms_free() to preserve consistency.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Jul 12 09:13:13 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_kernel_abs_addrs(\n    symbolizer: *mut blaze_symbolizer,\n    src: *const blaze_symbolize_src_kernel,\n    abs_addrs: *const Addr,\n    abs_addr_cnt: usize,\n) -> *const blaze_syms {"
+                ]
+            },
+            {
+                "commit_info": "e8512e706563e6f52cc1cd5233ea2e95c56c70d7",
+                "commit_title": "capi: Use our \"Input\" terminology in C API\n\nThere is a divergence between the terminology we use for the Input enum\nin Rust code and the suffixes we added to the symbolization functions in\nthe C API.\nThis change unifies the two to minimize the potential for confusion.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed Dec 20 10:55:55 2023 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_kernel_abs_addrs(\n     symbolizer: *mut blaze_symbolizer,\n     src: *const blaze_symbolize_src_kernel,\n    abs_addrs: *const Addr,\n    abs_addr_cnt: usize,\n ) -> *const blaze_result {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "blaze_symbolize_kernel_virt_addrs",
+                    "new_name": "blaze_symbolize_kernel_abs_addrs"
+                }
+            },
+            {
+                "commit_info": "e36e863ee13abe0e462d2acf45bbbab6b269870b",
+                "commit_title": "Introduce Input enum for symbolization APIs\n\nWith upcoming changes we are going to rework what amount of work is\nperformed as part of normalization (#321). As a result of this rework,\nnormalization will produce file offsets as opposed to (normalized)\naddresses.\nIn order to keep supporting end-to-end symbolization workflow where the\noutput of normalization is fed to the symbolization APIs, this change\nintroduces the Input enum. This enum can be used to convey to the\nsymbolization APIs what kind of input is being provided. Not all sources\nsupport all input types and a runtime error will be reported if an\nunsupported input combination is used. This enum effectively formalizes\n(via the type system) part of what previously was implicit knowledge:\nthat different symbolization sources require different inputs.\nSpecifically, process symbolization will work with what we refer to as\nabsolute addresses while ELF/Gsym will work with virtual offsets.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Sep 29 14:57:23 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_kernel_virt_addrs(\n     symbolizer: *mut blaze_symbolizer,\n     src: *const blaze_symbolize_src_kernel,\n     addrs: *const Addr,\n     addr_cnt: usize,\n ) -> *const blaze_result {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "blaze_symbolize_kernel",
+                    "new_name": "blaze_symbolize_kernel_virt_addrs"
+                }
+            },
+            {
+                "commit_info": "2e5429141332ae981ca503715a27fe8137146a9c",
+                "commit_title": "Rename blazesym_result -> blaze_result\n\nRename blazesym_result to blaze_result. Ultimately we want to rename it\nto something more meaningful or get rid of it altogether, but as a first\nstep just fix up the prefix to unblock the alpha release.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu May 4 14:07:41 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_kernel(\n    symbolizer: *mut blaze_symbolizer,\n    src: *const blaze_symbolize_src_kernel,\n    addrs: *const Addr,\n    addr_cnt: usize,\n) -> *const blaze_result {"
+                ]
+            },
+            {
+                "commit_info": "38754a8cc51ba5035ab061091fe65b105478d22f",
+                "commit_title": "Rename blazesym_ssc_ stuff\n\nRename blazesym_ssc_ stuff to blaze_symbolize_src_* to improve\nreadability and for the sake of consistency with existing inspect APIs.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu May 4 09:56:59 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_kernel(\n    symbolizer: *mut blaze_symbolizer,\n    src: *const blaze_symbolize_src_kernel,\n    addrs: *const Addr,\n    addr_cnt: usize,\n) -> *const blazesym_result {"
+                ]
+            },
+            {
+                "commit_info": "21ae1df786515f26d3eb22ca216086202b365f3f",
+                "commit_title": "Split blaze_symbolize C API into various variants\n\nSplit the blaze_symbolize C API function into blaze_symbolize_{process,\nkernel, elf, gsym} variants. This allows us to eliminate a bunch of\nunion usage, which is really not very convenient for users (or\nimplementors, for that matter).\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu May 4 09:43:07 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_kernel(\n    symbolizer: *mut blaze_symbolizer,\n    src: *const blazesym_ssc_kernel,\n    addrs: *const Addr,\n    addr_cnt: usize,\n) -> *const blazesym_result {"
+                ]
+            }
+        ]
+    }
+]

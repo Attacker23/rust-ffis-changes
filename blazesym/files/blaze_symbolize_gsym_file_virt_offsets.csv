@@ -1,0 +1,27 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\blazesym\capi\include\blazesym.h,True,True,"const struct blaze_syms *blaze_symbolize_gsym_file_virt_offsets(blaze_symbolizer *symbolizer,
+                                                                const struct blaze_symbolize_src_gsym_file *src,
+                                                                const uint64_t *virt_offsets,
+                                                                size_t virt_offset_cnt);",4,"(1479, 1482)"
+Rust,E:\rust_projects\c\blazesym\capi\src\symbolize.rs,False,True,"pub unsafe extern ""C"" fn blaze_symbolize_gsym_file_virt_offsets(
+    symbolizer: *mut blaze_symbolizer,
+    src: *const blaze_symbolize_src_gsym_file,
+    virt_offsets: *const Addr,
+    virt_offset_cnt: usize,
+) -> *const blaze_syms {
+    if !input_zeroed!(src, blaze_symbolize_src_gsym_file) {
+        let () = set_last_err(blaze_err::INVALID_INPUT);
+        return ptr::null()
+    }
+    let src = input_sanitize!(src, blaze_symbolize_src_gsym_file);
+    let src = Source::from(GsymFile::from(src));
+
+    unsafe {
+        blaze_symbolize_impl(
+            symbolizer,
+            src,
+            Input::VirtOffset(virt_offsets),
+            virt_offset_cnt,
+        )
+    }
+}",21,"(1288, 1309)"

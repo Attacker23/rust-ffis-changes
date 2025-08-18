@@ -1,0 +1,24 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_inspector_new",
+    "older_commit": "9133cc3be66fcce9b3ba6fc67b9590109021dfab",
+    "newer_commit": "5c0b6e36d7a828adebffa1311ccef7a6e3676ff1",
+    "changes": {
+      "return_type_changed": {
+        "old": "struct blaze_inspector *",
+        "new": "blaze_inspector *"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\inspect.rs:blaze_inspector_new",
+    "older_commit": "9133cc3be66fcce9b3ba6fc67b9590109021dfab",
+    "newer_commit": "5c0b6e36d7a828adebffa1311ccef7a6e3676ff1",
+    "changes": {
+      "return_type_changed": {
+        "old": "*mut Inspector",
+        "new": "*mut blaze_inspector"
+      }
+    }
+  }
+]

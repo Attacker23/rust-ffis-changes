@@ -1,0 +1,256 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_normalize_user_addrs_opts",
+    "older_commit": "991ae6a22e3827aafc46758fb07e3c21e56c8367",
+    "newer_commit": "6c71136cbba17f071eaa0d96ea9ea1cc97c24c4e",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "const uintptr_t",
+          "new": "const uint64_t"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_normalize_user_addrs_sorted",
+    "older_commit": "1d78b0b1e5805a3ca097b3650a75648f46aeb85f",
+    "newer_commit": "991ae6a22e3827aafc46758fb07e3c21e56c8367",
+    "changes": {
+      "function_renamed": {
+        "old": "blaze_normalize_user_addrs_sorted",
+        "new": "blaze_normalize_user_addrs_opts"
+      },
+      "added": [
+        {
+          "index_new": 4,
+          "name": "*opts",
+          "type": "const struct blaze_normalize_opts"
+        }
+      ],
+      "param_count_changed": {
+        "added": [
+          {
+            "index_new": 4,
+            "name": "*opts",
+            "type": "const struct blaze_normalize_opts"
+          }
+        ],
+        "removed": [],
+        "delta": 1
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_normalize_user_addrs_sorted",
+    "older_commit": "8cd5dc97f007c7e516706ee2ff53f108405f1fd0",
+    "newer_commit": "5c0b6e36d7a828adebffa1311ccef7a6e3676ff1",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "const struct blaze_normalizer",
+          "new": "const blaze_normalizer"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_normalize_user_addrs_sorted",
+    "older_commit": "cb29de1c9ab1f931ffbe5f25e412e276180cf58a",
+    "newer_commit": "8cd5dc97f007c7e516706ee2ff53f108405f1fd0",
+    "changes": {
+      "return_type_changed": {
+        "old": "struct blaze_normalized_user_addrs *",
+        "new": "struct blaze_normalized_user_output *"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_normalize_user_addrs_sorted",
+    "older_commit": "66e4c3a1c478297f21ecba6c1e845c39a88e2bdf",
+    "newer_commit": "cb29de1c9ab1f931ffbe5f25e412e276180cf58a",
+    "changes": {
+      "name_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "addr_count",
+          "new": "addr_cnt"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_normalize_user_addrs_sorted",
+    "older_commit": "c24a4a561126dba18da5878d70dba1eb31aac66c",
+    "newer_commit": "66e4c3a1c478297f21ecba6c1e845c39a88e2bdf",
+    "changes": {
+      "added": [
+        {
+          "index_new": 0,
+          "name": "*normalizer",
+          "type": "const struct blaze_normalizer"
+        }
+      ],
+      "param_count_changed": {
+        "added": [
+          {
+            "index_new": 0,
+            "name": "*normalizer",
+            "type": "const struct blaze_normalizer"
+          }
+        ],
+        "removed": [],
+        "delta": 1
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_normalize_user_addrs",
+    "older_commit": "4cb0bd339adbaa4e7245633be347a18fd2f724b5",
+    "newer_commit": "c24a4a561126dba18da5878d70dba1eb31aac66c",
+    "changes": {
+      "function_renamed": {
+        "old": "blaze_normalize_user_addrs",
+        "new": "blaze_normalize_user_addrs_sorted"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h:blaze_normalize_user_addrs",
+    "older_commit": "a376ff3cc9e8a2b7b6a0dc00b291180727e8d3e8",
+    "newer_commit": "4cb0bd339adbaa4e7245633be347a18fd2f724b5",
+    "changes": {
+      "name_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "*aAddrs",
+          "new": "*addrs"
+        },
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "aAddrCount",
+          "new": "addr_count"
+        },
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "aPid",
+          "new": "pid"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\normalize.rs:blaze_normalize_user_addrs_sorted",
+    "older_commit": "1d78b0b1e5805a3ca097b3650a75648f46aeb85f",
+    "newer_commit": "991ae6a22e3827aafc46758fb07e3c21e56c8367",
+    "changes": {
+      "function_renamed": {
+        "old": "blaze_normalize_user_addrs_sorted",
+        "new": "blaze_normalize_user_addrs_opts"
+      },
+      "added": [
+        {
+          "index_new": 4,
+          "name": "opts",
+          "type": "*const blaze_normalize_opts"
+        }
+      ],
+      "param_count_changed": {
+        "added": [
+          {
+            "index_new": 4,
+            "name": "opts",
+            "type": "*const blaze_normalize_opts"
+          }
+        ],
+        "removed": [],
+        "delta": 1
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\normalize.rs:blaze_normalize_user_addrs_sorted",
+    "older_commit": "8cd5dc97f007c7e516706ee2ff53f108405f1fd0",
+    "newer_commit": "5c0b6e36d7a828adebffa1311ccef7a6e3676ff1",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "*const Normalizer",
+          "new": "*const blaze_normalizer"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\normalize.rs:blaze_normalize_user_addrs_sorted",
+    "older_commit": "cb29de1c9ab1f931ffbe5f25e412e276180cf58a",
+    "newer_commit": "8cd5dc97f007c7e516706ee2ff53f108405f1fd0",
+    "changes": {
+      "return_type_changed": {
+        "old": "*mut blaze_normalized_user_addrs",
+        "new": "*mut blaze_normalized_user_output"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\normalize.rs:blaze_normalize_user_addrs_sorted",
+    "older_commit": "66e4c3a1c478297f21ecba6c1e845c39a88e2bdf",
+    "newer_commit": "cb29de1c9ab1f931ffbe5f25e412e276180cf58a",
+    "changes": {
+      "name_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "addr_count",
+          "new": "addr_cnt"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\normalize.rs:blaze_normalize_user_addrs_sorted",
+    "older_commit": "c24a4a561126dba18da5878d70dba1eb31aac66c",
+    "newer_commit": "66e4c3a1c478297f21ecba6c1e845c39a88e2bdf",
+    "changes": {
+      "added": [
+        {
+          "index_new": 0,
+          "name": "normalizer",
+          "type": "*const Normalizer"
+        }
+      ],
+      "param_count_changed": {
+        "added": [
+          {
+            "index_new": 0,
+            "name": "normalizer",
+            "type": "*const Normalizer"
+          }
+        ],
+        "removed": [],
+        "delta": 1
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\blazesym\\capi\\src\\normalize.rs:blaze_normalize_user_addrs",
+    "older_commit": "a376ff3cc9e8a2b7b6a0dc00b291180727e8d3e8",
+    "newer_commit": "c24a4a561126dba18da5878d70dba1eb31aac66c",
+    "changes": {
+      "function_renamed": {
+        "old": "blaze_normalize_user_addrs",
+        "new": "blaze_normalize_user_addrs_sorted"
+      }
+    }
+  }
+]

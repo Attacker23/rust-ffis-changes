@@ -1,0 +1,108 @@
+[
+    {
+        "function_name": "blaze_symbolize_gsym_data_virt_offsets",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 5,
+        "commits": [
+            {
+                "commit_info": "6c71136cbba17f071eaa0d96ea9ea1cc97c24c4e",
+                "commit_title": "Fix addresses being represented as uintptr_t\n\nAs of commit f3c8d248a198 (\"Make Addr a u64\") all addresses were\nsupposed to be represented as 64 bit integers. However, that changed did\nnot adjust the C API bindings. Usually that would have been picked up\ntransparently in the C header, except that cbindgen required us to\nexplicitly specify the address type, leading to a mismatch. Fix it up.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Oct 29 09:23:59 2024 -0700",
+                "added_functions": [
+                    "const struct blaze_syms *blaze_symbolize_gsym_data_virt_offsets(blaze_symbolizer *symbolizer,\n                                                                const struct blaze_symbolize_src_gsym_data *src,\n                                                                const uint64_t *virt_offsets,\n                                                                size_t virt_offset_cnt);"
+                ]
+            },
+            {
+                "commit_info": "4a4a204ae984a421ea95fa0410dd044ed9134b60",
+                "commit_title": "capi: Rename blaze_result to blaze_syms\n\nRename the blaze_result type to blaze_syms, which more aptly reflects\nthe intention and will help with future API extensions. Furthermore\nrename blaze_result_free() to blaze_syms_free() to preserve consistency.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Jul 12 09:13:13 2024 -0700",
+                "added_functions": [
+                    "const struct blaze_syms *blaze_symbolize_gsym_data_virt_offsets(blaze_symbolizer *symbolizer,\n                                                                const struct blaze_symbolize_src_gsym_data *src,\n                                                                const uintptr_t *virt_offsets,\n                                                                size_t virt_offset_cnt);"
+                ]
+            },
+            {
+                "commit_info": "e8512e706563e6f52cc1cd5233ea2e95c56c70d7",
+                "commit_title": "capi: Use our \"Input\" terminology in C API\n\nThere is a divergence between the terminology we use for the Input enum\nin Rust code and the suffixes we added to the symbolization functions in\nthe C API.\nThis change unifies the two to minimize the potential for confusion.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed Dec 20 10:55:55 2023 -0800",
+                "added_functions": [
+                    "const struct blaze_result *blaze_symbolize_gsym_data_virt_offsets(blaze_symbolizer *symbolizer,\n                                                                  const struct blaze_symbolize_src_gsym_data *src,\n                                                                  const uintptr_t *virt_offsets,\n                                                                  size_t virt_offset_cnt);"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "blaze_symbolize_gsym_data_file_addrs",
+                    "new_name": "blaze_symbolize_gsym_data_virt_offsets"
+                }
+            },
+            {
+                "commit_info": "e36e863ee13abe0e462d2acf45bbbab6b269870b",
+                "commit_title": "Introduce Input enum for symbolization APIs\n\nWith upcoming changes we are going to rework what amount of work is\nperformed as part of normalization (#321). As a result of this rework,\nnormalization will produce file offsets as opposed to (normalized)\naddresses.\nIn order to keep supporting end-to-end symbolization workflow where the\noutput of normalization is fed to the symbolization APIs, this change\nintroduces the Input enum. This enum can be used to convey to the\nsymbolization APIs what kind of input is being provided. Not all sources\nsupport all input types and a runtime error will be reported if an\nunsupported input combination is used. This enum effectively formalizes\n(via the type system) part of what previously was implicit knowledge:\nthat different symbolization sources require different inputs.\nSpecifically, process symbolization will work with what we refer to as\nabsolute addresses while ELF/Gsym will work with virtual offsets.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Sep 29 14:57:23 2023 -0700",
+                "added_functions": [
+                    "const struct blaze_result *blaze_symbolize_gsym_data_file_addrs(blaze_symbolizer *symbolizer,\n                                                                const struct blaze_symbolize_src_gsym_data *src,\n                                                                const uintptr_t *addrs,\n                                                                size_t addr_cnt);"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "blaze_symbolize_gsym_data",
+                    "new_name": "blaze_symbolize_gsym_data_file_addrs"
+                }
+            },
+            {
+                "commit_info": "936d0d401c9efb76828376d417009370f22c2861",
+                "commit_title": "Add C bindings for Gsym data based symbolization\n\nThis change adds C language bindings for the \"raw\" Gsym data\nsymbolization source.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu Jun 22 15:53:17 2023 -0700",
+                "added_functions": [
+                    "const struct blaze_result *blaze_symbolize_gsym_data(blaze_symbolizer *symbolizer,\n                                                     const struct blaze_symbolize_src_gsym_data *src,\n                                                     const uintptr_t *addrs,\n                                                     size_t addr_cnt);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_symbolize_gsym_data_virt_offsets",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs",
+        "commit_count": 4,
+        "commits": [
+            {
+                "commit_info": "4a4a204ae984a421ea95fa0410dd044ed9134b60",
+                "commit_title": "capi: Rename blaze_result to blaze_syms\n\nRename the blaze_result type to blaze_syms, which more aptly reflects\nthe intention and will help with future API extensions. Furthermore\nrename blaze_result_free() to blaze_syms_free() to preserve consistency.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Jul 12 09:13:13 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_gsym_data_virt_offsets(\n    symbolizer: *mut blaze_symbolizer,\n    src: *const blaze_symbolize_src_gsym_data,\n    virt_offsets: *const Addr,\n    virt_offset_cnt: usize,\n) -> *const blaze_syms {"
+                ]
+            },
+            {
+                "commit_info": "e8512e706563e6f52cc1cd5233ea2e95c56c70d7",
+                "commit_title": "capi: Use our \"Input\" terminology in C API\n\nThere is a divergence between the terminology we use for the Input enum\nin Rust code and the suffixes we added to the symbolization functions in\nthe C API.\nThis change unifies the two to minimize the potential for confusion.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Wed Dec 20 10:55:55 2023 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_gsym_data_virt_offsets(\n     symbolizer: *mut blaze_symbolizer,\n     src: *const blaze_symbolize_src_gsym_data,\n    virt_offsets: *const Addr,\n    virt_offset_cnt: usize,\n ) -> *const blaze_result {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "blaze_symbolize_gsym_data_file_addrs",
+                    "new_name": "blaze_symbolize_gsym_data_virt_offsets"
+                }
+            },
+            {
+                "commit_info": "e36e863ee13abe0e462d2acf45bbbab6b269870b",
+                "commit_title": "Introduce Input enum for symbolization APIs\n\nWith upcoming changes we are going to rework what amount of work is\nperformed as part of normalization (#321). As a result of this rework,\nnormalization will produce file offsets as opposed to (normalized)\naddresses.\nIn order to keep supporting end-to-end symbolization workflow where the\noutput of normalization is fed to the symbolization APIs, this change\nintroduces the Input enum. This enum can be used to convey to the\nsymbolization APIs what kind of input is being provided. Not all sources\nsupport all input types and a runtime error will be reported if an\nunsupported input combination is used. This enum effectively formalizes\n(via the type system) part of what previously was implicit knowledge:\nthat different symbolization sources require different inputs.\nSpecifically, process symbolization will work with what we refer to as\nabsolute addresses while ELF/Gsym will work with virtual offsets.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Sep 29 14:57:23 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_gsym_data_file_addrs(\n     symbolizer: *mut blaze_symbolizer,\n     src: *const blaze_symbolize_src_gsym_data,\n     addrs: *const Addr,\n     addr_cnt: usize,\n ) -> *const blaze_result {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "blaze_symbolize_gsym_data",
+                    "new_name": "blaze_symbolize_gsym_data_file_addrs"
+                }
+            },
+            {
+                "commit_info": "936d0d401c9efb76828376d417009370f22c2861",
+                "commit_title": "Add C bindings for Gsym data based symbolization\n\nThis change adds C language bindings for the \"raw\" Gsym data\nsymbolization source.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu Jun 22 15:53:17 2023 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_gsym_data(\n    symbolizer: *mut blaze_symbolizer,\n    src: *const blaze_symbolize_src_gsym_data,\n    addrs: *const Addr,\n    addr_cnt: usize,\n) -> *const blaze_result {"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "blaze_symbolize_reason_str",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "228ead0c9fd427619451e0dfe72206e261cba92a",
+                "commit_title": "capi: Add blaze_symbolization_reason enum\n\nThis change introduces the blaze_symbolization_reason enumeration to\nblazesym-c and adjusts the blaze_sym type to carry such a reason. We\nalso introduce the blaze_symbolization_reason_str() helper function\nthat can be used to retrieve a textual representation of a reason for a\nsymbolization failure.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Wed Jun 5 11:13:55 2024 -0700",
+                "added_functions": [
+                    "const char *blaze_symbolize_reason_str(blaze_symbolize_reason err);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_symbolize_reason_str",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "228ead0c9fd427619451e0dfe72206e261cba92a",
+                "commit_title": "capi: Add blaze_symbolization_reason enum\n\nThis change introduces the blaze_symbolization_reason enumeration to\nblazesym-c and adjusts the blaze_sym type to carry such a reason. We\nalso introduce the blaze_symbolization_reason_str() helper function\nthat can be used to retrieve a textual representation of a reason for a\nsymbolization failure.\n\nSigned-off-by: Daniel M\u7709ller <deso@posteo.net>",
+                "commit_date": "Wed Jun 5 11:13:55 2024 -0700",
+                "added_functions": [
+                    "pub extern \"C\" fn blaze_symbolize_reason_str(err: blaze_symbolize_reason) -> *const c_char {"
+                ]
+            }
+        ]
+    }
+]

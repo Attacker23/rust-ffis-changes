@@ -1,0 +1,40 @@
+[
+    {
+        "function_name": "blaze_err_last",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "215d9aa26d64c9c6cce7f050ba1aa86938f6dd79",
+                "commit_title": "capi: Fix layout of blaze_err and blaze_trace_lvl\n\nFixate the layout of the blaze_err and blaze_trace_lvl types to make it\nwell defined and more future proof. It also seems like the right thing\nin terms of consistency of the code.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Mon Mar 17 16:11:22 2025 -0700",
+                "added_functions": [
+                    "blaze_err blaze_err_last(void);"
+                ]
+            },
+            {
+                "commit_info": "b55c4955fb637dd111cebbdb9b7b8b65e6932064",
+                "commit_title": "capi: Introduce blaze_err enum and blaze_err_last() function\n\nOur fallible API functions currently simply return a pointer that can be\nNULL, conveying failure but not what kind of failure. This can make it\nunnecessarily hard to understand problems.\nWith this change we introduce the blaze_err enum, mirroring the\nErrorKind type of the Rust crate, that categorizes the error at a high\nlevel. We also add the blaze_err_last() to the public API surfaces,\nwhich returns the error of the last fallible API function.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Thu Mar 28 10:25:08 2024 -0700",
+                "added_functions": [
+                    "enum blaze_err blaze_err_last(void);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_err_last",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\error.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "1f0c7ef73a44d0ddb8e9e660f72930cb8eb55813",
+                "commit_title": "capi: Move error functionality into module of same name\n\nMove the error functionality into a separate module to clean up the main\nlib.rs file a little bit.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Nov 12 10:18:25 2024 -0800",
+                "added_functions": [
+                    "pub extern \"C\" fn blaze_err_last() -> blaze_err {"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,8 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\blazesym\capi\include\blazesym.h,True,True,blaze_inspector *blaze_inspector_new(void);,1,"(1138, 1138)"
+Rust,E:\rust_projects\c\blazesym\capi\src\inspect.rs,False,True,"pub extern ""C"" fn blaze_inspector_new() -> *mut blaze_inspector {
+    let inspector = Inspector::new();
+    let inspector_box = Box::new(inspector);
+    let () = set_last_err(blaze_err::OK);
+    Box::into_raw(inspector_box)
+}",6,"(370, 375)"

@@ -1,0 +1,56 @@
+[
+    {
+        "function_name": "blaze_symbolize_elf_file_offsets",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\include\\blazesym.h",
+        "commit_count": 3,
+        "commits": [
+            {
+                "commit_info": "6c71136cbba17f071eaa0d96ea9ea1cc97c24c4e",
+                "commit_title": "Fix addresses being represented as uintptr_t\n\nAs of commit f3c8d248a198 (\"Make Addr a u64\") all addresses were\nsupposed to be represented as 64 bit integers. However, that changed did\nnot adjust the C API bindings. Usually that would have been picked up\ntransparently in the C header, except that cbindgen required us to\nexplicitly specify the address type, leading to a mismatch. Fix it up.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Tue Oct 29 09:23:59 2024 -0700",
+                "added_functions": [
+                    "const struct blaze_syms *blaze_symbolize_elf_file_offsets(blaze_symbolizer *symbolizer,\n                                                          const struct blaze_symbolize_src_elf *src,\n                                                          const uint64_t *file_offsets,\n                                                          size_t file_offset_cnt);"
+                ]
+            },
+            {
+                "commit_info": "4a4a204ae984a421ea95fa0410dd044ed9134b60",
+                "commit_title": "capi: Rename blaze_result to blaze_syms\n\nRename the blaze_result type to blaze_syms, which more aptly reflects\nthe intention and will help with future API extensions. Furthermore\nrename blaze_result_free() to blaze_syms_free() to preserve consistency.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Jul 12 09:13:13 2024 -0700",
+                "added_functions": [
+                    "const struct blaze_syms *blaze_symbolize_elf_file_offsets(blaze_symbolizer *symbolizer,\n                                                          const struct blaze_symbolize_src_elf *src,\n                                                          const uintptr_t *file_offsets,\n                                                          size_t file_offset_cnt);"
+                ]
+            },
+            {
+                "commit_info": "75c325ee512d91f1febd7380f80c4d3c893ef5c5",
+                "commit_title": "capi: Add symbolization for file offsets in an ELF file\n\nSigned-off-by: Pavel Iatchenii <operasfantom@meta.com>",
+                "commit_date": "Mon Mar 4 11:58:01 2024 -0800",
+                "added_functions": [
+                    "const struct blaze_result *blaze_symbolize_elf_file_offsets(blaze_symbolizer *symbolizer,\n                                                            const struct blaze_symbolize_src_elf *src,\n                                                            const uintptr_t *file_offsets,\n                                                            size_t file_offset_cnt);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "blaze_symbolize_elf_file_offsets",
+        "file_name": "E:\\rust_projects\\c\\blazesym\\capi\\src\\symbolize.rs",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "4a4a204ae984a421ea95fa0410dd044ed9134b60",
+                "commit_title": "capi: Rename blaze_result to blaze_syms\n\nRename the blaze_result type to blaze_syms, which more aptly reflects\nthe intention and will help with future API extensions. Furthermore\nrename blaze_result_free() to blaze_syms_free() to preserve consistency.\n\nSigned-off-by: Daniel M眉ller <deso@posteo.net>",
+                "commit_date": "Fri Jul 12 09:13:13 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_elf_file_offsets(\n    symbolizer: *mut blaze_symbolizer,\n    src: *const blaze_symbolize_src_elf,\n    file_offsets: *const Addr,\n    file_offset_cnt: usize,\n) -> *const blaze_syms {"
+                ]
+            },
+            {
+                "commit_info": "75c325ee512d91f1febd7380f80c4d3c893ef5c5",
+                "commit_title": "capi: Add symbolization for file offsets in an ELF file\n\nSigned-off-by: Pavel Iatchenii <operasfantom@meta.com>",
+                "commit_date": "Mon Mar 4 11:58:01 2024 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn blaze_symbolize_elf_file_offsets(\n    symbolizer: *mut blaze_symbolizer,\n    src: *const blaze_symbolize_src_elf,\n    file_offsets: *const Addr,\n    file_offset_cnt: usize,\n) -> *const blaze_result {"
+                ]
+            }
+        ]
+    }
+]
