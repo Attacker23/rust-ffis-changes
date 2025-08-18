@@ -1,0 +1,58 @@
+[
+    {
+        "function_name": "dotlottie_manifest_state_machines",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\bindings.h",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "09d0514a7611a59d4a6ad024294d9ebd46e177dd",
+                "commit_title": "feat: handling of dotLottie v2 specs  (#254)",
+                "commit_date": "Wed Nov 20 16:39:48 2024 +0700",
+                "added_functions": [
+                    "int32_t dotlottie_manifest_state_machines(struct DotLottiePlayer *ptr,\n                                          struct DotLottieManifestStateMachine *result,\n                                          size_t *size);"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "dotlottie_manifest_states",
+                    "new_name": "dotlottie_manifest_state_machines"
+                }
+            },
+            {
+                "commit_info": "23aac1a91dec16d0e29f394bc20ab46c59767325",
+                "commit_title": "feat: c-api (#237)\n\n* feat: c-api\n\n---------\n\nCo-authored-by: Muhmud Ahmad <muhmud.ahmad@toptal.com>",
+                "commit_date": "Fri Oct 4 06:24:29 2024 +0300",
+                "added_functions": [
+                    "int32_t dotlottie_manifest_states(struct DotLottiePlayer *ptr,\n                                  struct DotLottieManifestState *result,\n                                  size_t *size);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "dotlottie_manifest_state_machines",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\src\\ffi\\mod.rs",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "09d0514a7611a59d4a6ad024294d9ebd46e177dd",
+                "commit_title": "feat: handling of dotLottie v2 specs  (#254)",
+                "commit_date": "Wed Nov 20 16:39:48 2024 +0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn dotlottie_manifest_state_machines(\n     ptr: *mut DotLottiePlayer,\n    result: *mut types::DotLottieManifestStateMachine,\n     size: *mut usize,\n ) -> i32 {"
+                ],
+                "renamed": {
+                    "check": "Changed",
+                    "old_name": "dotlottie_manifest_states",
+                    "new_name": "dotlottie_manifest_state_machines"
+                }
+            },
+            {
+                "commit_info": "23aac1a91dec16d0e29f394bc20ab46c59767325",
+                "commit_title": "feat: c-api (#237)\n\n* feat: c-api\n\n---------\n\nCo-authored-by: Muhmud Ahmad <muhmud.ahmad@toptal.com>",
+                "commit_date": "Fri Oct 4 06:24:29 2024 +0300",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn dotlottie_manifest_states(\n    ptr: *mut DotLottiePlayer,\n    result: *mut types::DotLottieManifestState,\n    size: *mut usize,\n) -> i32 {"
+                ]
+            }
+        ]
+    }
+]

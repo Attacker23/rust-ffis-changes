@@ -1,0 +1,15 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_current_frame(struct DotLottiePlayer *ptr, float *result);",1,"(241, 241)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_current_frame(
+    ptr: *mut DotLottiePlayer,
+    result: *mut f32,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        if !result.is_null() {
+            *result = dotlottie_player.current_frame();
+            DOTLOTTIE_SUCCESS
+        } else {
+            DOTLOTTIE_INVALID_PARAMETER
+        }
+    })
+}",13,"(275, 287)"

@@ -1,0 +1,26 @@
+[
+    {
+        "function_name": "exit",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\examples\\demo-player-c\\main.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "exit",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\examples\\skia-demo-player-cpp\\main.cpp",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "exit",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-rs\\src\\state_machine_engine\\states\\mod.rs",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "exit",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-rs\\src\\state_machine_engine\\states\\mod.rs",
+        "commit_count": 0,
+        "commits": []
+    }
+]

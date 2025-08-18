@@ -1,0 +1,45 @@
+[
+    {
+        "function_name": "dotlottie_unsubscribe",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\bindings.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "23aac1a91dec16d0e29f394bc20ab46c59767325",
+                "commit_title": "feat: c-api (#237)\n\n* feat: c-api\n\n---------\n\nCo-authored-by: Muhmud Ahmad <muhmud.ahmad@toptal.com>",
+                "commit_date": "Fri Oct 4 06:24:29 2024 +0300",
+                "added_functions": [
+                    "int32_t dotlottie_unsubscribe(struct DotLottiePlayer *ptr, struct Observer *observer);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "dotlottie_unsubscribe",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\src\\ffi\\mod.rs",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "e97c28d2c9de992d206151671eb60598cc1fa1a0",
+                "commit_title": "feat: state machine support\n\n* feat: added state machine support, bumped thorvg to v1.0-pre16. Added WASM listener binding support.\n\n* feat: \u9983\u5e50 upgrade uniffi-bindgen-cpp to v0.7.0+v0.28.3\n\n* feat: wasm listeners (#314)\n\n* feat: \u9983\u5e50 upgrade uniffi-bindgen-cpp to v0.7.0+v0.28.3\n\n* feat: updated uniffi, added support for wasm event listeners \u9983\u5e00\n\n* chore: removed instance_id\n\n---------\n\nCo-authored-by: Abdelrahman Ashraf <a.theashraf@gmail.com>\n\n* chore: upgraded thorvg to 1.0-pre19\n\n* chore: changeset\n\n* chore: clippy\n\n---------\n\nCo-authored-by: Abdelrahman Ashraf <a.theashraf@gmail.com>",
+                "commit_date": "Wed Apr 16 13:04:28 2025 +0200",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn dotlottie_unsubscribe(\n    ptr: *mut DotLottiePlayer,\n    observer: *mut types::Observer,\n) -> i32 {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "dotlottie_load_state_machine",
+                    "new_name": "dotlottie_unsubscribe"
+                }
+            },
+            {
+                "commit_info": "23aac1a91dec16d0e29f394bc20ab46c59767325",
+                "commit_title": "feat: c-api (#237)\n\n* feat: c-api\n\n---------\n\nCo-authored-by: Muhmud Ahmad <muhmud.ahmad@toptal.com>",
+                "commit_date": "Fri Oct 4 06:24:29 2024 +0300",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn dotlottie_load_state_machine("
+                ]
+            }
+        ]
+    }
+]

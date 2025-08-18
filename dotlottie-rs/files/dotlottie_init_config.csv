@@ -1,0 +1,15 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,int32_t dotlottie_init_config(struct DotLottieConfig *config);,1,"(247, 247)"
+C,E:\rust_projects\c\dotlottie-rs\examples\demo-player-c\main.c,True,False,dotlottie_init_config(&config);,1,"(53, 53)"
+C,E:\rust_projects\c\dotlottie-rs\examples\skia-demo-player-cpp\main.cpp,True,True,dotlottie_init_config(&config);,1,"(66, 66)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_init_config(config: *mut DotLottieConfig) -> i32 {
+    if config.is_null() {
+        return DOTLOTTIE_INVALID_PARAMETER;
+    }
+    if let Ok(default_config) = DotLottieConfig::new(&Config::default()) {
+        default_config.copy(config);
+        DOTLOTTIE_SUCCESS
+    } else {
+        DOTLOTTIE_ERROR
+    }
+}",11,"(53, 63)"

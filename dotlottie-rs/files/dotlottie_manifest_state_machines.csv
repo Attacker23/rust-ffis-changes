@@ -1,0 +1,22 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_manifest_state_machines(struct DotLottiePlayer *ptr,
+                                          struct DotLottieManifestStateMachine *result,
+                                          size_t *size);",3,"(292, 294)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_manifest_state_machines(
+    ptr: *mut DotLottiePlayer,
+    result: *mut types::DotLottieManifestStateMachine,
+    size: *mut usize,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        let manifest = match dotlottie_player.manifest() {
+            Some(v) => v,
+            None => return DOTLOTTIE_MANIFEST_NOT_AVAILABLE,
+        };
+        if let Some(state_machines) = manifest.state_machines {
+            DotLottieManifestStateMachine::transfer_all(&state_machines, result, size)
+        } else {
+            *size = 0;
+            DOTLOTTIE_SUCCESS
+        }
+    })
+}",18,"(177, 194)"

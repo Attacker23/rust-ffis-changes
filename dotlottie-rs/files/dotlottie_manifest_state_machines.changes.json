@@ -1,0 +1,40 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\bindings.h:dotlottie_manifest_states",
+    "older_commit": "23aac1a91dec16d0e29f394bc20ab46c59767325",
+    "newer_commit": "09d0514a7611a59d4a6ad024294d9ebd46e177dd",
+    "changes": {
+      "function_renamed": {
+        "old": "dotlottie_manifest_states",
+        "new": "dotlottie_manifest_state_machines"
+      },
+      "type_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "struct DotLottieManifestState",
+          "new": "struct DotLottieManifestStateMachine"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\src\\ffi\\mod.rs:dotlottie_manifest_states",
+    "older_commit": "23aac1a91dec16d0e29f394bc20ab46c59767325",
+    "newer_commit": "09d0514a7611a59d4a6ad024294d9ebd46e177dd",
+    "changes": {
+      "function_renamed": {
+        "old": "dotlottie_manifest_states",
+        "new": "dotlottie_manifest_state_machines"
+      },
+      "type_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "*mut types::DotLottieManifestState",
+          "new": "*mut types::DotLottieManifestStateMachine"
+        }
+      ]
+    }
+  }
+]

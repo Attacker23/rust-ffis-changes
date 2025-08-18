@@ -1,0 +1,20 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_animation_size(struct DotLottiePlayer *ptr, float *width, float *height);",1,"(231, 231)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_animation_size(
+    ptr: *mut DotLottiePlayer,
+    width: *mut f32,
+    height: *mut f32,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        if width.is_null() || height.is_null() {
+            return DOTLOTTIE_INVALID_PARAMETER;
+        }
+        if let [picture_width, picture_height] = dotlottie_player.animation_size().as_slice() {
+            *width = *picture_width;
+            *height = *picture_height;
+            DOTLOTTIE_SUCCESS
+        } else {
+            DOTLOTTIE_ERROR
+        }
+    })
+}",18,"(521, 538)"

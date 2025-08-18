@@ -1,0 +1,10 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_config(struct DotLottiePlayer *ptr, struct DotLottieConfig *result);",1,"(239, 239)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_config(
+    ptr: *mut DotLottiePlayer,
+    result: *mut DotLottieConfig,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        DotLottieConfig::transfer(&dotlottie_player.config(), result)
+    })
+}",8,"(238, 245)"

@@ -1,0 +1,13 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_markers(struct DotLottiePlayer *ptr,
+                          struct DotLottieMarker *result,
+                          size_t *size);",3,"(300, 302)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_markers(
+    ptr: *mut DotLottiePlayer,
+    result: *mut DotLottieMarker,
+    size: *mut usize,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        DotLottieMarker::transfer_all(&dotlottie_player.markers(), result, size)
+    })
+}",9,"(456, 464)"

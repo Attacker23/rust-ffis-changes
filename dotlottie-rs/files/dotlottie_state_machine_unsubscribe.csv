@@ -1,0 +1,18 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_state_machine_unsubscribe(struct DotLottiePlayer *ptr,
+                                            struct StateMachineObserver *observer);",2,"(369, 370)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_state_machine_unsubscribe(
+    ptr: *mut DotLottiePlayer,
+    observer: *mut types::StateMachineObserver,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        if observer.is_null() {
+            return DOTLOTTIE_INVALID_PARAMETER;
+        }
+        if let Some(v) = observer.as_mut() {
+            to_exit_status(dotlottie_player.state_machine_unsubscribe(&v.as_observer()))
+        } else {
+            DOTLOTTIE_ERROR
+        }
+    })
+}",15,"(831, 845)"

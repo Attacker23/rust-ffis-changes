@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "dotlottie_seek",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\bindings.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "23aac1a91dec16d0e29f394bc20ab46c59767325",
+                "commit_title": "feat: c-api (#237)\n\n* feat: c-api\n\n---------\n\nCo-authored-by: Muhmud Ahmad <muhmud.ahmad@toptal.com>",
+                "commit_date": "Fri Oct 4 06:24:29 2024 +0300",
+                "added_functions": [
+                    "int32_t dotlottie_seek(struct DotLottiePlayer *ptr, float no);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "dotlottie_seek",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\src\\ffi\\mod.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "23aac1a91dec16d0e29f394bc20ab46c59767325",
+                "commit_title": "feat: c-api (#237)\n\n* feat: c-api\n\n---------\n\nCo-authored-by: Muhmud Ahmad <muhmud.ahmad@toptal.com>",
+                "commit_date": "Fri Oct 4 06:24:29 2024 +0300",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn dotlottie_seek(ptr: *mut DotLottiePlayer, no: f32) -> i32 {"
+                ]
+            }
+        ]
+    }
+]

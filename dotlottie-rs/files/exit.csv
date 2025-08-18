@@ -1,0 +1,33 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\examples\demo-player-c\main.c,True,False,exit(1);,1,"(18, 18)"
+C,E:\rust_projects\c\dotlottie-rs\examples\skia-demo-player-cpp\main.cpp,True,True,exit(1);,1,"(31, 31)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-rs\src\state_machine_engine\states\mod.rs,True,False,"fn exit(
+        &self,
+        engine: &mut StateMachineEngine,
+        player: &Rc<RwLock<DotLottiePlayerContainer>>,
+    ) -> Result<(), StateMachineActionError>;",5,"(23, 27)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-rs\src\state_machine_engine\states\mod.rs,False,False,"fn exit(
+        &self,
+        engine: &mut StateMachineEngine,
+        player: &Rc<RwLock<DotLottiePlayerContainer>>,
+    ) -> Result<(), StateMachineActionError> {
+        match self {
+            State::PlaybackState { exit_actions, .. } => {
+                /* Perform exit actions */
+                if let Some(actions) = exit_actions {
+                    for action in actions {
+                        let _ = action.execute(engine, player.clone(), false);
+                    }
+                }
+            }
+            State::GlobalState { exit_actions, .. } => {
+                if let Some(actions) = exit_actions {
+                    for action in actions {
+                        let _ = action.execute(engine, player.clone(), false);
+                    }
+                }
+            }
+        }
+
+        Ok(())
+    }",24,"(217, 241)"

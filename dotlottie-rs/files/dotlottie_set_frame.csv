@@ -1,0 +1,9 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_set_frame(struct DotLottiePlayer *ptr, float no);",1,"(322, 322)"
+C,E:\rust_projects\c\dotlottie-rs\examples\demo-player-c\main.c,True,False,"dotlottie_set_frame(player, next_frame);",1,"(139, 139)"
+C,E:\rust_projects\c\dotlottie-rs\examples\skia-demo-player-cpp\main.cpp,True,True,"dotlottie_set_frame(player, next_frame);",1,"(160, 160)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_set_frame(ptr: *mut DotLottiePlayer, no: f32) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        to_exit_status(dotlottie_player.set_frame(no))
+    })
+}",5,"(366, 370)"

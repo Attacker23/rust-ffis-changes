@@ -1,0 +1,13 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\src\\ffi\\mod.rs:dotlottie_stop_state_machine",
+    "older_commit": "23aac1a91dec16d0e29f394bc20ab46c59767325",
+    "newer_commit": "e97c28d2c9de992d206151671eb60598cc1fa1a0",
+    "changes": {
+      "function_renamed": {
+        "old": "dotlottie_stop_state_machine",
+        "new": "dotlottie_state_machine_stop"
+      }
+    }
+  }
+]

@@ -1,0 +1,17 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_state_machine_set_numeric_input(struct DotLottiePlayer *ptr,
+                                                  const char *key,
+                                                  float value);",3,"(354, 356)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_state_machine_set_numeric_input(
+    ptr: *mut DotLottiePlayer,
+    key: *const c_char,
+    value: f32,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        if let Ok(key) = DotLottieString::read(key) {
+            to_exit_status(dotlottie_player.state_machine_set_numeric_input(&key, value))
+        } else {
+            DOTLOTTIE_INVALID_PARAMETER
+        }
+    })
+}",13,"(688, 700)"

@@ -1,0 +1,7 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,int32_t dotlottie_is_stopped(struct DotLottiePlayer *ptr);,1,"(257, 257)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_is_stopped(ptr: *mut DotLottiePlayer) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        to_exit_status(dotlottie_player.is_stopped())
+    })
+}",5,"(323, 327)"

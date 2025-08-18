@@ -1,0 +1,13 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,struct DotLottiePlayer *dotlottie_new_player(const struct DotLottieConfig *ptr);,1,"(304, 304)"
+C,E:\rust_projects\c\dotlottie-rs\examples\demo-player-c\main.c,True,False,player = dotlottie_new_player(&config);,1,"(62, 62)"
+C,E:\rust_projects\c\dotlottie-rs\examples\skia-demo-player-cpp\main.cpp,True,True,player = dotlottie_new_player(&config);,1,"(75, 75)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_new_player(ptr: *const DotLottieConfig) -> *mut DotLottiePlayer {
+    if let Some(dotlottie_config) = ptr.as_ref() {
+        if let Ok(config) = dotlottie_config.to_config() {
+            let dotlottie_player = Box::new(DotLottiePlayer::new(config));
+            return Box::into_raw(dotlottie_player);
+        }
+    }
+    std::ptr::null_mut()
+}",9,"(34, 42)"

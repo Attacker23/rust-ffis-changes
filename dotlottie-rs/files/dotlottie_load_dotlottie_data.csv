@@ -1,0 +1,18 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_load_dotlottie_data(struct DotLottiePlayer *ptr,
+                                      const char *file_data,
+                                      size_t file_size,
+                                      uint32_t width,
+                                      uint32_t height);",5,"(278, 282)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_load_dotlottie_data(
+    ptr: *mut DotLottiePlayer,
+    file_data: *const c_char,
+    file_size: usize,
+    width: u32,
+    height: u32,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        let file_slice = slice::from_raw_parts(file_data as *const u8, file_size);
+        to_exit_status(dotlottie_player.load_dotlottie_data(file_slice, width, height))
+    })
+}",12,"(114, 125)"

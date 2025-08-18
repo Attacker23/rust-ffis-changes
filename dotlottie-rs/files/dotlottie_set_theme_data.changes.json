@@ -1,0 +1,13 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\src\\ffi\\mod.rs:dotlottie_load_theme_data",
+    "older_commit": "23aac1a91dec16d0e29f394bc20ab46c59767325",
+    "newer_commit": "09d0514a7611a59d4a6ad024294d9ebd46e177dd",
+    "changes": {
+      "function_renamed": {
+        "old": "dotlottie_load_theme_data",
+        "new": "dotlottie_set_theme_data"
+      }
+    }
+  }
+]

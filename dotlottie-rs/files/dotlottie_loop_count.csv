@@ -1,0 +1,12 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_loop_count(struct DotLottiePlayer *ptr, uint32_t *result);",1,"(284, 284)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_loop_count(ptr: *mut DotLottiePlayer, result: *mut u32) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        if !result.is_null() {
+            *result = dotlottie_player.loop_count();
+            DOTLOTTIE_SUCCESS
+        } else {
+            DOTLOTTIE_INVALID_PARAMETER
+        }
+    })
+}",10,"(290, 299)"

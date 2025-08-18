@@ -1,0 +1,19 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_state_machine_override_current_state(struct DotLottiePlayer *ptr,
+                                                       const char *state_name,
+                                                       bool do_tick);",3,"(343, 345)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_state_machine_override_current_state(
+    ptr: *mut DotLottiePlayer,
+    state_name: *const c_char,
+    do_tick: bool,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        if let Ok(state_name) = DotLottieString::read(state_name) {
+            to_exit_status(
+                dotlottie_player.state_machine_override_current_state(&state_name, do_tick),
+            )
+        } else {
+            DOTLOTTIE_INVALID_PARAMETER
+        }
+    })
+}",15,"(651, 665)"

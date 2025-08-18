@@ -1,0 +1,19 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_state_machine_framework_setup(struct DotLottiePlayer *ptr, uint16_t *result);",1,"(336, 336)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_state_machine_framework_setup(
+    ptr: *mut DotLottiePlayer,
+    result: *mut u16,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        if result.is_null() {
+            return DOTLOTTIE_INVALID_PARAMETER;
+        }
+        let interaction_types = dotlottie_player.state_machine_framework_setup();
+        if let Ok(interaction_type) = InteractionType::new(&interaction_types) {
+            *result = interaction_type.bits();
+            DOTLOTTIE_SUCCESS
+        } else {
+            DOTLOTTIE_ERROR
+        }
+    })
+}",17,"(779, 795)"

@@ -1,0 +1,11 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_resize(struct DotLottiePlayer *ptr, uint32_t width, uint32_t height);",1,"(316, 316)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_resize(
+    ptr: *mut DotLottiePlayer,
+    width: u32,
+    height: u32,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        to_exit_status(dotlottie_player.resize(width, height))
+    })
+}",9,"(387, 395)"

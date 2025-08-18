@@ -1,0 +1,14 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_set_theme_data(struct DotLottiePlayer *ptr, const char *theme_data);",1,"(326, 326)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_set_theme_data(
+    ptr: *mut DotLottiePlayer,
+    theme_data: *const c_char,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        if let Ok(theme_data) = DotLottieString::read(theme_data) {
+            to_exit_status(dotlottie_player.set_theme_data(&theme_data))
+        } else {
+            DOTLOTTIE_INVALID_PARAMETER
+        }
+    })
+}",12,"(442, 453)"

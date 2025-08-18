@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "dotlottie_destroy",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\bindings.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "964931ed32710ac960f50d2e640e650e70a19ee9",
+                "commit_title": "chore: fixes for c-api build issues (#239)\n\n* chore: fixes for c-api build issues\n\n---------\n\nCo-authored-by: Muhmud Ahmad <muhmud.ahmad@toptal.com>",
+                "commit_date": "Fri Oct 4 18:01:51 2024 +0300",
+                "added_functions": [
+                    "int32_t dotlottie_destroy(struct DotLottiePlayer *ptr);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "dotlottie_destroy",
+        "file_name": "E:\\rust_projects\\c\\dotlottie-rs\\dotlottie-ffi\\src\\ffi\\mod.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "964931ed32710ac960f50d2e640e650e70a19ee9",
+                "commit_title": "chore: fixes for c-api build issues (#239)\n\n* chore: fixes for c-api build issues\n\n---------\n\nCo-authored-by: Muhmud Ahmad <muhmud.ahmad@toptal.com>",
+                "commit_date": "Fri Oct 4 18:01:51 2024 +0300",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn dotlottie_destroy(ptr: *mut DotLottiePlayer) -> i32 {"
+                ]
+            }
+        ]
+    }
+]

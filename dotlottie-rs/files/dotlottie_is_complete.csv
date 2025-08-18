@@ -1,0 +1,15 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_is_complete(struct DotLottiePlayer *ptr, bool *result);",1,"(249, 249)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_is_complete(
+    ptr: *mut DotLottiePlayer,
+    result: *mut bool,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        if !result.is_null() {
+            *result = dotlottie_player.is_complete();
+            DOTLOTTIE_SUCCESS
+        } else {
+            DOTLOTTIE_INVALID_PARAMETER
+        }
+    })
+}",13,"(406, 418)"

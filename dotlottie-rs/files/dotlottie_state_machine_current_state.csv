@@ -1,0 +1,13 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\bindings.h,True,False,"int32_t dotlottie_state_machine_current_state(struct DotLottiePlayer *ptr, char *result);",1,"(334, 334)"
+Rust,E:\rust_projects\c\dotlottie-rs\dotlottie-ffi\src\ffi\mod.rs,False,True,"pub unsafe extern ""C"" fn dotlottie_state_machine_current_state(
+    ptr: *mut DotLottiePlayer,
+    result: *mut c_char,
+) -> i32 {
+    exec_dotlottie_player_op(ptr, |dotlottie_player| {
+        let current_state_name = dotlottie_player.state_machine_current_state();
+        to_exit_status(
+            DotLottieString::copy(&current_state_name, result, DOTLOTTIE_MAX_STR_LENGTH).is_ok(),
+        )
+    })
+}",11,"(613, 623)"
