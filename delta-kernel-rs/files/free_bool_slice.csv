@@ -1,0 +1,6 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,free_bool_slice(selection_vector);,1,"(82, 82)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\lib.rs,False,True,"pub unsafe extern ""C"" fn free_bool_slice(slice: KernelBoolSlice) {
+    let vec = unsafe { slice.into_vec() };
+    debug!(""Dropping bool slice. It is {vec:#?}"");
+}",4,"(316, 319)"

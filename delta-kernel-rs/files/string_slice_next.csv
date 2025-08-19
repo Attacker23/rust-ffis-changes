@@ -1,0 +1,9 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,"bool has_next = string_slice_next(part_iter, list, visit_partition);",1,"(132, 132)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\lib.rs,False,True,"pub unsafe extern ""C"" fn string_slice_next(
+    data: Handle<StringSliceIterator>,
+    engine_context: NullableCvoid,
+    engine_visitor: extern ""C"" fn(engine_context: NullableCvoid, slice: KernelStringSlice),
+) -> bool {
+    string_slice_next_impl(data, engine_context, engine_visitor)
+}",7,"(694, 700)"

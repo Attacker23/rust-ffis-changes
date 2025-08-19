@@ -1,0 +1,23 @@
+[
+    {
+        "function_name": "get_raw_arrow_data",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\arrow.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "get_raw_arrow_data",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\engine_data.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "a2453553328823546f8122dd97c0f4b2484d2cf2",
+                "commit_title": "[prefactor] new `engine_data` and `error` ffi modules (#537)\n\n(no-change code movement PR)\n\n`ffi/src/lib.rs` was getting pretty long and included pieces from\nvarious things like error handling, etc. which are nicely-grouped as a\nstandalone module. Secondly, `ffi/src/scan.rs` included some engine data\nutilities that could be moved out and likely shared in the future\n(nothing scan-specific). This PR just moves out some of these\neasily-grouped items into separate modules:\n\n- new `mod engine_data`: the `pub fn`'s moved into `mod engine_data`\nwill need to be prefixed with `engine_data` now to resolve\n- new `mod error`: i've done `pub use error::*` so error types will be\nexposed the same.",
+                "commit_date": "Mon Nov 25 16:03:29 2024 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn get_raw_arrow_data(\n    data: Handle<ExclusiveEngineData>,\n    engine: Handle<SharedExternEngine>,\n) -> ExternResult<*mut ArrowFFIData> {"
+                ]
+            }
+        ]
+    }
+]

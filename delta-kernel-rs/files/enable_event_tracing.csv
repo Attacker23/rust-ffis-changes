@@ -1,0 +1,5 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,"enable_event_tracing(tracing_callback, TRACE);",1,"(217, 217)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\ffi_tracing.rs,False,True,"pub unsafe extern ""C"" fn enable_event_tracing(callback: TracingEventFn, max_level: Level) -> bool {
+    setup_event_subscriber(callback, max_level).is_ok()
+}",3,"(95, 97)"

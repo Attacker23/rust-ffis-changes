@@ -1,0 +1,5 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\visit-expression\visit_expression.c,True,False,free_kernel_predicate(pred);,1,"(16, 16)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\expressions\mod.rs,False,True,"pub unsafe extern ""C"" fn free_kernel_predicate(data: Handle<SharedPredicate>) {
+    data.drop_handle();
+}",3,"(31, 33)"

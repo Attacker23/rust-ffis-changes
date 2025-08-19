@@ -1,0 +1,36 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:get_global_scan_state",
+    "older_commit": "cc8156744a19efbb589680a4aae009f08095654f",
+    "newer_commit": "8b082168eef59eda62b203c8fe29e689e44374a1",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "&mut Scan",
+          "new": "Handle<SharedScan>"
+        }
+      ],
+      "return_type_changed": {
+        "old": "*mut GlobalScanState",
+        "new": "Handle<SharedGlobalScanState>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:get_global_scan_state",
+    "older_commit": "7176840bc4874d6562bc0f9552084b92ceca2458",
+    "newer_commit": "cc8156744a19efbb589680a4aae009f08095654f",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "*mut Scan",
+          "new": "&mut Scan"
+        }
+      ]
+    }
+  }
+]

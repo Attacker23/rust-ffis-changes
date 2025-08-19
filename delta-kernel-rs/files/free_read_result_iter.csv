@@ -1,0 +1,5 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\arrow.c,True,False,free_read_result_iter(read_iter);,1,"(202, 202)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\engine_funcs.rs,False,True,"pub unsafe extern ""C"" fn free_read_result_iter(data: Handle<ExclusiveFileReadResultIterator>) {
+    data.drop_handle();
+}",3,"(95, 97)"

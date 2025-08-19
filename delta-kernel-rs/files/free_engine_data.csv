@@ -1,0 +1,5 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\arrow.c,True,False,free_engine_data(data);,1,"(129, 129)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\lib.rs,False,True,"pub unsafe extern ""C"" fn free_engine_data(engine_data: Handle<ExclusiveEngineData>) {
+    engine_data.drop_handle();
+}",3,"(345, 347)"

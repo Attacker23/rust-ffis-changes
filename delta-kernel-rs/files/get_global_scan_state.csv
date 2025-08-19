@@ -1,0 +1,8 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,SharedGlobalScanState* global_state = get_global_scan_state(scan);,1,"(284, 284)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\scan.rs,False,True,"pub unsafe extern ""C"" fn get_global_scan_state(
+    scan: Handle<SharedScan>,
+) -> Handle<SharedGlobalScanState> {
+    let scan = unsafe { scan.as_ref() };
+    Arc::new(scan.global_scan_state()).into()
+}",6,"(129, 134)"

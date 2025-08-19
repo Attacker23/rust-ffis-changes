@@ -1,0 +1,72 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\arrow.c,True,False,"ExternResultHandleExclusiveEngineData transformed_res = evaluate_expression(
+    context->engine,
+    &data,
+    evaluator);",4,"(125, 128)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\engine_funcs.rs,False,True,"pub unsafe extern ""C"" fn evaluate_expression(
+    engine: Handle<SharedExternEngine>,
+    batch: &mut Handle<ExclusiveEngineData>,
+    evaluator: Handle<SharedExpressionEvaluator>,
+) -> ExternResult<Handle<ExclusiveEngineData>> {
+    let engine = unsafe { engine.clone_as_arc() };
+    let batch = unsafe { batch.as_mut() };
+    let evaluator = unsafe { evaluator.clone_as_arc() };
+    let res = evaluate_expression_impl(batch, evaluator.as_ref());
+    res.into_extern_result(&engine.as_ref())
+}",11,"(195, 205)"
+Rust,E:\rust_projects\c\delta-kernel-rs\kernel\src\engine\arrow_expression\evaluate_expression.rs,False,False,"pub(crate) fn evaluate_expression(
+    expression: &Expression,
+    batch: &RecordBatch,
+    result_type: Option<&DataType>,
+) -> DeltaResult<ArrayRef> {
+    use BinaryExpressionOp::*;
+    use Expression::*;
+    match (expression, result_type) {
+        (Literal(scalar), _) => Ok(scalar.to_array(batch.num_rows())?),
+        (Column(name), _) => extract_column(batch, name),
+        (Struct(fields), Some(DataType::Struct(output_schema))) => {
+            let columns = fields
+                .iter()
+                .zip(output_schema.fields())
+                .map(|(expr, field)| evaluate_expression(expr, batch, Some(field.data_type())));
+            let output_cols: Vec<ArrayRef> = columns.try_collect()?;
+            let output_fields: Vec<ArrowField> = output_cols
+                .iter()
+                .zip(output_schema.fields())
+                .map(|(output_col, output_field)| -> DeltaResult<_> {
+                    Ok(ArrowField::new(
+                        output_field.name(),
+                        output_col.data_type().clone(),
+                        output_col.is_nullable(),
+                    ))
+                })
+                .try_collect()?;
+            let result = StructArray::try_new(output_fields.into(), output_cols, None)?;
+            Ok(Arc::new(result))
+        }
+        (Struct(_), _) => Err(Error::generic(
+            ""Data type is required to evaluate struct expressions"",
+        )),
+        (Predicate(pred), None | Some(&DataType::BOOLEAN)) => {
+            let result = evaluate_predicate(pred, batch)?;
+            Ok(Arc::new(result))
+        }
+        (Predicate(_), Some(data_type)) => Err(Error::generic(format!(
+            ""Predicate evaluation produces boolean output, but caller expects {data_type:?}""
+        ))),
+        (Binary(BinaryExpression { op, left, right }), _) => {
+            let left_arr = evaluate_expression(left.as_ref(), batch, None)?;
+            let right_arr = evaluate_expression(right.as_ref(), batch, None)?;
+
+            type Operation = fn(&dyn Datum, &dyn Datum) -> Result<ArrayRef, ArrowError>;
+            let eval: Operation = match op {
+                Plus => add,
+                Minus => sub,
+                Multiply => mul,
+                Divide => div,
+            };
+
+            Ok(eval(&left_arr, &right_arr)?)
+        }
+    }
+}",54,"(75, 130)"

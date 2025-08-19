@@ -1,0 +1,59 @@
+File: delta-kernel-rs\builder_build.json
+Function: builder_build
+commit_count: 3
+Dates: 2024.04.23, 2024.05.04, 2024.05.22
+------------------------------------------------------------
+File: delta-kernel-rs\evaluate_expression.json
+Function: evaluate_expression
+commit_count: 2
+Dates: 2025.02.20, 2025.05.07
+------------------------------------------------------------
+File: delta-kernel-rs\evaluate_expression.json
+Function: evaluate_expression
+commit_count: 2
+Dates: 2025.03.21, 2025.05.07
+------------------------------------------------------------
+File: delta-kernel-rs\free_expression_evaluator.json
+Function: free_expression_evaluator
+commit_count: 2
+Dates: 2025.02.20, 2025.04.07
+------------------------------------------------------------
+File: delta-kernel-rs\get_default_engine.json
+Function: get_default_engine
+commit_count: 7
+Dates: 2023.12.13, 2024.02.20, 2024.02.26, 2024.03.25, 2024.05.04, 2024.05.06, 2024.05.22
+------------------------------------------------------------
+File: delta-kernel-rs\get_default_engine.json
+Function: get_default_engine
+commit_count: 7
+Dates: 2023.12.13, 2024.02.20, 2024.02.26, 2024.03.25, 2024.05.04, 2024.05.06, 2024.05.22
+------------------------------------------------------------
+File: delta-kernel-rs\get_engine_builder.json
+Function: get_engine_builder
+commit_count: 2
+Dates: 2024.04.23, 2024.05.04
+------------------------------------------------------------
+File: delta-kernel-rs\get_testing_kernel_predicate.json
+Function: get_testing_kernel_predicate
+commit_count: 2
+Dates: 2024.10.28, 2025.05.07
+------------------------------------------------------------
+File: delta-kernel-rs\new_expression_evaluator.json
+Function: new_expression_evaluator
+commit_count: 2
+Dates: 2025.02.20, 2025.04.07
+------------------------------------------------------------
+File: delta-kernel-rs\scan_metadata_iter_init.json
+Function: scan_metadata_iter_init
+commit_count: 4
+Dates: 2024.04.20, 2024.05.04, 2024.05.22, 2025.04.09
+------------------------------------------------------------
+File: delta-kernel-rs\selection_vector_from_dv.json
+Function: selection_vector_from_dv
+commit_count: 8
+Dates: 2024.04.20, 2024.04.24, 2024.04.25, 2024.04.29, 2024.05.04, 2024.05.07, 2024.05.22, 2024.05.23
+------------------------------------------------------------
+File: delta-kernel-rs\version.json
+Function: version
+commit_count: 3
+Dates: 2023.12.13, 2024.02.20, 2024.05.22

@@ -1,0 +1,39 @@
+[
+    {
+        "function_name": "set_builder_option",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\kernel_utils.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "set_builder_option",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs",
+        "commit_count": 3,
+        "commits": [
+            {
+                "commit_info": "cc8156744a19efbb589680a4aae009f08095654f",
+                "commit_title": "get rid of silly boxing/unboxing",
+                "commit_date": "Wed Apr 24 17:45:38 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn set_builder_option(\n    builder: &mut EngineInterfaceBuilder,\n    key: KernelStringSlice,\n    value: KernelStringSlice,\n) {"
+                ]
+            },
+            {
+                "commit_info": "248edcbd67923532666d62b4d45e80210746d9a3",
+                "commit_title": "add EngineInterfaceBuilder",
+                "commit_date": "Tue Apr 23 17:24:36 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn set_builder_option(\n    builder: *mut EngineInterfaceBuilder,\n    key: KernelStringSlice,\n    value: KernelStringSlice,\n) {"
+                ]
+            },
+            {
+                "commit_info": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+                "commit_title": "Rename `EngineInterface` to `Engine` (#191)\n\nDoes _a lot_ of renaming:\n- `EngineInterface` to `Engine`.\n- All `impls` to drop the `Interface` part of the name, and changes any\n`engine_interface` variables to be just `engine`.\n- change the `client` mod name to `engine`\n- feature flags: `default-client` -> `default-engine`, `sync-client` ->\n`sync-engine`\n- There were a few leftover places where we still called this\n`table_client`, this also renames those to `engine`.\n- Also this changes the word \"interface\" to \"trait\" in some comments\nwhere we really meant trait and not interface.\n\nEnsured I got to everything by grepping:\n```\n$ rg -i EngineInterface\n$ rg -i engine_interface\n$ rg -i table_client\n$ rg -i interface # these are all proper uses of the word interface\nLICENSE\n45:      separable from, or merely link (or bind by name) to the interfaces of,\n\nacceptance/README.md\n6:allowing us to test the exact same client interfaces that any connector\n\nffi/src/lib.rs\n1:/// FFI interface for the delta kernel\n3:/// Exposes that an engine needs to call from C/C++ to interface with kernel\n\nffi/src/scan.rs\n42:/// Interface](https://arrow.apache.org/docs/format/CDataInterface.html). This includes the data and\n52:/// Interface](https://arrow.apache.org/docs/format/CDataInterface.html). This includes the data and\n```",
+                "commit_date": "Sat May 4 07:48:44 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn set_builder_option(\n    builder: &mut EngineBuilder,\n    key: KernelStringSlice,\n    value: KernelStringSlice,\n) {"
+                ]
+            }
+        ]
+    }
+]

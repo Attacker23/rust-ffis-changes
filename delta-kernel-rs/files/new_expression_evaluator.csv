@@ -1,0 +1,36 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\arrow.c,True,False,"SharedExpressionEvaluator* evaluator = new_expression_evaluator(
+    context->engine,
+    context->read_schema, // input schema
+    context->arrow_context->cur_transform,
+    context->logical_schema);",5,"(120, 124)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\engine_funcs.rs,False,True,"pub unsafe extern ""C"" fn new_expression_evaluator(
+    engine: Handle<SharedExternEngine>,
+    input_schema: Handle<SharedSchema>,
+    expression: &Expression,
+    // TODO: Make this a data_type, and give a way for c code to go between schema <-> datatype
+    output_type: Handle<SharedSchema>,
+) -> Handle<SharedExpressionEvaluator> {
+    let engine = unsafe { engine.clone_as_arc() };
+    let input_schema = unsafe { input_schema.clone_as_arc() };
+    let output_type: DataType = output_type.as_ref().clone().into();
+    new_expression_evaluator_impl(engine, input_schema, expression, output_type)
+}",11,"(152, 163)"
+Rust,E:\rust_projects\c\delta-kernel-rs\kernel\src\lib.rs,True,False,"fn new_expression_evaluator(
+        &self,
+        input_schema: SchemaRef,
+        expression: Expression,
+        output_type: DataType,
+    ) -> Arc<dyn ExpressionEvaluator>;",6,"(378, 383)"
+Rust,E:\rust_projects\c\delta-kernel-rs\kernel\src\engine\arrow_expression\mod.rs,False,False,"fn new_expression_evaluator(
+        &self,
+        schema: SchemaRef,
+        expression: Expression,
+        output_type: DataType,
+    ) -> Arc<dyn ExpressionEvaluator> {
+        Arc::new(DefaultExpressionEvaluator {
+            input_schema: schema,
+            expression,
+            output_type,
+        })
+    }",12,"(271, 282)"

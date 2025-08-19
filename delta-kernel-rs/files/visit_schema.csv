@@ -1,0 +1,9 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\schema.h,True,False,"uintptr_t schema_list_id = visit_schema(schema, &visitor);",1,"(277, 277)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\schema.rs,False,True,"pub unsafe extern ""C"" fn visit_schema(
+    schema: Handle<SharedSchema>,
+    visitor: &mut EngineSchemaVisitor,
+) -> usize {
+    let schema = unsafe { schema.as_ref() };
+    visit_schema_impl(schema, visitor)
+}",7,"(205, 211)"

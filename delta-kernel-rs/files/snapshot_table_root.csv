@@ -1,0 +1,10 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,"char* table_root = snapshot_table_root(snapshot, allocate_string);",1,"(270, 270)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\lib.rs,False,True,"pub unsafe extern ""C"" fn snapshot_table_root(
+    snapshot: Handle<SharedSnapshot>,
+    allocate_fn: AllocateStringFn,
+) -> NullableCvoid {
+    let snapshot = unsafe { snapshot.as_ref() };
+    let table_root = snapshot.table_root().to_string();
+    allocate_fn(kernel_string_slice!(table_root))
+}",8,"(648, 655)"

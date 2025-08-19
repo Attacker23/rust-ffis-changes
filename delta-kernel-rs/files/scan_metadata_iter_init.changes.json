@@ -1,0 +1,59 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:kernel_scan_data_init",
+    "older_commit": "8b082168eef59eda62b203c8fe29e689e44374a1",
+    "newer_commit": "10bdee7941177ac71c4982652be566183404b631",
+    "changes": {
+      "function_renamed": {
+        "old": "kernel_scan_data_init",
+        "new": "scan_metadata_iter_init"
+      },
+      "return_type_changed": {
+        "old": "ExternResult<Handle<SharedScanDataIterator>>",
+        "new": "ExternResult<Handle<SharedScanMetadataIterator>>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:kernel_scan_data_init",
+    "older_commit": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+    "newer_commit": "8b082168eef59eda62b203c8fe29e689e44374a1",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "*const ExternEngineHandle",
+          "new": "Handle<SharedExternEngine>"
+        },
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "*mut Scan",
+          "new": "Handle<SharedScan>"
+        }
+      ],
+      "return_type_changed": {
+        "old": "ExternResult<*mut KernelScanDataIterator>",
+        "new": "ExternResult<Handle<SharedScanDataIterator>>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:kernel_scan_data_init",
+    "older_commit": "7176840bc4874d6562bc0f9552084b92ceca2458",
+    "newer_commit": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+    "changes": {
+      "both_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old_name": "engine_interface",
+          "old_type": "*const ExternEngineInterfaceHandle",
+          "new_name": "engine",
+          "new_type": "*const ExternEngineHandle"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,12 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\kernel_utils.c,True,False,"set_builder_option(engine_builder, key_slice, val_slice);",1,"(68, 68)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\lib.rs,False,True,"pub unsafe extern ""C"" fn set_builder_option(
+    builder: &mut EngineBuilder,
+    key: KernelStringSlice,
+    value: KernelStringSlice,
+) {
+    let key = unsafe { String::try_from_slice(&key) };
+    let value = unsafe { String::try_from_slice(&value) };
+    // TODO: Return ExternalError if key or value is invalid? (builder has an error allocator)
+    builder.set_option(key.unwrap(), value.unwrap());
+}",9,"(461, 470)"

@@ -1,0 +1,108 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:scan_metadata_next",
+    "older_commit": "10bdee7941177ac71c4982652be566183404b631",
+    "newer_commit": "b38bc5dc4f794ca16c291859e48773bdca07672a",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "extern \"C\" fn( engine_context: NullableCvoid, engine_data: Handle<ExclusiveEngineData>, selection_vector: KernelBoolSlice, transforms: &CTransforms, )",
+          "new": "extern \"C\" fn( engine_context: NullableCvoid, scan_metadata: Handle<SharedScanMetadata>, )"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:kernel_scan_data_next",
+    "older_commit": "6a82a5714b652c1bbed256b1847103e2c2b1c9d7",
+    "newer_commit": "10bdee7941177ac71c4982652be566183404b631",
+    "changes": {
+      "function_renamed": {
+        "old": "kernel_scan_data_next",
+        "new": "scan_metadata_next"
+      },
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "Handle<SharedScanDataIterator>",
+          "new": "Handle<SharedScanMetadataIterator>"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:kernel_scan_data_next",
+    "older_commit": "43b2f256ff47cd7494196d1cf3257aaa73d1be83",
+    "newer_commit": "6a82a5714b652c1bbed256b1847103e2c2b1c9d7",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "extern \"C\" fn( engine_context: NullableCvoid, engine_data: Handle<ExclusiveEngineData>, selection_vector: KernelBoolSlice, )",
+          "new": "extern \"C\" fn( engine_context: NullableCvoid, engine_data: Handle<ExclusiveEngineData>, selection_vector: KernelBoolSlice, transforms: &CTransforms, )"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:kernel_scan_data_next",
+    "older_commit": "8b082168eef59eda62b203c8fe29e689e44374a1",
+    "newer_commit": "43b2f256ff47cd7494196d1cf3257aaa73d1be83",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "extern \"C\" fn( engine_context: NullableCvoid, engine_data: Handle<EngineData>, selection_vector: KernelBoolSlice, )",
+          "new": "extern \"C\" fn( engine_context: NullableCvoid, engine_data: Handle<ExclusiveEngineData>, selection_vector: KernelBoolSlice, )"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:kernel_scan_data_next",
+    "older_commit": "cf4cb101cbde996368b217cc8efe1eff1ad65236",
+    "newer_commit": "8b082168eef59eda62b203c8fe29e689e44374a1",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "&mut KernelScanDataIterator",
+          "new": "Handle<SharedScanDataIterator>"
+        },
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "extern \"C\" fn( engine_context: NullableCvoid, engine_data: *mut EngineDataHandle, selection_vector: KernelBoolSlice, )",
+          "new": "extern \"C\" fn( engine_context: NullableCvoid, engine_data: Handle<EngineData>, selection_vector: KernelBoolSlice, )"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:kernel_scan_data_next",
+    "older_commit": "7176840bc4874d6562bc0f9552084b92ceca2458",
+    "newer_commit": "cf4cb101cbde996368b217cc8efe1eff1ad65236",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "*mut c_void",
+          "new": "NullableCvoid"
+        },
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "extern \"C\" fn( engine_context: *mut c_void, engine_data: *mut EngineDataHandle, selection_vector: KernelBoolSlice, )",
+          "new": "extern \"C\" fn( engine_context: NullableCvoid, engine_data: *mut EngineDataHandle, selection_vector: KernelBoolSlice, )"
+        }
+      ]
+    }
+  }
+]

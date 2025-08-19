@@ -1,0 +1,23 @@
+[
+    {
+        "function_name": "get_partition_columns",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\read_table.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "get_partition_columns",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "ac9108772d497337378003e9fdd7120eb7753c19",
+                "commit_title": "feat!(ffi): Make get_partition_column* work on a snapshot. (#697)\n\n## What changes are proposed in this pull request?\n\nMake `get_partition_column_count` and `get_partition_columns` take a\nsnapshot so engines can work this out at planning time without creating\na scan.\n\nThe previous methods to get this info out of a scan have been removed.\n\n### This PR affects the following public APIs\n\nThe old functions that took snapshots have been removed\n\n## How was this change tested?\n\nNew unit test",
+                "commit_date": "Mon Mar 3 11:43:20 2025 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn get_partition_columns(\n    snapshot: Handle<SharedSnapshot>,\n) -> Handle<StringSliceIterator> {"
+                ]
+            }
+        ]
+    }
+]

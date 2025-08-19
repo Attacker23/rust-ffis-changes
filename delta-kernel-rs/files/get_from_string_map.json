@@ -1,0 +1,60 @@
+[
+    {
+        "function_name": "get_from_string_map",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\read_table.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "get_from_string_map",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs",
+        "commit_count": 5,
+        "commits": [
+            {
+                "commit_info": "cc8156744a19efbb589680a4aae009f08095654f",
+                "commit_title": "get rid of silly boxing/unboxing",
+                "commit_date": "Wed Apr 24 17:45:38 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn get_from_map(\n    map: &mut CStringMap,\n    key: KernelStringSlice,\n    allocate_fn: AllocateStringFn,\n) -> *mut c_void {"
+                ]
+            },
+            {
+                "commit_info": "7176840bc4874d6562bc0f9552084b92ceca2458",
+                "commit_title": "move scan + data stuff to own module",
+                "commit_date": "Sat Apr 20 15:46:02 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn get_from_map(\n    raw_map: *mut CStringMap,\n    key: KernelStringSlice,\n    allocate_fn: AllocateStringFn,\n) -> *mut c_void {"
+                ]
+            },
+            {
+                "commit_info": "6a82a5714b652c1bbed256b1847103e2c2b1c9d7",
+                "commit_title": "Part 2: propagate transform in visit_scan_files (#612)\n\nMinor change: Propagate the computed transforms from #607 through calls to `visit_scan_files`.",
+                "commit_date": "Mon Feb 3 17:15:18 2025 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn get_from_string_map(\n     map: &CStringMap,\n     key: KernelStringSlice,\n     allocate_fn: AllocateStringFn,\n ) -> NullableCvoid {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "get_from_map",
+                    "new_name": "get_from_string_map"
+                }
+            },
+            {
+                "commit_info": "cf4cb101cbde996368b217cc8efe1eff1ad65236",
+                "commit_title": "convert some *mut c_void to Option<NonNull<c_void>>",
+                "commit_date": "Mon Apr 29 12:38:19 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn get_from_map(\n    map: &mut CStringMap,\n    key: KernelStringSlice,\n    allocate_fn: AllocateStringFn,\n) -> NullableCvoid {"
+                ]
+            },
+            {
+                "commit_info": "08f0764a00e89f42136fd478823d28278adc7ee8",
+                "commit_title": "`get_from_map` shouldn't take a mut map (#225)\n\nMakes it difficult for engines to use because the visit functions\nprovide a `const`",
+                "commit_date": "Fri May 24 12:03:24 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn get_from_map(\n    map: &CStringMap,\n    key: KernelStringSlice,\n    allocate_fn: AllocateStringFn,\n) -> NullableCvoid {"
+                ]
+            }
+        ]
+    }
+]

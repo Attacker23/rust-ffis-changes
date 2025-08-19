@@ -1,0 +1,6 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,free_snapshot(snapshot);,1,"(339, 339)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\lib.rs,False,True,"pub unsafe extern ""C"" fn free_snapshot(snapshot: Handle<SharedSnapshot>) {
+    debug!(""engine released snapshot"");
+    snapshot.drop_handle();
+}",4,"(605, 608)"

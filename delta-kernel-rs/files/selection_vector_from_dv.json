@@ -1,0 +1,79 @@
+[
+    {
+        "function_name": "selection_vector_from_dv",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\read_table.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "selection_vector_from_dv",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs",
+        "commit_count": 8,
+        "commits": [
+            {
+                "commit_info": "8b082168eef59eda62b203c8fe29e689e44374a1",
+                "commit_title": "Harmonize BoxHandle and ArcHandle (#182)\n\nPreviously `BoxHandle` was very simplistic (could only handle `Sized`\ntypes), while `ArcHandle` was overly abstracted (even a `SizedArcHandle`\nhad type indirection that made it harder to use the resulting handle, in\nthe common case of a rust callee who does not need to clone the handle\nand only needs a borrowed reference to the underlying).\n\nWith this PR, we harmonize them into a single `Handle` concept which\nuses a `HandleDescriptor` trait to express four modes: {sized, unsized}\nx {box, arc}. The memory layout differs for sized vs. unsized types (the\nformer being more efficient), while box vs. arc is chosen based on\nwhether owned vs. shared reference semantics are desired.\n\nAll handles provide an `as_ref()` method for obtaining a shared\nreference; arc handles provide an `as_arc()` method that returns a new\nArc for the object (bumping its reference count), while box handles\nprovide an `as_mut()` method that returns a mutable reference. In all\ncases, a handle remains valid until specifically dropped by the user.",
+                "commit_date": "Wed May 22 11:41:34 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn selection_vector_from_dv(\n    dv_info: &DvInfo,\n    extern_engine: Handle<SharedExternEngine>,\n    state: Handle<SharedGlobalScanState>,\n) -> ExternResult<KernelBoolSlice> {"
+                ]
+            },
+            {
+                "commit_info": "cc8156744a19efbb589680a4aae009f08095654f",
+                "commit_title": "get rid of silly boxing/unboxing",
+                "commit_date": "Wed Apr 24 17:45:38 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn selection_vector_from_dv(\n    info: &mut CDvInfo,\n    extern_engine_interface: *const ExternEngineInterfaceHandle,\n    state: &mut GlobalScanState,\n) -> *mut KernelBoolSlice {"
+                ]
+            },
+            {
+                "commit_info": "c945c03eb02b3bd2021950aac4e0d1f5f481c1e9",
+                "commit_title": "Make KernelBoolSlice memory safe, and Send+Sync (#198)\n\nInitial work on\nhttps://github.com/delta-incubator/delta-kernel-rs/pull/196 exposed a\nlurking design issue with the FFI `KernelBoolSlice`. By using raw\npointers, it cannot be Send+Sync, but also memory lifetimes become very\nhard to reason about.\n\nThe fix is to pass it to the engine by value, with the contract that\nengine must free it. Also, `unsafe impl` Send+Sync on the struct, with\nexplanation of the safety requirements.\n\nThis is a temporary fix, since we'd prefer kernel didn't allocate\nboolean slices at all if possible, and definitely shouldn't pass them as\nowned into visitor methods that anyway just drop it.",
+                "commit_date": "Tue May 7 14:13:24 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn selection_vector_from_dv(\n    dv_info: &DvInfo,\n    extern_engine: *const ExternEngineHandle,\n    state: &mut GlobalScanState,\n) -> ExternResult<KernelBoolSlice> {"
+                ]
+            },
+            {
+                "commit_info": "1b855ddb64d590afd05dca5f834cf1bc4cd81de1",
+                "commit_title": "Make all FFI _impl helpers safe rust (#212)\n\nSeveral FFI entry points are split into a pair of function, where the\n\"inner\" function does the actual work and returns a `DeltaResult` which\nthe \"outer\" function simply converts to `ExternResult`:\n```rust\npub unsafe extern \"C\" fn foo(\n      ... args ...,\n    allocate_error: AllocateErrorFn,\n) -> ExternResult<*mut Foo> {\n    foo_impl(... args...).into_extern_result(allocate_error)\n}\n\nunsafe fn foo_impl(\n      ... args ...,\n    allocate_fn: AllocateErrorFn,\n ) -> DeltaResult<*mut Foo> {\n   let foo = unsafe { ... args ... };\n    ... do the actual work ...\n}\n```\nThis PR observes that the \"outer\" function can _also_ capture all the\nunsafe code, so that the \"inner\" function becomes normal safe rust.",
+                "commit_date": "Thu May 23 18:21:32 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn selection_vector_from_dv(\n    dv_info: &DvInfo,\n    engine: Handle<SharedExternEngine>,\n    state: Handle<SharedGlobalScanState>,\n) -> ExternResult<KernelBoolSlice> {"
+                ]
+            },
+            {
+                "commit_info": "a953f8ede50c7f8177c7ef8033956384b301bfef",
+                "commit_title": "selection_vector_from_dv can now fail",
+                "commit_date": "Thu Apr 25 13:46:57 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn selection_vector_from_dv(\n    info: &mut CDvInfo,\n    extern_engine_interface: *const ExternEngineInterfaceHandle,\n    state: &mut GlobalScanState,\n) -> ExternResult<*mut KernelBoolSlice> {"
+                ]
+            },
+            {
+                "commit_info": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+                "commit_title": "Rename `EngineInterface` to `Engine` (#191)\n\nDoes _a lot_ of renaming:\n- `EngineInterface` to `Engine`.\n- All `impls` to drop the `Interface` part of the name, and changes any\n`engine_interface` variables to be just `engine`.\n- change the `client` mod name to `engine`\n- feature flags: `default-client` -> `default-engine`, `sync-client` ->\n`sync-engine`\n- There were a few leftover places where we still called this\n`table_client`, this also renames those to `engine`.\n- Also this changes the word \"interface\" to \"trait\" in some comments\nwhere we really meant trait and not interface.\n\nEnsured I got to everything by grepping:\n```\n$ rg -i EngineInterface\n$ rg -i engine_interface\n$ rg -i table_client\n$ rg -i interface # these are all proper uses of the word interface\nLICENSE\n45:      separable from, or merely link (or bind by name) to the interfaces of,\n\nacceptance/README.md\n6:allowing us to test the exact same client interfaces that any connector\n\nffi/src/lib.rs\n1:/// FFI interface for the delta kernel\n3:/// Exposes that an engine needs to call from C/C++ to interface with kernel\n\nffi/src/scan.rs\n42:/// Interface](https://arrow.apache.org/docs/format/CDataInterface.html). This includes the data and\n52:/// Interface](https://arrow.apache.org/docs/format/CDataInterface.html). This includes the data and\n```",
+                "commit_date": "Sat May 4 07:48:44 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn selection_vector_from_dv(\n    dv_info: &DvInfo,\n    extern_engine: *const ExternEngineHandle,\n    state: &mut GlobalScanState,\n) -> ExternResult<*mut KernelBoolSlice> {"
+                ]
+            },
+            {
+                "commit_info": "7176840bc4874d6562bc0f9552084b92ceca2458",
+                "commit_title": "move scan + data stuff to own module",
+                "commit_date": "Sat Apr 20 15:46:02 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn selection_vector_from_dv(\n    raw_info: *mut CDvInfo,\n    extern_engine_interface: *const ExternEngineInterfaceHandle,\n    state: *mut GlobalScanState,\n) -> *mut KernelBoolSlice {"
+                ]
+            },
+            {
+                "commit_info": "53afe92b8a2342a00e5e40353d4564ffc883762f",
+                "commit_title": "don't need to wrap scan or dvinfo",
+                "commit_date": "Mon Apr 29 12:07:01 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn selection_vector_from_dv(\n    dv_info: &DvInfo,\n    extern_engine_interface: *const ExternEngineInterfaceHandle,\n    state: &mut GlobalScanState,\n) -> ExternResult<*mut KernelBoolSlice> {"
+                ]
+            }
+        ]
+    }
+]

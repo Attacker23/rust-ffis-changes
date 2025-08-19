@@ -1,0 +1,9 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,"selection_vector_from_scan_metadata(scan_metadata, context->engine);",1,"(95, 95)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\scan.rs,False,True,"pub unsafe extern ""C"" fn selection_vector_from_scan_metadata(
+    scan_metadata: Handle<SharedScanMetadata>,
+    engine: Handle<SharedExternEngine>,
+) -> ExternResult<KernelBoolSlice> {
+    let scan_metadata = unsafe { scan_metadata.as_ref() };
+    selection_vector_from_scan_metadata_impl(scan_metadata).into_extern_result(&engine.as_ref())
+}",7,"(66, 72)"

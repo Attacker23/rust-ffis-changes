@@ -1,0 +1,6 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,free_schema(logical_schema);,1,"(336, 336)"
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\schema.h,True,False,free_schema(schema);,1,"(285, 285)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\lib.rs,False,True,"pub unsafe extern ""C"" fn free_schema(schema: Handle<SharedSchema>) {
+    schema.drop_handle();
+}",3,"(637, 639)"

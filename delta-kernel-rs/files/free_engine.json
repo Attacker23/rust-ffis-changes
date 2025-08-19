@@ -1,0 +1,14 @@
+[
+    {
+        "function_name": "free_engine",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\read_table.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "free_engine",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs",
+        "commit_count": 0,
+        "commits": []
+    }
+]

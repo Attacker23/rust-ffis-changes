@@ -1,0 +1,119 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:selection_vector_from_dv",
+    "older_commit": "8b082168eef59eda62b203c8fe29e689e44374a1",
+    "newer_commit": "1b855ddb64d590afd05dca5f834cf1bc4cd81de1",
+    "changes": {
+      "name_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "extern_engine",
+          "new": "engine"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:selection_vector_from_dv",
+    "older_commit": "c945c03eb02b3bd2021950aac4e0d1f5f481c1e9",
+    "newer_commit": "8b082168eef59eda62b203c8fe29e689e44374a1",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "*const ExternEngineHandle",
+          "new": "Handle<SharedExternEngine>"
+        },
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "&mut GlobalScanState",
+          "new": "Handle<SharedGlobalScanState>"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:selection_vector_from_dv",
+    "older_commit": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+    "newer_commit": "c945c03eb02b3bd2021950aac4e0d1f5f481c1e9",
+    "changes": {
+      "return_type_changed": {
+        "old": "ExternResult<*mut KernelBoolSlice>",
+        "new": "ExternResult<KernelBoolSlice>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:selection_vector_from_dv",
+    "older_commit": "53afe92b8a2342a00e5e40353d4564ffc883762f",
+    "newer_commit": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+    "changes": {
+      "both_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old_name": "extern_engine_interface",
+          "old_type": "*const ExternEngineInterfaceHandle",
+          "new_name": "extern_engine",
+          "new_type": "*const ExternEngineHandle"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:selection_vector_from_dv",
+    "older_commit": "a953f8ede50c7f8177c7ef8033956384b301bfef",
+    "newer_commit": "53afe92b8a2342a00e5e40353d4564ffc883762f",
+    "changes": {
+      "both_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old_name": "info",
+          "old_type": "&mut CDvInfo",
+          "new_name": "dv_info",
+          "new_type": "&DvInfo"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:selection_vector_from_dv",
+    "older_commit": "cc8156744a19efbb589680a4aae009f08095654f",
+    "newer_commit": "a953f8ede50c7f8177c7ef8033956384b301bfef",
+    "changes": {
+      "return_type_changed": {
+        "old": "*mut KernelBoolSlice",
+        "new": "ExternResult<*mut KernelBoolSlice>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:selection_vector_from_dv",
+    "older_commit": "7176840bc4874d6562bc0f9552084b92ceca2458",
+    "newer_commit": "cc8156744a19efbb589680a4aae009f08095654f",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "*mut GlobalScanState",
+          "new": "&mut GlobalScanState"
+        }
+      ],
+      "both_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old_name": "raw_info",
+          "old_type": "*mut CDvInfo",
+          "new_name": "info",
+          "new_type": "&mut CDvInfo"
+        }
+      ]
+    }
+  }
+]

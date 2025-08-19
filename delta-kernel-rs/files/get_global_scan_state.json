@@ -1,0 +1,39 @@
+[
+    {
+        "function_name": "get_global_scan_state",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\read_table.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "get_global_scan_state",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs",
+        "commit_count": 3,
+        "commits": [
+            {
+                "commit_info": "8b082168eef59eda62b203c8fe29e689e44374a1",
+                "commit_title": "Harmonize BoxHandle and ArcHandle (#182)\n\nPreviously `BoxHandle` was very simplistic (could only handle `Sized`\ntypes), while `ArcHandle` was overly abstracted (even a `SizedArcHandle`\nhad type indirection that made it harder to use the resulting handle, in\nthe common case of a rust callee who does not need to clone the handle\nand only needs a borrowed reference to the underlying).\n\nWith this PR, we harmonize them into a single `Handle` concept which\nuses a `HandleDescriptor` trait to express four modes: {sized, unsized}\nx {box, arc}. The memory layout differs for sized vs. unsized types (the\nformer being more efficient), while box vs. arc is chosen based on\nwhether owned vs. shared reference semantics are desired.\n\nAll handles provide an `as_ref()` method for obtaining a shared\nreference; arc handles provide an `as_arc()` method that returns a new\nArc for the object (bumping its reference count), while box handles\nprovide an `as_mut()` method that returns a mutable reference. In all\ncases, a handle remains valid until specifically dropped by the user.",
+                "commit_date": "Wed May 22 11:41:34 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn get_global_scan_state(\n    scan: Handle<SharedScan>,\n) -> Handle<SharedGlobalScanState> {"
+                ]
+            },
+            {
+                "commit_info": "cc8156744a19efbb589680a4aae009f08095654f",
+                "commit_title": "get rid of silly boxing/unboxing",
+                "commit_date": "Wed Apr 24 17:45:38 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn get_global_scan_state(scan: &mut Scan) -> *mut GlobalScanState {"
+                ]
+            },
+            {
+                "commit_info": "7176840bc4874d6562bc0f9552084b92ceca2458",
+                "commit_title": "move scan + data stuff to own module",
+                "commit_date": "Sat Apr 20 15:46:02 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn get_global_scan_state(scan: *mut Scan) -> *mut GlobalScanState {"
+                ]
+            }
+        ]
+    }
+]

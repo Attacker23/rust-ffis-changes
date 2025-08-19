@@ -1,0 +1,32 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:builder_build",
+    "older_commit": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+    "newer_commit": "8b082168eef59eda62b203c8fe29e689e44374a1",
+    "changes": {
+      "return_type_changed": {
+        "old": "ExternResult<*const ExternEngineHandle>",
+        "new": "ExternResult<Handle<SharedExternEngine>>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:builder_build",
+    "older_commit": "248edcbd67923532666d62b4d45e80210746d9a3",
+    "newer_commit": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "*mut EngineInterfaceBuilder",
+          "new": "*mut EngineBuilder"
+        }
+      ],
+      "return_type_changed": {
+        "old": "ExternResult<*const ExternEngineInterfaceHandle>",
+        "new": "ExternResult<*const ExternEngineHandle>"
+      }
+    }
+  }
+]

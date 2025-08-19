@@ -1,0 +1,59 @@
+[
+    {
+        "function_name": "evaluate_expression",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\arrow.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "evaluate_expression",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\engine_funcs.rs",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "2315d00bece42ca78a5ee314d80d69f0bc7407be",
+                "commit_title": "feat!: Split out predicates as different from expressions (#775)\n\n## What changes are proposed in this pull request?\n\nTeach kernel to treat \"predicates\" (boolean-valued invertible\nexpressions) as different from normal expressions (which are generally\nneither boolean-valued nor invertible). Accomplished by splitting out a\nnew `Predicate` type from today's `Expression` type, and then adjusting\nall the various transforms, visitors, and evaluation frameworks\naccordingly.\n\nThis change is highly invasive, but very important because kernel's data\nskipping cares very much about predicates (= expressions that return\nboolean values and are invertible), which are quite different from the\nordinary expressions used for transforming data. We see that tension\nalready in the fact that some of our binary operators are really\n(invertible) binary predicates (`=`, `DISTINCT`, etc.), while others are\nnot (e.g. `+`, `-`). Further, a key piece of our predicate evaluation is\nthe ability to push NOT through an invertible expression. Pushing down\nNOT is more than just a performance optimization -- it is required for\ncorrect stats-based data skipping because `NOT\nskipping_predicate(<expr>)` is NOT equivalent to `skipping_predicate(NOT\n<expr>)`.\n\nThe work has been carefully split into a number of commits, each\nfocusing on a different change. Most of the changes are preparatory work\nintended to gradually increase the amount of predicate awareness in the\ncode, while reducing the churn of the final diff.\n\nCloses https://github.com/delta-io/delta-kernel-rs/issues/765\n\n### This PR affects the following public APIs\n\nEverything related to expressions.\n\n## How was this change tested?\n\nAdded new unit tests and updated existing ones",
+                "commit_date": "Wed May 7 14:18:56 2025 -0600",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn evaluate_expression(\n     engine: Handle<SharedExternEngine>,\n     batch: &mut Handle<ExclusiveEngineData>,\n     evaluator: Handle<SharedExpressionEvaluator>,\n ) -> ExternResult<Handle<ExclusiveEngineData>> {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "evaluate",
+                    "new_name": "evaluate_expression"
+                }
+            },
+            {
+                "commit_info": "baa3fc3b0c1e14a87961f8c399c39b0737a34ee6",
+                "commit_title": "Part 4: read_table.c uses transform in ffi (#614)\n\nUse new transform functionality to transform data over FFI. This lets us get rid of all the gross partition adding code in c :)\n\nIn particular:\n- remove `add_partition_columns` in `arrow.c`, we don't need it anymore\n- expose ffi methods to get an expression evaluator and evaluate an\nexpression from `c`\n- use the above to add an `apply_transform` function in `arrow.c`\n\n## How was this change tested?\n\n- existing tests",
+                "commit_date": "Thu Feb 20 16:51:01 2025 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn evaluate(\n    engine: Handle<SharedExternEngine>,\n    batch: &mut Handle<ExclusiveEngineData>,\n    evaluator: Handle<SharedExpressionEvaluator>,\n) -> ExternResult<Handle<ExclusiveEngineData>> {"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "evaluate_expression",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\kernel\\src\\engine\\arrow_expression\\evaluate_expression.rs",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "2315d00bece42ca78a5ee314d80d69f0bc7407be",
+                "commit_title": "feat!: Split out predicates as different from expressions (#775)\n\n## What changes are proposed in this pull request?\n\nTeach kernel to treat \"predicates\" (boolean-valued invertible\nexpressions) as different from normal expressions (which are generally\nneither boolean-valued nor invertible). Accomplished by splitting out a\nnew `Predicate` type from today's `Expression` type, and then adjusting\nall the various transforms, visitors, and evaluation frameworks\naccordingly.\n\nThis change is highly invasive, but very important because kernel's data\nskipping cares very much about predicates (= expressions that return\nboolean values and are invertible), which are quite different from the\nordinary expressions used for transforming data. We see that tension\nalready in the fact that some of our binary operators are really\n(invertible) binary predicates (`=`, `DISTINCT`, etc.), while others are\nnot (e.g. `+`, `-`). Further, a key piece of our predicate evaluation is\nthe ability to push NOT through an invertible expression. Pushing down\nNOT is more than just a performance optimization -- it is required for\ncorrect stats-based data skipping because `NOT\nskipping_predicate(<expr>)` is NOT equivalent to `skipping_predicate(NOT\n<expr>)`.\n\nThe work has been carefully split into a number of commits, each\nfocusing on a different change. Most of the changes are preparatory work\nintended to gradually increase the amount of predicate awareness in the\ncode, while reducing the churn of the final diff.\n\nCloses https://github.com/delta-io/delta-kernel-rs/issues/765\n\n### This PR affects the following public APIs\n\nEverything related to expressions.\n\n## How was this change tested?\n\nAdded new unit tests and updated existing ones",
+                "commit_date": "Wed May 7 14:18:56 2025 -0600",
+                "added_functions": [
+                    "let left_arr = evaluate_expression(left.as_ref(), batch, None)?;"
+                ]
+            },
+            {
+                "commit_info": "72bab02d2e30cb175eb4e912d64ff179e3f94c17",
+                "commit_title": "refactor: split up `arrow_expression` module (#750)\n\n## What changes are proposed in this pull request?\nSplit arrow_expression.rs into a dedicated submodule.\nMove tests and utility functions to separate files for better\norganization and maintainability.\nThis solves the [issue\n745](https://github.com/delta-io/delta-kernel-rs/issues/745).\n\n## How was this change tested?\nexisting UT\n\nCo-authored-by: Zach Schuermann <zachary.zvs@gmail.com>",
+                "commit_date": "Fri Mar 21 05:02:09 2025 +1000",
+                "added_functions": [
+                    "pub(crate) fn evaluate_expression(\n    expression: &Expression,\n    batch: &RecordBatch,\n    result_type: Option<&DataType>,\n) -> DeltaResult<ArrayRef> {"
+                ]
+            }
+        ]
+    }
+]

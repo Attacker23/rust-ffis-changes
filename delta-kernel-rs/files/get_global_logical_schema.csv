@@ -1,0 +1,8 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,SharedSchema* logical_schema = get_global_logical_schema(global_state);,1,"(285, 285)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\scan.rs,False,True,"pub unsafe extern ""C"" fn get_global_logical_schema(
+    state: Handle<SharedGlobalScanState>,
+) -> Handle<SharedSchema> {
+    let state = unsafe { state.as_ref() };
+    state.logical_schema.clone().into()
+}",6,"(155, 160)"

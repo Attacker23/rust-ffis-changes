@@ -1,0 +1,13 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,ExternResultHandleSharedExternEngine engine_res = builder_build(engine_builder);,1,"(243, 243)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\lib.rs,False,True,"pub unsafe extern ""C"" fn builder_build(
+    builder: *mut EngineBuilder,
+) -> ExternResult<Handle<SharedExternEngine>> {
+    let builder_box = unsafe { Box::from_raw(builder) };
+    get_default_engine_impl(
+        builder_box.url,
+        builder_box.options,
+        builder_box.allocate_fn,
+    )
+    .into_extern_result(&builder_box.allocate_fn)
+}",11,"(482, 492)"

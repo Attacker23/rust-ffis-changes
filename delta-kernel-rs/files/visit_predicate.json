@@ -1,0 +1,23 @@
+[
+    {
+        "function_name": "visit_predicate",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\visit-expression\\expression.h",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "visit_predicate",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\expressions\\engine_visitor.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "2315d00bece42ca78a5ee314d80d69f0bc7407be",
+                "commit_title": "feat!: Split out predicates as different from expressions (#775)\n\n## What changes are proposed in this pull request?\n\nTeach kernel to treat \"predicates\" (boolean-valued invertible\nexpressions) as different from normal expressions (which are generally\nneither boolean-valued nor invertible). Accomplished by splitting out a\nnew `Predicate` type from today's `Expression` type, and then adjusting\nall the various transforms, visitors, and evaluation frameworks\naccordingly.\n\nThis change is highly invasive, but very important because kernel's data\nskipping cares very much about predicates (= expressions that return\nboolean values and are invertible), which are quite different from the\nordinary expressions used for transforming data. We see that tension\nalready in the fact that some of our binary operators are really\n(invertible) binary predicates (`=`, `DISTINCT`, etc.), while others are\nnot (e.g. `+`, `-`). Further, a key piece of our predicate evaluation is\nthe ability to push NOT through an invertible expression. Pushing down\nNOT is more than just a performance optimization -- it is required for\ncorrect stats-based data skipping because `NOT\nskipping_predicate(<expr>)` is NOT equivalent to `skipping_predicate(NOT\n<expr>)`.\n\nThe work has been carefully split into a number of commits, each\nfocusing on a different change. Most of the changes are preparatory work\nintended to gradually increase the amount of predicate awareness in the\ncode, while reducing the churn of the final diff.\n\nCloses https://github.com/delta-io/delta-kernel-rs/issues/765\n\n### This PR affects the following public APIs\n\nEverything related to expressions.\n\n## How was this change tested?\n\nAdded new unit tests and updated existing ones",
+                "commit_date": "Wed May 7 14:18:56 2025 -0600",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn visit_predicate(\n    predicate: &Handle<SharedPredicate>,\n    visitor: &mut EngineExpressionVisitor,\n) -> usize {"
+                ]
+            }
+        ]
+    }
+]

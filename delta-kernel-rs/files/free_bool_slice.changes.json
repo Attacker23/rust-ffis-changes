@@ -1,0 +1,56 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:drop_bool_slice",
+    "older_commit": "c945c03eb02b3bd2021950aac4e0d1f5f481c1e9",
+    "newer_commit": "43b2f256ff47cd7494196d1cf3257aaa73d1be83",
+    "changes": {
+      "function_renamed": {
+        "old": "drop_bool_slice",
+        "new": "free_bool_slice"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:drop_bool_slice",
+    "older_commit": "13a489b186dfde861e2cda8e8e3d4aaf672246e6",
+    "newer_commit": "c945c03eb02b3bd2021950aac4e0d1f5f481c1e9",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "*mut KernelBoolSlice",
+          "new": "KernelBoolSlice"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:free_bool_slice",
+    "older_commit": "839c26aee8e03803597e1fc6bf1e29273768d71b",
+    "newer_commit": "13a489b186dfde861e2cda8e8e3d4aaf672246e6",
+    "changes": {
+      "function_renamed": {
+        "old": "free_bool_slice",
+        "new": "drop_bool_slice"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:free_bool_slice",
+    "older_commit": "f85d61ad66deb2225526def535e122aad4a117bd",
+    "newer_commit": "839c26aee8e03803597e1fc6bf1e29273768d71b",
+    "changes": {
+      "both_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old_name": "_",
+          "old_type": "KernelBoolSlice",
+          "new_name": "slice",
+          "new_type": "*mut KernelBoolSlice"
+        }
+      ]
+    }
+  }
+]

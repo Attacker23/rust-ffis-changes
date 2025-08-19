@@ -1,0 +1,23 @@
+[
+    {
+        "function_name": "get_global_logical_schema",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\read_table.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "get_global_logical_schema",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "baa3fc3b0c1e14a87961f8c399c39b0737a34ee6",
+                "commit_title": "Part 4: read_table.c uses transform in ffi (#614)\n\nUse new transform functionality to transform data over FFI. This lets us get rid of all the gross partition adding code in c :)\n\nIn particular:\n- remove `add_partition_columns` in `arrow.c`, we don't need it anymore\n- expose ffi methods to get an expression evaluator and evaluate an\nexpression from `c`\n- use the above to add an `apply_transform` function in `arrow.c`\n\n## How was this change tested?\n\n- existing tests",
+                "commit_date": "Thu Feb 20 16:51:01 2025 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn get_global_logical_schema(\n    state: Handle<SharedGlobalScanState>,\n) -> Handle<SharedSchema> {"
+                ]
+            }
+        ]
+    }
+]

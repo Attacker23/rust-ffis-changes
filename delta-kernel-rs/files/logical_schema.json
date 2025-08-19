@@ -1,0 +1,23 @@
+[
+    {
+        "function_name": "logical_schema",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\schema.h",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "logical_schema",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "ca18e7fe25d4678f3c2c3cc5e14afbf8610964b8",
+                "commit_title": "feat!(ffi): remove `visit_snapshot_schema`, add `logical_schema` (#709)\n\n## What changes are proposed in this pull request?\nThis PR removes the old `visit_snapshot_schema` introduced in #683 - we\nshould just go ahead and do the 'right thing' with having a\n`visit_schema` (introduced in the other PR) and a `logical_schema()`\nfunction (added here) in order to facilitate visiting the snapshot\nschema. Additionally I've moved the schema-related things up from `scan`\nmodule to top-level in ffi crate. Exact changes listed below; this PR\nupdates tests/examples to leverage the new changes.\n\n### This PR affects the following public APIs\n\n1. Remove `visit_snapshot_schema()` API\n2. Add a new `logical_schema(snapshot)` API so you can get the schema of\na snapshot and use the `visit_schema` directly\n3. Renames `free_global_read_schema` to just `free_schema`\n4. Moves `SharedSchema` and `free_schema` up from `mod scan` into\ntop-level `ffi` crate.\n\n\n## How was this change tested?\nexisting UT",
+                "commit_date": "Fri Feb 21 11:03:22 2025 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn logical_schema(snapshot: Handle<SharedSnapshot>) -> Handle<SharedSchema> {"
+                ]
+            }
+        ]
+    }
+]

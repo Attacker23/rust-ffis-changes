@@ -1,0 +1,56 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:get_from_map",
+    "older_commit": "08f0764a00e89f42136fd478823d28278adc7ee8",
+    "newer_commit": "6a82a5714b652c1bbed256b1847103e2c2b1c9d7",
+    "changes": {
+      "function_renamed": {
+        "old": "get_from_map",
+        "new": "get_from_string_map"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:get_from_map",
+    "older_commit": "cf4cb101cbde996368b217cc8efe1eff1ad65236",
+    "newer_commit": "08f0764a00e89f42136fd478823d28278adc7ee8",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "&mut CStringMap",
+          "new": "&CStringMap"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:get_from_map",
+    "older_commit": "cc8156744a19efbb589680a4aae009f08095654f",
+    "newer_commit": "cf4cb101cbde996368b217cc8efe1eff1ad65236",
+    "changes": {
+      "return_type_changed": {
+        "old": "*mut c_void",
+        "new": "NullableCvoid"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs:get_from_map",
+    "older_commit": "7176840bc4874d6562bc0f9552084b92ceca2458",
+    "newer_commit": "cc8156744a19efbb589680a4aae009f08095654f",
+    "changes": {
+      "both_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old_name": "raw_map",
+          "old_type": "*mut CStringMap",
+          "new_name": "map",
+          "new_type": "&mut CStringMap"
+        }
+      ]
+    }
+  }
+]

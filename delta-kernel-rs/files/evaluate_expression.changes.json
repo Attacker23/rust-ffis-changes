@@ -1,0 +1,50 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\engine_funcs.rs:evaluate",
+    "older_commit": "baa3fc3b0c1e14a87961f8c399c39b0737a34ee6",
+    "newer_commit": "2315d00bece42ca78a5ee314d80d69f0bc7407be",
+    "changes": {
+      "function_renamed": {
+        "old": "evaluate",
+        "new": "evaluate_expression"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\kernel\\src\\engine\\arrow_expression\\evaluate_expression.rs:evaluate_expression",
+    "older_commit": "72bab02d2e30cb175eb4e912d64ff179e3f94c17",
+    "newer_commit": "2315d00bece42ca78a5ee314d80d69f0bc7407be",
+    "changes": {
+      "both_changed": [
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old_name": "result_type",
+          "old_type": "Option<&DataType>",
+          "new_name": "",
+          "new_type": "None"
+        },
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old_name": "batch",
+          "old_type": "&RecordBatch",
+          "new_name": "",
+          "new_type": "batch"
+        },
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old_name": "expression",
+          "old_type": "&Expression",
+          "new_name": "",
+          "new_type": "left.as_ref()"
+        }
+      ],
+      "return_type_changed": {
+        "old": "DeltaResult<ArrayRef>",
+        "new": ""
+      }
+    }
+  }
+]

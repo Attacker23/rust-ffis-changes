@@ -1,0 +1,13 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\engine_funcs.rs:free_evaluator",
+    "older_commit": "baa3fc3b0c1e14a87961f8c399c39b0737a34ee6",
+    "newer_commit": "4ad2bc6b9d2187dcfab8ed5707f27454768f5e38",
+    "changes": {
+      "function_renamed": {
+        "old": "free_evaluator",
+        "new": "free_expression_evaluator"
+      }
+    }
+  }
+]

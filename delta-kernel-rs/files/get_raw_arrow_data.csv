@@ -1,0 +1,10 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\arrow.c,True,False,"ExternResultArrowFFIData arrow_res = get_raw_arrow_data(transformed, context->engine);",1,"(148, 148)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\engine_data.rs,False,True,"pub unsafe extern ""C"" fn get_raw_arrow_data(
+    data: Handle<ExclusiveEngineData>,
+    engine: Handle<SharedExternEngine>,
+) -> ExternResult<*mut ArrowFFIData> {
+    // TODO(frj): This consumes the handle. Is that what we really want?
+    let data = unsafe { data.into_inner() };
+    get_raw_arrow_data_impl(data).into_extern_result(&engine.as_ref())
+}",7,"(71, 78)"

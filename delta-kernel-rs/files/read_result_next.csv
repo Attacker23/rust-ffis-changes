@@ -1,0 +1,14 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\arrow.c,True,False,"ExternResultbool ok_res = read_result_next(read_iter, context, visit_read_data);",1,"(192, 192)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\engine_funcs.rs,False,True,"pub unsafe extern ""C"" fn read_result_next(
+    mut data: Handle<ExclusiveFileReadResultIterator>,
+    engine_context: NullableCvoid,
+    engine_visitor: extern ""C"" fn(
+        engine_context: NullableCvoid,
+        engine_data: Handle<ExclusiveEngineData>,
+    ),
+) -> ExternResult<bool> {
+    let iter = unsafe { data.as_mut() };
+    read_result_next_impl(iter, engine_context, engine_visitor)
+        .into_extern_result(iter.engine.error_allocator())
+}",12,"(60, 71)"

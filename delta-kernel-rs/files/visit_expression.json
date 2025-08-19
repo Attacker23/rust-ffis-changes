@@ -1,0 +1,23 @@
+[
+    {
+        "function_name": "visit_expression",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\visit-expression\\expression.h",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "visit_expression",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\expressions\\engine_visitor.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "5e5c299a0cd748536d4d70fa9f88fb5b4b877bb6",
+                "commit_title": "Add visitor for converting kernel expressions to engine expressions (#363)\n\n## Rationale for the change\nEngines may need to apply expressions that originate in the kernel. This\ncan include filter predicates such as filters for protocol and metadata\nactions in a log file. Another example is logical to physical\ntransformations that the engine must apply, for instance to materialize\npartition columns. This PR introduces a visitor framework for kernel\nexpressions to be converted to engine expressions so that engines can\napply their own evaluators, predicate pushdowns, and optimizations on\nthese expressions.\n\nCloses: #358\n## What changes are included in this PR?\n5 major changes are made in this PR:\n1) A new module `ffi/src/expressions/kernel.rs` is added. This module is\nresponsible for converting kernel `Expression`s to the engine's\nrepresentation of expressions through an ffi-compatible visitor. The\nvisitor supports binary operations, scalars, struct expressions,\nvariadic and unary operators, and columns. All the engine has to do is\nimplement an `EngineExpressionVisitor` to support the conversion.\n2) The `EnginePredicate` to kernel `Expression`visitor code is moved to\n`ffi/src/expressions/engine.rs`. This is done to keep all ffi expression\ncode under the `ffi/src/expressions` module.\n3) This PR also allows engines to get `SharedExpression`s, which are\nhandles to the kernel's `Expression` type. These are given back to the\nkernel to specify which expression the engine would like to visit.\n4) A new ffi example is added to showcase how the\n`EngineExpressionVisitor` can be used to construct expressions. This is\na C implementation that can be found in\n`ffi/examples/visit-expression/`. The example only prints an expression\nthat it receives from the kernel and asserts that it matches an expected\noutput.\n5) A new testing feature flag `test-ffi` is added to the `ffi` crate.\nThis feature flag is used to expose testing functions found in\n`ffi/src/test_ffi`. This module is currently used to return a kernel\nexpression `get_testing_kernel_expression` used in the example c\nimplementation.\n<!-- Mention all the new apis for the visitor. How they work (ex:\nSchema) -->\n## Are these changes tested?\nTwo tests are added:\n- I introduced a new test to validate the expression visitor functions\ncorrectly and converts data as expected. This simply prints out the\nexpression tree structure and compares it to an expected result. The\nkernel expression can be found in `ffi/src/test_ffi.rs`, and the\nexpected output is in `ffi/tests/test-expression-visitor/expected.txt`\n- There is also a test that checks for memory leaks in the expression\nvisitor using valgrind.\n\n## Are there any user-facing changes?\nThis PR introduces a public facing API for constructing expressions and\nvisiting them. It also adds `delta_kernel_derive` as a public export of\n`kernel` crate. This PR does not break existing APIs.",
+                "commit_date": "Mon Oct 28 12:39:16 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn visit_expression(\n    expression: &Handle<SharedExpression>,\n    visitor: &mut EngineExpressionVisitor,\n) -> usize {"
+                ]
+            }
+        ]
+    }
+]

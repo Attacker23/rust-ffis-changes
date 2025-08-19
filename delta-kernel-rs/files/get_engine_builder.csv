@@ -1,0 +1,9 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,"get_engine_builder(table_path_slice, allocate_error);",1,"(230, 230)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\lib.rs,False,True,"pub unsafe extern ""C"" fn get_engine_builder(
+    path: KernelStringSlice,
+    allocate_error: AllocateErrorFn,
+) -> ExternResult<*mut EngineBuilder> {
+    let url = unsafe { unwrap_and_parse_path_as_url(path) };
+    get_engine_builder_impl(url, allocate_error).into_extern_result(&allocate_error)
+}",7,"(433, 439)"

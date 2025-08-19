@@ -1,0 +1,178 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_engine",
+    "older_commit": "4e2a7e379f85e280de93a4dcfaac64a7cf1de1d1",
+    "newer_commit": "8b082168eef59eda62b203c8fe29e689e44374a1",
+    "changes": {
+      "return_type_changed": {
+        "old": "ExternResult<*const ExternEngineHandle>",
+        "new": "ExternResult<Handle<SharedExternEngine>>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_client",
+    "older_commit": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+    "newer_commit": "4e2a7e379f85e280de93a4dcfaac64a7cf1de1d1",
+    "changes": {
+      "function_renamed": {
+        "old": "get_default_client",
+        "new": "get_default_engine"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_client",
+    "older_commit": "0b32b3b416513fac8a8355311693b593e9c61f59",
+    "newer_commit": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+    "changes": {
+      "return_type_changed": {
+        "old": "ExternResult<*const ExternEngineInterfaceHandle>",
+        "new": "ExternResult<*const ExternEngineHandle>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_client",
+    "older_commit": "7a2179b0a55fb19452846de45bd529afe36623d7",
+    "newer_commit": "0b32b3b416513fac8a8355311693b593e9c61f59",
+    "changes": {
+      "return_type_changed": {
+        "old": "ExternResult<*const ExternTableClientHandle>",
+        "new": "ExternResult<*const ExternEngineInterfaceHandle>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_client",
+    "older_commit": "b0b1f62c1b720d8c4202547fa0713c06de7e25f0",
+    "newer_commit": "7a2179b0a55fb19452846de45bd529afe36623d7",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "*const c_char",
+          "new": "KernelStringSlice"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_client",
+    "older_commit": "b7e67023f28ed995ad1c709883f82d2e49e1f22a",
+    "newer_commit": "b0b1f62c1b720d8c4202547fa0713c06de7e25f0",
+    "changes": {
+      "added": [
+        {
+          "index_new": 1,
+          "name": "allocate_error",
+          "type": "AllocateErrorFn"
+        }
+      ],
+      "param_count_changed": {
+        "added": [
+          {
+            "index_new": 1,
+            "name": "allocate_error",
+            "type": "AllocateErrorFn"
+          }
+        ],
+        "removed": [],
+        "delta": 1
+      },
+      "return_type_changed": {
+        "old": "*const KernelDefaultTableClient",
+        "new": "ExternResult<*const ExternTableClientHandle>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_engine",
+    "older_commit": "4e2a7e379f85e280de93a4dcfaac64a7cf1de1d1",
+    "newer_commit": "8b082168eef59eda62b203c8fe29e689e44374a1",
+    "changes": {
+      "return_type_changed": {
+        "old": "ExternResult<*const ExternEngineHandle>",
+        "new": "ExternResult<Handle<SharedExternEngine>>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_client",
+    "older_commit": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+    "newer_commit": "4e2a7e379f85e280de93a4dcfaac64a7cf1de1d1",
+    "changes": {
+      "function_renamed": {
+        "old": "get_default_client",
+        "new": "get_default_engine"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_client",
+    "older_commit": "0b32b3b416513fac8a8355311693b593e9c61f59",
+    "newer_commit": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+    "changes": {
+      "return_type_changed": {
+        "old": "ExternResult<*const ExternEngineInterfaceHandle>",
+        "new": "ExternResult<*const ExternEngineHandle>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_client",
+    "older_commit": "7a2179b0a55fb19452846de45bd529afe36623d7",
+    "newer_commit": "0b32b3b416513fac8a8355311693b593e9c61f59",
+    "changes": {
+      "return_type_changed": {
+        "old": "ExternResult<*const ExternTableClientHandle>",
+        "new": "ExternResult<*const ExternEngineInterfaceHandle>"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_client",
+    "older_commit": "b0b1f62c1b720d8c4202547fa0713c06de7e25f0",
+    "newer_commit": "7a2179b0a55fb19452846de45bd529afe36623d7",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "*const c_char",
+          "new": "KernelStringSlice"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_default_client",
+    "older_commit": "b7e67023f28ed995ad1c709883f82d2e49e1f22a",
+    "newer_commit": "b0b1f62c1b720d8c4202547fa0713c06de7e25f0",
+    "changes": {
+      "added": [
+        {
+          "index_new": 1,
+          "name": "allocate_error",
+          "type": "AllocateErrorFn"
+        }
+      ],
+      "param_count_changed": {
+        "added": [
+          {
+            "index_new": 1,
+            "name": "allocate_error",
+            "type": "AllocateErrorFn"
+          }
+        ],
+        "removed": [],
+        "delta": 1
+      },
+      "return_type_changed": {
+        "old": "*const KernelDefaultTableClient",
+        "new": "ExternResult<*const ExternTableClientHandle>"
+      }
+    }
+  }
+]

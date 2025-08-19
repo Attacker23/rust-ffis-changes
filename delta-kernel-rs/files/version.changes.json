@@ -1,0 +1,32 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:version",
+    "older_commit": "b0b1f62c1b720d8c4202547fa0713c06de7e25f0",
+    "newer_commit": "8b082168eef59eda62b203c8fe29e689e44374a1",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "*const SnapshotHandle",
+          "new": "Handle<SharedSnapshot>"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:version",
+    "older_commit": "b7e67023f28ed995ad1c709883f82d2e49e1f22a",
+    "newer_commit": "b0b1f62c1b720d8c4202547fa0713c06de7e25f0",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "&Snapshot",
+          "new": "*const SnapshotHandle"
+        }
+      ]
+    }
+  }
+]

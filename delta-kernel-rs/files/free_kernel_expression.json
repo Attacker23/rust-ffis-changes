@@ -1,0 +1,23 @@
+[
+    {
+        "function_name": "free_kernel_expression",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\visit-expression\\visit_expression.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "free_kernel_expression",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\expressions\\mod.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "c92dbfd30bf10fd53ffaa04b01aefe77f5b5a4ce",
+                "commit_title": "refactor!: Code movement in FFI crate (#940)\n\n## What changes are proposed in this pull request?\n\nReorganize the FFI code so its two visitor modules contain only visitor\ncode, and their names reflect it.\n\n### This PR affects the following public APIs\n\nCode movement in the FFI crate:\n1. Rename `ffi::expressions::engine` mod as `kernel_visitor` to more\naccurately reflect the module's existing doc comment: \"Defines\n[`KernelExpressionVisitorState`]\".\n2. Rename `ffi::expressions::kernel` mod as `engine_visitor` to more\naccurately reflect the module's existing doc comment: \"Defines\n[`EngineExpressionVisitor`]\".\n3. Move the `free_kernel_[expression|predicate]` functions to the\nexpressions mod, which already defines the corresponding shared handle\ntypes those functions work with.\n4. Move the `EnginePredicate` struct to the `ffi::scan` module, which is\ncurrently the type's only consumer.\n\n## How was this change tested?\n\nCode movement. Compilation suffices.",
+                "commit_date": "Mon May 12 16:57:36 2025 -0600",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn free_kernel_expression(data: Handle<SharedExpression>) {"
+                ]
+            }
+        ]
+    }
+]

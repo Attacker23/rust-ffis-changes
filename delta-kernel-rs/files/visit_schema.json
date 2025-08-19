@@ -1,0 +1,23 @@
+[
+    {
+        "function_name": "visit_schema",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\schema.h",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "visit_schema",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\schema.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "72b585d45c8cba8062efb3c92406c2dd0c2cd4c0",
+                "commit_title": "feat!(ffi): new visit_schema FFI and rename old visit_schema to visit_snapshot_schema (#683)\n\n## What changes are proposed in this pull request?\nWhen given a schema (e.g. in `global_scan_state`) the engine needs a way\nto visit this schema. This introduces a new API `visit_schema` to allow\nengines to visit any schema over FFI. An API called `visit_schema`\npreviously existed but visited the schema of a given _snapshot_; this\nhas now been renamed to `visit_snapshot_schema`.\n\n\n### This PR affects the following public APIs\nRenamed `visit_schema` to `visit_snapshot_schema` and now `visit_schema`\ntakes `SharedSchema` as an argument instead of a snapshot.\n\n\n## How was this change tested?\nupdated read_table test",
+                "commit_date": "Wed Feb 19 08:53:06 2025 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn visit_schema(\n    schema: Handle<SharedSchema>,\n    visitor: &mut EngineSchemaVisitor,\n) -> usize {"
+                ]
+            }
+        ]
+    }
+]

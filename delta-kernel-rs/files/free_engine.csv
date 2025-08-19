@@ -1,0 +1,6 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,free_engine(engine);,1,"(340, 340)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\lib.rs,False,True,"pub unsafe extern ""C"" fn free_engine(engine: Handle<SharedExternEngine>) {
+    debug!(""engine released engine"");
+    engine.drop_handle();
+}",4,"(567, 570)"

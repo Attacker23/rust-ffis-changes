@@ -1,0 +1,23 @@
+[
+    {
+        "function_name": "free_scan_metadata",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\read_table.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "free_scan_metadata",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "b38bc5dc4f794ca16c291859e48773bdca07672a",
+                "commit_title": "refactor!: update `ScanMetadata` to struct with new `FilteredEngineData` type (#768)\n\n## What changes are proposed in this pull request?\n\n1. Updated `ScanMetata` from typed tuple to struct. ScanMetadata is now\na struct with fields:\n- filtered_data: A `FilteredEngineData` instance.\n- transforms: A vector of transformations to be applied to the data read\nfrom the files\n\n2. Introduction of `FilteredEngineData` type:\nCouples `EngineData` with a selection vector indicating which rows to\nprocess.\nThis type is returned from the`scan_metadata` API and the incoming\n`checkpoint` API\n\n3. Updates `visit_scan_files` parameters to accept `ScanMetadata` to\navoid de-structuring.\n\n4. Corresponding FFI changes for `visit_scan_files` to accept\n`ScanMetadata` param\n\nAll current tests pass.",
+                "commit_date": "Wed Apr 9 17:06:41 2025 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn free_scan_metadata(scan_metadata: Handle<SharedScanMetadata>) {"
+                ]
+            }
+        ]
+    }
+]

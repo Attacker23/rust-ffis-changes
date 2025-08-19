@@ -1,0 +1,12 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,uint64_t v = version(snapshot);,1,"(266, 266)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\lib.rs,False,True,"pub unsafe extern ""C"" fn version(snapshot: Handle<SharedSnapshot>) -> u64 {
+    let snapshot = unsafe { snapshot.as_ref() };
+    snapshot.version()
+}",4,"(616, 619)"
+Rust,E:\rust_projects\c\delta-kernel-rs\kernel\src\snapshot.rs,False,False,"pub fn version(&self) -> Version {
+        self.table_configuration().version()
+    }",3,"(272, 274)"
+Rust,E:\rust_projects\c\delta-kernel-rs\kernel\src\table_configuration.rs,False,False,"pub(crate) fn version(&self) -> Version {
+        self.version
+    }",3,"(155, 157)"

@@ -1,0 +1,35 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\test_ffi.rs:new",
+    "older_commit": "5e5c299a0cd748536d4d70fa9f88fb5b4b877bb6",
+    "newer_commit": "2315d00bece42ca78a5ee314d80d69f0bc7407be",
+    "changes": {
+      "function_renamed": {
+        "old": "new",
+        "new": "get_testing_kernel_predicate"
+      },
+      "removed": [
+        {
+          "index_old": 0,
+          "name": "Expr",
+          "type": ":and_from(sub_exprs)"
+        }
+      ],
+      "param_count_changed": {
+        "added": [],
+        "removed": [
+          {
+            "index_old": 0,
+            "name": "Expr",
+            "type": ":and_from(sub_exprs)"
+          }
+        ],
+        "delta": -1
+      },
+      "return_type_changed": {
+        "old": "",
+        "new": "Handle<SharedPredicate>"
+      }
+    }
+  }
+]

@@ -1,0 +1,8 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\visit-expression\expression.h,True,False,"uintptr_t top_level_id = visit_predicate(&predicate, &visitor);",1,"(428, 428)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\expressions\engine_visitor.rs,False,True,"pub unsafe extern ""C"" fn visit_predicate(
+    predicate: &Handle<SharedPredicate>,
+    visitor: &mut EngineExpressionVisitor,
+) -> usize {
+    visit_predicate_internal(predicate.as_ref(), visitor)
+}",6,"(223, 228)"

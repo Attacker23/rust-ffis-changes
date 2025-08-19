@@ -1,0 +1,17 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs:get_engine_interface_builder",
+    "older_commit": "248edcbd67923532666d62b4d45e80210746d9a3",
+    "newer_commit": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+    "changes": {
+      "function_renamed": {
+        "old": "get_engine_interface_builder",
+        "new": "get_engine_builder"
+      },
+      "return_type_changed": {
+        "old": "ExternResult<*mut EngineInterfaceBuilder>",
+        "new": "ExternResult<*mut EngineBuilder>"
+      }
+    }
+  }
+]

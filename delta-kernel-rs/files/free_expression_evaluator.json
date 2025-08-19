@@ -1,0 +1,36 @@
+[
+    {
+        "function_name": "free_expression_evaluator",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\arrow.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "free_expression_evaluator",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\engine_funcs.rs",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "baa3fc3b0c1e14a87961f8c399c39b0737a34ee6",
+                "commit_title": "Part 4: read_table.c uses transform in ffi (#614)\n\nUse new transform functionality to transform data over FFI. This lets us get rid of all the gross partition adding code in c :)\n\nIn particular:\n- remove `add_partition_columns` in `arrow.c`, we don't need it anymore\n- expose ffi methods to get an expression evaluator and evaluate an\nexpression from `c`\n- use the above to add an `apply_transform` function in `arrow.c`\n\n## How was this change tested?\n\n- existing tests",
+                "commit_date": "Thu Feb 20 16:51:01 2025 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn free_evaluator(evaluator: Handle<SharedExpressionEvaluator>) {"
+                ]
+            },
+            {
+                "commit_info": "4ad2bc6b9d2187dcfab8ed5707f27454768f5e38",
+                "commit_title": "refactor!: Remove get_ prefix from engine getters (#804)\n\n## What changes are proposed in this pull request?\n\nRust doesn't encourage the `get_` prefix for getters because it's\nredundant and anyway a getter is allowed to have the same name as the\nfield it exposes. Remove the prefix from the various engine interfaces.\nAdditionally, rename `get_evaluator` as `new_expression_evaluator` to\naccurately reflect that it is _NOT_ a getter at all, but actually\ncreates a new expression evaluator.\n\nFinally, we also rename `ExpressionHandler` to `EvaluationHandler`\nbecause that trait is used to create expression _evaluators_, not\nexpressions. Additionally, future work will differentiate generic\n\"expressions\" from \"predicates\" (boolean-valued expressions with special\nevaluation semantics), and that will likely necessitate defining a\n`EvaluationHandler::new_predicate_evaluator` method alongside the\n`new_expression_evaluator` method.\n\n### This PR affects the following public APIs\n\nAll the methods and traits we change are public.\n\n## How was this change tested?\n\nRename-only operation, no functional changes. Compilation suffices.",
+                "commit_date": "Mon Apr 7 14:17:36 2025 -0600",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn free_expression_evaluator(evaluator: Handle<SharedExpressionEvaluator>) {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "free_evaluator",
+                    "new_name": "free_expression_evaluator"
+                }
+            }
+        ]
+    }
+]

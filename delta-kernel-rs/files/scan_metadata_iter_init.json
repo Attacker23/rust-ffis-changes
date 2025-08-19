@@ -1,0 +1,52 @@
+[
+    {
+        "function_name": "scan_metadata_iter_init",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\read_table.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "scan_metadata_iter_init",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\scan.rs",
+        "commit_count": 4,
+        "commits": [
+            {
+                "commit_info": "8b082168eef59eda62b203c8fe29e689e44374a1",
+                "commit_title": "Harmonize BoxHandle and ArcHandle (#182)\n\nPreviously `BoxHandle` was very simplistic (could only handle `Sized`\ntypes), while `ArcHandle` was overly abstracted (even a `SizedArcHandle`\nhad type indirection that made it harder to use the resulting handle, in\nthe common case of a rust callee who does not need to clone the handle\nand only needs a borrowed reference to the underlying).\n\nWith this PR, we harmonize them into a single `Handle` concept which\nuses a `HandleDescriptor` trait to express four modes: {sized, unsized}\nx {box, arc}. The memory layout differs for sized vs. unsized types (the\nformer being more efficient), while box vs. arc is chosen based on\nwhether owned vs. shared reference semantics are desired.\n\nAll handles provide an `as_ref()` method for obtaining a shared\nreference; arc handles provide an `as_arc()` method that returns a new\nArc for the object (bumping its reference count), while box handles\nprovide an `as_mut()` method that returns a mutable reference. In all\ncases, a handle remains valid until specifically dropped by the user.",
+                "commit_date": "Wed May 22 11:41:34 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn kernel_scan_data_init(\n    engine: Handle<SharedExternEngine>,\n    scan: Handle<SharedScan>,\n) -> ExternResult<Handle<SharedScanDataIterator>> {"
+                ]
+            },
+            {
+                "commit_info": "10bdee7941177ac71c4982652be566183404b631",
+                "commit_title": "refactor!: rename `ScanData` to `ScanMetadata` (#817)\n\n## What changes are proposed in this pull request?\nRename `ScanData` to `ScanMetadata` and `Scan::scan_data` to\n`Scan::scan_metadata` (and corresponding FFI). Additionally, renames\n`TableChangesScanData` to `TableChangesScanMetadata`. Additional\ndocs/refactor coming in #768\n\n### This PR affects the following public APIs\n\nbreaking changes:\n1. rename `ScanData` to `ScanMetadata`\n2. rename `Scan::scan_data()` to `Scan::scan_metadata()`\n3. (ffi) rename `free_kernel_scan_data()` to `free_scan_metadata_iter()`\n4. (ffi) rename `kernel_scan_data_next()` to `scan_metadata_next()`\n5. (ffi) rename `visit_scan_data()` to `visit_scan_metadata()`\n6. (ffi) rename `kernel_scan_data_init()` to `scan_metadata_iter_init()`\n7. (ffi) rename `KernelScanDataIterator` to `ScanMetadataIterator`\n8. (ffi) rename `SharedScanDataIterator` to `SharedScanMetadataIterator`\n\n\n## How was this change tested?\nexisting\n\nresolves #816",
+                "commit_date": "Wed Apr 9 16:13:51 2025 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn scan_metadata_iter_init(\n     engine: Handle<SharedExternEngine>,\n     scan: Handle<SharedScan>,\n) -> ExternResult<Handle<SharedScanMetadataIterator>> {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "kernel_scan_data_init",
+                    "new_name": "scan_metadata_iter_init"
+                }
+            },
+            {
+                "commit_info": "59ebdd23a6a87fe380d0c0f992a1ef883c722f58",
+                "commit_title": "Rename `EngineInterface` to `Engine` (#191)\n\nDoes _a lot_ of renaming:\n- `EngineInterface` to `Engine`.\n- All `impls` to drop the `Interface` part of the name, and changes any\n`engine_interface` variables to be just `engine`.\n- change the `client` mod name to `engine`\n- feature flags: `default-client` -> `default-engine`, `sync-client` ->\n`sync-engine`\n- There were a few leftover places where we still called this\n`table_client`, this also renames those to `engine`.\n- Also this changes the word \"interface\" to \"trait\" in some comments\nwhere we really meant trait and not interface.\n\nEnsured I got to everything by grepping:\n```\n$ rg -i EngineInterface\n$ rg -i engine_interface\n$ rg -i table_client\n$ rg -i interface # these are all proper uses of the word interface\nLICENSE\n45:      separable from, or merely link (or bind by name) to the interfaces of,\n\nacceptance/README.md\n6:allowing us to test the exact same client interfaces that any connector\n\nffi/src/lib.rs\n1:/// FFI interface for the delta kernel\n3:/// Exposes that an engine needs to call from C/C++ to interface with kernel\n\nffi/src/scan.rs\n42:/// Interface](https://arrow.apache.org/docs/format/CDataInterface.html). This includes the data and\n52:/// Interface](https://arrow.apache.org/docs/format/CDataInterface.html). This includes the data and\n```",
+                "commit_date": "Sat May 4 07:48:44 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn kernel_scan_data_init(\n    engine: *const ExternEngineHandle,\n    scan: *mut Scan,\n) -> ExternResult<*mut KernelScanDataIterator> {"
+                ]
+            },
+            {
+                "commit_info": "7176840bc4874d6562bc0f9552084b92ceca2458",
+                "commit_title": "move scan + data stuff to own module",
+                "commit_date": "Sat Apr 20 15:46:02 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn kernel_scan_data_init(\n    engine_interface: *const ExternEngineInterfaceHandle,\n    scan: *mut Scan,\n) -> ExternResult<*mut KernelScanDataIterator> {"
+                ]
+            }
+        ]
+    }
+]

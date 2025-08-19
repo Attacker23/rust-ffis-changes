@@ -1,0 +1,22 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,"// enable_formatted_log_line_tracing(log_line_callback, TRACE, FULL, true, true, false, false);",0,"(219, 219)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\ffi_tracing.rs,False,True,"pub unsafe extern ""C"" fn enable_formatted_log_line_tracing(
+    callback: TracingLogLineFn,
+    max_level: Level,
+    format: LogLineFormat,
+    ansi: bool,
+    with_time: bool,
+    with_level: bool,
+    with_target: bool,
+) -> bool {
+    setup_log_line_subscriber(
+        callback,
+        max_level,
+        format,
+        ansi,
+        with_time,
+        with_level,
+        with_target,
+    )
+    .is_ok()
+}",20,"(197, 216)"

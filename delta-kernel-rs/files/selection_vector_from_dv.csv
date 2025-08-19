@@ -1,0 +1,11 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\delta-kernel-rs\ffi\examples\read-table\read_table.c,True,False,"selection_vector_from_dv(dv_info, context->engine, context->global_state);",1,"(65, 65)"
+Rust,E:\rust_projects\c\delta-kernel-rs\ffi\src\scan.rs,False,True,"pub unsafe extern ""C"" fn selection_vector_from_dv(
+    dv_info: &DvInfo,
+    engine: Handle<SharedExternEngine>,
+    state: Handle<SharedGlobalScanState>,
+) -> ExternResult<KernelBoolSlice> {
+    let state = unsafe { state.as_ref() };
+    let engine = unsafe { engine.as_ref() };
+    selection_vector_from_dv_impl(dv_info, engine, state).into_extern_result(&engine)
+}",9,"(382, 390)"

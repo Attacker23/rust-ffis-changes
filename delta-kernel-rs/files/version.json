@@ -1,0 +1,51 @@
+[
+    {
+        "function_name": "version",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\examples\\read-table\\read_table.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "version",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\ffi\\src\\lib.rs",
+        "commit_count": 3,
+        "commits": [
+            {
+                "commit_info": "8b082168eef59eda62b203c8fe29e689e44374a1",
+                "commit_title": "Harmonize BoxHandle and ArcHandle (#182)\n\nPreviously `BoxHandle` was very simplistic (could only handle `Sized`\ntypes), while `ArcHandle` was overly abstracted (even a `SizedArcHandle`\nhad type indirection that made it harder to use the resulting handle, in\nthe common case of a rust callee who does not need to clone the handle\nand only needs a borrowed reference to the underlying).\n\nWith this PR, we harmonize them into a single `Handle` concept which\nuses a `HandleDescriptor` trait to express four modes: {sized, unsized}\nx {box, arc}. The memory layout differs for sized vs. unsized types (the\nformer being more efficient), while box vs. arc is chosen based on\nwhether owned vs. shared reference semantics are desired.\n\nAll handles provide an `as_ref()` method for obtaining a shared\nreference; arc handles provide an `as_arc()` method that returns a new\nArc for the object (bumping its reference count), while box handles\nprovide an `as_mut()` method that returns a mutable reference. In all\ncases, a handle remains valid until specifically dropped by the user.",
+                "commit_date": "Wed May 22 11:41:34 2024 -0700",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn version(snapshot: Handle<SharedSnapshot>) -> u64 {"
+                ]
+            },
+            {
+                "commit_info": "b7e67023f28ed995ad1c709883f82d2e49e1f22a",
+                "commit_title": "partially implement FFI",
+                "commit_date": "Wed Dec 13 09:07:25 2023 -0800",
+                "added_functions": [
+                    "pub extern \"C\" fn version(snapshot: &Snapshot) -> u64 {"
+                ]
+            },
+            {
+                "commit_info": "b0b1f62c1b720d8c4202547fa0713c06de7e25f0",
+                "commit_title": "start supporting basic error handling and harmonize trait passing",
+                "commit_date": "Tue Feb 20 16:15:26 2024 -0800",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn version(snapshot: *const SnapshotHandle) -> u64 {"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "version",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\kernel\\src\\snapshot.rs",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "version",
+        "file_name": "E:\\rust_projects\\c\\delta-kernel-rs\\kernel\\src\\table_configuration.rs",
+        "commit_count": 0,
+        "commits": []
+    }
+]
