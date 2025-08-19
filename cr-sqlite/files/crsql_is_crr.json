@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "crsql_is_crr",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\rust.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "d960bc44c1dd5f7c5ca2b026f42b2e650b151530",
+                "commit_title": "expose a way for C to call Rust to unpack a packed column",
+                "commit_date": "Sat Jul 1 21:58:40 2023 -0400",
+                "added_functions": [
+                    "int crsql_is_crr(sqlite3 *db, const char *tblName);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_is_crr",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\lib.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "a0b800acaf22b4a6398dc6cf726b0853ba45604a",
+                "commit_title": "is_crr utility to short-circuit crr re-creation\n\nThis is now needed given we perform a backfill task on upgrading a table to a CRR and/or\npost schema modification of a table.\n\nIf the table already was a CRR and never had a schema modification, no need to re-run the\nCRR tasks + backfill.\n\nIt is a common pattern in apps to do this at startup:\n\ndb.apply_schema(some_schema);\n\nwhere `some_schema` is:\n\n```sql\nCREATE TABLE IF NOT EXISTS tbl ....;\nSELECT crsql_as_crr('tbl');\n...\n```\n\nWe could technically also abstract this away in our auto-migrate facility.\n\nI.e.,\n\n```sql\nSELECT crsql_auto_migrate(schema_version, schema_string);\n```\n\nwhere, if there is no schema_version delta, we skip application of the schema_string.",
+                "commit_date": "Wed Mar 22 15:46:16 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_is_crr(db: *mut sqlite::sqlite3, table: *const c_char) -> c_int {"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "crsql_is_table_compatible",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\rust.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "b6e20e5bc3d375ec4ad273ca658a91ad72b91a03",
+                "commit_title": "move isTableCompatible to Rust",
+                "commit_date": "Mon Sep 11 12:50:34 2023 +0700",
+                "added_functions": [
+                    "int crsql_is_table_compatible(sqlite3 *db, const char *tblName, char **err);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_is_table_compatible",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\lib.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "b6e20e5bc3d375ec4ad273ca658a91ad72b91a03",
+                "commit_title": "move isTableCompatible to Rust",
+                "commit_date": "Mon Sep 11 12:50:34 2023 +0700",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_is_table_compatible(\n    db: *mut sqlite::sqlite3,\n    table: *const c_char,\n    err: *mut *mut c_char,\n) -> c_int {"
+                ]
+            }
+        ]
+    }
+]

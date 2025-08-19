@@ -1,0 +1,22 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\rust.h,True,False,"int crsql_create_crr(sqlite3 *db, const char *schemaName, const char *tblName,
+                     int isCommitAlter, int noTx, char **err);",2,"(19, 20)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\lib.rs,False,True,"pub extern ""C"" fn crsql_create_crr(
+    db: *mut sqlite::sqlite3,
+    schema: *const c_char,
+    table: *const c_char,
+    is_commit_alter: c_int,
+    no_tx: c_int,
+    err: *mut *mut c_char,
+) -> c_int {
+    let schema = unsafe { CStr::from_ptr(schema).to_str() };
+    let table = unsafe { CStr::from_ptr(table).to_str() };
+
+    return match (table, schema) {
+        (Ok(table), Ok(schema)) => {
+            create_crr(db, schema, table, is_commit_alter != 0, no_tx != 0, err)
+                .unwrap_or_else(|err| err) as c_int
+        }
+        _ => ResultCode::NOMEM as c_int,
+    };
+}",18,"(851, 869)"

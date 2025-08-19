@@ -1,0 +1,38 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\crsqlite.c:crsql_compactPostAlter",
+    "older_commit": "b6a6f6c5a72aff66b6defb32735c249f6519221b",
+    "newer_commit": "48f8da70bc774ac114d5a7e15e7d6639cf2e7e27",
+    "changes": {
+      "function_renamed": {
+        "old": "crsql_compactPostAlter",
+        "new": "crsql_compact_post_alter"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\crsqlite.c:crsql_compactPostAlter",
+    "older_commit": "ebb8726b6d8fefda9fc93e5707d4027666af7103",
+    "newer_commit": "b6a6f6c5a72aff66b6defb32735c249f6519221b",
+    "changes": {
+      "added": [
+        {
+          "index_new": 2,
+          "name": "*pExtData",
+          "type": "crsql_ExtData"
+        }
+      ],
+      "param_count_changed": {
+        "added": [
+          {
+            "index_new": 2,
+            "name": "*pExtData",
+            "type": "crsql_ExtData"
+          }
+        ],
+        "removed": [],
+        "delta": 1
+      }
+    }
+  }
+]

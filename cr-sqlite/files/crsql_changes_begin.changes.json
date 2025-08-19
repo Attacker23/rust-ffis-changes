@@ -1,0 +1,43 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\changes-vtab.c:xBegin",
+    "older_commit": "68cefa9f7c0aa9b1467dae73fad20d75d010fc67",
+    "newer_commit": "20490c06e782a6162adba282498bb5fd1d1ce10e",
+    "changes": {
+      "function_renamed": {
+        "old": "xBegin",
+        "new": "crsql_changes_begin"
+      },
+      "return_type_changed": {
+        "old": "static int",
+        "new": "int"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\changes_vtab.rs:crsql_changes_begin",
+    "older_commit": "20490c06e782a6162adba282498bb5fd1d1ce10e",
+    "newer_commit": "6be025bfb489f12bf0d2196bfa6ff552e266205d",
+    "changes": {
+      "name_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "vtab",
+          "new": "_vtab"
+        }
+      ]
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\changes_vtab.rs:begin",
+    "older_commit": "34e44627e723c0bd4de4c4d2dd15b0f58ba5b66f",
+    "newer_commit": "20490c06e782a6162adba282498bb5fd1d1ce10e",
+    "changes": {
+      "function_renamed": {
+        "old": "begin",
+        "new": "crsql_changes_begin"
+      }
+    }
+  }
+]

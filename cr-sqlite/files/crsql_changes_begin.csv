@@ -1,0 +1,5 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\changes-vtab.c,True,False,int crsql_changes_begin(sqlite3_vtab *pVTab);,1,"(145, 145)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\changes_vtab.rs,False,True,"pub extern ""C"" fn crsql_changes_begin(_vtab: *mut sqlite::vtab) -> c_int {
+    ResultCode::OK as c_int
+}",3,"(563, 565)"

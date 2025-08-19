@@ -1,0 +1,23 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\rust.h,True,False,"int crsql_maybe_update_db(sqlite3 *db, char **pzErrMsg);",1,"(17, 17)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\bootstrap.rs,False,True,"pub extern ""C"" fn crsql_maybe_update_db(db: *mut sqlite3, err_msg: *mut *mut c_char) -> c_int {
+    // No schema table? First time this DB has been opened with this extension.
+    if let Ok(has_schema_table) = has_table(db, consts::TBL_SCHEMA) {
+        if let Err(code) = crsql_create_schema_table_if_not_exists(db) {
+            return code as c_int;
+        }
+        let r = db.exec_safe(""SAVEPOINT crsql_maybe_update_db;"");
+        if let Err(code) = r {
+            return code as c_int;
+        }
+        if let Ok(_) = maybe_update_db_inner(db, has_schema_table == false, err_msg) {
+            let _ = db.exec_safe(""RELEASE crsql_maybe_update_db;"");
+            return ResultCode::OK as c_int;
+        } else {
+            let _ = db.exec_safe(""ROLLBACK;"");
+            return ResultCode::ERROR as c_int;
+        }
+    } else {
+        return ResultCode::ERROR as c_int;
+    }
+}",20,"(108, 128)"

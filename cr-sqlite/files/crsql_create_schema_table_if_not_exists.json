@@ -1,0 +1,40 @@
+[
+    {
+        "function_name": "crsql_create_schema_table_if_not_exists",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\rust.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "a727a6415ab1f5167e4c75671943f7df0c834766",
+                "commit_title": "rm initPeerTrackingTable, createSchemaTable, maybeUpdateDb from C",
+                "commit_date": "Mon Jul 17 17:03:42 2023 -0400",
+                "added_functions": [
+                    "int crsql_create_schema_table_if_not_exists(sqlite3 *db);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_create_schema_table_if_not_exists",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\bootstrap.rs",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "d9baa592b859471cc3ca26e600c1ebcc7cde6d65",
+                "commit_title": "deal with cases that create site id table before opening db",
+                "commit_date": "Sun Aug 6 06:15:48 2023 -0400",
+                "added_functions": [
+                    "fn crsql_create_schema_table_if_not_exists(db: *mut sqlite3) -> Result<ResultCode, ResultCode> {"
+                ]
+            },
+            {
+                "commit_info": "a727a6415ab1f5167e4c75671943f7df0c834766",
+                "commit_title": "rm initPeerTrackingTable, createSchemaTable, maybeUpdateDb from C",
+                "commit_date": "Mon Jul 17 17:03:42 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_create_schema_table_if_not_exists(db: *mut sqlite3) -> c_int {"
+                ]
+            }
+        ]
+    }
+]

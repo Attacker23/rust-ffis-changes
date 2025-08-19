@@ -1,0 +1,11 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\rust.h,True,False,"int crsql_init_site_id(sqlite3 *db, unsigned char *ret);",1,"(14, 14)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\bootstrap.rs,False,True,"pub extern ""C"" fn crsql_init_site_id(db: *mut sqlite3, ret: *mut u8) -> c_int {
+    let buffer: &mut [u8] = unsafe { slice::from_raw_parts_mut(ret, 16) };
+    if let Ok(site_id) = init_site_id(db) {
+        buffer.copy_from_slice(&site_id);
+        ResultCode::OK as c_int
+    } else {
+        ResultCode::ERROR as c_int
+    }
+}",9,"(18, 26)"

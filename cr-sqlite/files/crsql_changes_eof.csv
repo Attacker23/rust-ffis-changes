@@ -1,0 +1,10 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\changes-vtab.c,True,False,int crsql_changes_eof(sqlite3_vtab_cursor *cur);,1,"(153, 153)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\changes_vtab.rs,False,True,"pub extern ""C"" fn crsql_changes_eof(cursor: *mut sqlite::vtab_cursor) -> c_int {
+    let cursor = cursor.cast::<crsql_Changes_cursor>();
+    if unsafe { (*cursor).pChangesStmt.is_null() } {
+        return 1;
+    } else {
+        return 0;
+    }
+}",8,"(431, 438)"

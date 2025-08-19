@@ -1,0 +1,18 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\rust.h,True,False,"int crsql_is_crr(sqlite3 *db, const char *tblName);",1,"(12, 12)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\lib.rs,False,True,"pub extern ""C"" fn crsql_is_crr(db: *mut sqlite::sqlite3, table: *const c_char) -> c_int {
+    if let Ok(table) = unsafe { CStr::from_ptr(table).to_str() } {
+        match is_crr(db, table) {
+            Ok(b) => {
+                if b {
+                    1
+                } else {
+                    0
+                }
+            }
+            Err(c) => (c as c_int) * -1,
+        }
+    } else {
+        (ResultCode::NOMEM as c_int) * -1
+    }
+}",16,"(818, 833)"

@@ -1,0 +1,13 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\changes-vtab.c,True,False,int crsql_changes_next(sqlite3_vtab_cursor *cur);,1,"(12, 12)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\changes_vtab.rs,False,True,"pub unsafe extern ""C"" fn crsql_changes_next(cursor: *mut sqlite::vtab_cursor) -> c_int {
+    let cursor = cursor.cast::<crsql_Changes_cursor>();
+    let vtab = (*cursor).pTab.cast::<sqlite::vtab>();
+    match changes_next(cursor, vtab) {
+        Ok(rc) => rc as c_int,
+        Err(rc) => {
+            changes_crsr_finalize(cursor);
+            rc as c_int
+        }
+    }
+}",11,"(315, 325)"

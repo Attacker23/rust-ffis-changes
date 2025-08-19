@@ -1,0 +1,39 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\changes-vtab.c:changesFilter",
+    "older_commit": "ebb8726b6d8fefda9fc93e5707d4027666af7103",
+    "newer_commit": "d61a957323fc2d43404ca70484379c00615205f5",
+    "changes": {
+      "function_renamed": {
+        "old": "changesFilter",
+        "new": "crsql_changes_filter"
+      },
+      "return_type_changed": {
+        "old": "static int",
+        "new": "int"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\changes-vtab.c:changesSinceFilter",
+    "older_commit": "39fe149d03ee4c66b0b6f420038c42106bf792c8",
+    "newer_commit": "0dc614a4677d535ba97b299e79d788aeea8c2035",
+    "changes": {
+      "function_renamed": {
+        "old": "changesSinceFilter",
+        "new": "changesFilter"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\changes-vtab.c:templatevtabFilter",
+    "older_commit": "fcbe5f9dd1fba3ad5554d265334c8988906fbb1b",
+    "newer_commit": "39fe149d03ee4c66b0b6f420038c42106bf792c8",
+    "changes": {
+      "function_renamed": {
+        "old": "templatevtabFilter",
+        "new": "changesSinceFilter"
+      }
+    }
+  }
+]

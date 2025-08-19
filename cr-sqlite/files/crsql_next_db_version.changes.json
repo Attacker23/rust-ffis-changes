@@ -1,0 +1,13 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\rust.h:crsql_next_db_version",
+    "older_commit": "07028dd3b134495c9ec998b6cd16aa57ddb88661",
+    "newer_commit": "6ff6613e8a906353322b6b1814d62dc4b4102ee4",
+    "changes": {
+      "return_type_changed": {
+        "old": "int",
+        "new": "sqlite_int64"
+      }
+    }
+  }
+]

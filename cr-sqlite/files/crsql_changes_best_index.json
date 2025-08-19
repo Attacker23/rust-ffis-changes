@@ -1,0 +1,87 @@
+[
+    {
+        "function_name": "crsql_changes_best_index",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\changes-vtab.c",
+        "commit_count": 6,
+        "commits": [
+            {
+                "commit_info": "c9673da3bc7270f98294a7626bbc28e1c23bbeea",
+                "commit_title": "changes_best_index to rust",
+                "commit_date": "Wed Jul 19 11:09:03 2023 -0400",
+                "added_functions": [
+                    "int crsql_changes_best_index(sqlite3_vtab *tab, sqlite3_index_info *pIdxInfo);"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "changesBestIndex",
+                    "new_name": "crsql_changes_best_index"
+                }
+            },
+            {
+                "commit_info": "ebb8726b6d8fefda9fc93e5707d4027666af7103",
+                "commit_title": "add .clang-format fixes #105",
+                "commit_date": "Wed Dec 14 13:04:36 2022 -0500",
+                "added_functions": [
+                    "static int changesBestIndex(sqlite3_vtab *tab, sqlite3_index_info *pIdxInfo) {"
+                ]
+            },
+            {
+                "commit_info": "0dc614a4677d535ba97b299e79d788aeea8c2035",
+                "commit_title": "rename changes-since-vtab to changes-vtab\n\nThis vtab support all operations against change sets:\n(1) getting changes since X\n(2) getting changes received by peer Y\n(3) applying patching / change sets",
+                "commit_date": "Mon Oct 24 12:40:11 2022 -0400",
+                "added_functions": [
+                    "static int changesBestIndex(\n     sqlite3_vtab *tab,\n     sqlite3_index_info *pIdxInfo)\n {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "changesSinceBestIndex",
+                    "new_name": "changesBestIndex"
+                }
+            },
+            {
+                "commit_info": "7e346aac29fd9dce8fcc4dd76b4dd0bc7fef531d",
+                "commit_title": "determine best indices and pull params",
+                "commit_date": "Thu Oct 20 15:50:25 2022 -0400",
+                "added_functions": [
+                    "static int changesSinceBestIndex(\n     sqlite3_vtab *tab,\n     sqlite3_index_info *pIdxInfo)\n {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "templatevtabBestIndex",
+                    "new_name": "changesSinceBestIndex"
+                }
+            },
+            {
+                "commit_info": "fcbe5f9dd1fba3ad5554d265334c8988906fbb1b",
+                "commit_title": "sketch out changesSinceNext",
+                "commit_date": "Thu Oct 20 10:52:07 2022 -0400",
+                "added_functions": [
+                    "static int templatevtabBestIndex(\n    sqlite3_vtab *tab,\n    sqlite3_index_info *pIdxInfo)\n{"
+                ]
+            },
+            {
+                "commit_info": "e48393cbcb48c52c8ae707cda9b5c0acab6bca3b",
+                "commit_title": "start prototyping sync to ensure correctness before porting to c or rust",
+                "commit_date": "Tue Oct 18 17:08:20 2022 -0400",
+                "added_functions": [
+                    "static int templatevtabBestIndex(\n  sqlite3_vtab *tab,\n  sqlite3_index_info *pIdxInfo\n){"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_changes_best_index",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\changes_vtab.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "c9673da3bc7270f98294a7626bbc28e1c23bbeea",
+                "commit_title": "changes_best_index to rust",
+                "commit_date": "Wed Jul 19 11:09:03 2023 -0400",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn crsql_changes_best_index(\n    vtab: *mut sqlite::vtab,\n    index_info: *mut sqlite::index_info,\n) -> c_int {"
+                ]
+            }
+        ]
+    }
+]

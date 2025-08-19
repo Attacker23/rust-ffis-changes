@@ -1,0 +1,39 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\changes-vtab.c:changesBestIndex",
+    "older_commit": "ebb8726b6d8fefda9fc93e5707d4027666af7103",
+    "newer_commit": "c9673da3bc7270f98294a7626bbc28e1c23bbeea",
+    "changes": {
+      "function_renamed": {
+        "old": "changesBestIndex",
+        "new": "crsql_changes_best_index"
+      },
+      "return_type_changed": {
+        "old": "static int",
+        "new": "int"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\changes-vtab.c:changesSinceBestIndex",
+    "older_commit": "7e346aac29fd9dce8fcc4dd76b4dd0bc7fef531d",
+    "newer_commit": "0dc614a4677d535ba97b299e79d788aeea8c2035",
+    "changes": {
+      "function_renamed": {
+        "old": "changesSinceBestIndex",
+        "new": "changesBestIndex"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\changes-vtab.c:templatevtabBestIndex",
+    "older_commit": "fcbe5f9dd1fba3ad5554d265334c8988906fbb1b",
+    "newer_commit": "7e346aac29fd9dce8fcc4dd76b4dd0bc7fef531d",
+    "changes": {
+      "function_renamed": {
+        "old": "templatevtabBestIndex",
+        "new": "changesSinceBestIndex"
+      }
+    }
+  }
+]

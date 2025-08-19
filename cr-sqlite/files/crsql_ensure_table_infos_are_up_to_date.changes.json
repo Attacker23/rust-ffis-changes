@@ -1,0 +1,17 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\tableinfo.rs:crsql_ensure_table_infos_are_up_to_date",
+    "older_commit": "6630ff0876695875c5309658d5abb1865c4f2c69",
+    "newer_commit": "b02f9f190fadc9eeb9aa69a9008fc0b565bfbb39",
+    "changes": {
+      "type_changed": [
+        {
+          "index_old": 0,
+          "index_new": 0,
+          "old": "*mut sqlite3",
+          "new": "*mut sqlite::sqlite3"
+        }
+      ]
+    }
+  }
+]

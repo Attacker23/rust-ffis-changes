@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "crsql_create_crr",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\rust.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "05355a8ef95ca5838679c08e4706589005b0c230",
+                "commit_title": "move createCrr to Rust",
+                "commit_date": "Wed Sep 13 13:20:17 2023 +0700",
+                "added_functions": [
+                    "int crsql_create_crr(sqlite3 *db, const char *schemaName, const char *tblName,\n                     int isCommitAlter, int noTx, char **err);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_create_crr",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\lib.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "05355a8ef95ca5838679c08e4706589005b0c230",
+                "commit_title": "move createCrr to Rust",
+                "commit_date": "Wed Sep 13 13:20:17 2023 +0700",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_create_crr(\n    db: *mut sqlite::sqlite3,\n    schema: *const c_char,\n    table: *const c_char,\n    is_commit_alter: c_int,\n    no_tx: c_int,\n    err: *mut *mut c_char,\n) -> c_int {"
+                ]
+            }
+        ]
+    }
+]

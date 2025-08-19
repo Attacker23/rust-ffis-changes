@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "crsql_fill_db_version_if_needed",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\rust.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "07028dd3b134495c9ec998b6cd16aa57ddb88661",
+                "commit_title": "move db_version methods to Rust",
+                "commit_date": "Wed Sep 20 15:40:35 2023 -0400",
+                "added_functions": [
+                    "int crsql_fill_db_version_if_needed(sqlite3 *db, crsql_ExtData *pExtData,\n                                    char **errmsg);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_fill_db_version_if_needed",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\db_version.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "07028dd3b134495c9ec998b6cd16aa57ddb88661",
+                "commit_title": "move db_version methods to Rust",
+                "commit_date": "Wed Sep 20 15:40:35 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_fill_db_version_if_needed(\n    db: *mut sqlite3,\n    ext_data: *mut crsql_ExtData,\n    errmsg: *mut *mut c_char,\n) -> c_int {"
+                ]
+            }
+        ]
+    }
+]

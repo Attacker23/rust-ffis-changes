@@ -1,0 +1,15 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\changes-vtab.c,True,False,"int crsql_changes_rowid(sqlite3_vtab_cursor *cur, sqlite_int64 *pRowid);",1,"(147, 147)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\changes_vtab.rs,False,True,"pub extern ""C"" fn crsql_changes_rowid(
+    cursor: *mut sqlite::vtab_cursor,
+    rowid: *mut sqlite::int64,
+) -> c_int {
+    let cursor = cursor.cast::<crsql_Changes_cursor>();
+    unsafe {
+        *rowid = crate::util::slab_rowid((*cursor).tblInfoIdx, (*cursor).changesRowid);
+        if *rowid < 0 {
+            return ResultCode::ERROR as c_int;
+        }
+    }
+    return ResultCode::OK as c_int;
+}",13,"(513, 525)"

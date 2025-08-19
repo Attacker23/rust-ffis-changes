@@ -1,0 +1,20 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\changes-vtab.c,True,False,"int crsql_changes_filter(sqlite3_vtab_cursor *pVtabCursor, int idxNum,
+                         const char *idxStr, int argc, sqlite3_value **argv);",2,"(130, 131)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\changes_vtab.rs,False,True,"pub unsafe extern ""C"" fn crsql_changes_filter(
+    cursor: *mut sqlite::vtab_cursor,
+    _idx_num: c_int,
+    idx_str: *const c_char,
+    argc: c_int,
+    argv: *mut *mut sqlite::value,
+) -> c_int {
+    let args = sqlite::args!(argc, argv);
+    let cursor = cursor.cast::<crsql_Changes_cursor>();
+    let idx_str = unsafe { CStr::from_ptr(idx_str).to_str() };
+    match idx_str {
+        Ok(idx_str) => match changes_filter(cursor, idx_str, args) {
+            Err(rc) | Ok(rc) => rc as c_int,
+        },
+        Err(_) => ResultCode::FORMAT as c_int,
+    }
+}",17,"(245, 261)"

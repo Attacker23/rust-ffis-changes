@@ -1,0 +1,10 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\ext-data.c,True,False,void crsql_clear_stmt_cache(crsql_ExtData *pExtData);,1,"(8, 8)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\stmt_cache.rs,False,True,"pub extern ""C"" fn crsql_clear_stmt_cache(ext_data: *mut crsql_ExtData) {
+    let tbl_infos =
+        unsafe { ManuallyDrop::new(Box::from_raw((*ext_data).tableInfos as *mut Vec<TableInfo>)) };
+    for tbl_info in tbl_infos.iter() {
+        // TODO: return an error.
+        let _ = tbl_info.clear_stmts();
+    }
+}",7,"(18, 25)"

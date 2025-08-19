@@ -1,0 +1,50 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\crsqlite.c:sqlite3_crsqlrustbundle_init",
+    "older_commit": "1dac2f44f78634feeb16aff5bfeb5dea51de7caf",
+    "newer_commit": "54339a01602b80614de8e9e166fcc511afb8cadc",
+    "changes": {
+      "return_type_changed": {
+        "old": "int",
+        "new": "void *"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\bundle\\src\\lib.rs:sqlite3_crsqlrustbundle_init",
+    "older_commit": "e59866e92b9597ed64bf655e37b95cea81841e5d",
+    "newer_commit": "54339a01602b80614de8e9e166fcc511afb8cadc",
+    "changes": {
+      "return_type_changed": {
+        "old": "c_int",
+        "new": "*mut ::core::ffi::c_void"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\bundle\\src\\lib.rs:sqlite3_crsqlrustbundle_init",
+    "older_commit": "cb9b2b4f0e08fb13e6188a0fcca58bd94e4477db",
+    "newer_commit": "e59866e92b9597ed64bf655e37b95cea81841e5d",
+    "changes": {
+      "return_type_changed": {
+        "old": "u32",
+        "new": "c_int"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\bundle\\src\\lib.rs:sqlite3_crsqlrustbundle_init",
+    "older_commit": "50d64f20ca82be7977f1630d386fb213ef2e6208",
+    "newer_commit": "cb9b2b4f0e08fb13e6188a0fcca58bd94e4477db",
+    "changes": {
+      "name_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "_err_msg",
+          "new": "err_msg"
+        }
+      ]
+    }
+  }
+]

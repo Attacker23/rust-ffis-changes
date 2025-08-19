@@ -1,0 +1,64 @@
+[
+    {
+        "function_name": "sqlite3_crsqlrustbundle_init",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\crsqlite.c",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "54339a01602b80614de8e9e166fcc511afb8cadc",
+                "commit_title": "return ext_data from rust",
+                "commit_date": "Tue Oct 31 16:48:53 2023 -0400",
+                "added_functions": [
+                    "void *sqlite3_crsqlrustbundle_init(sqlite3 *db, char **pzErrMsg,\n                                   const sqlite3_api_routines *pApi);"
+                ]
+            },
+            {
+                "commit_info": "1dac2f44f78634feeb16aff5bfeb5dea51de7caf",
+                "commit_title": "link the rust code into the loadable extension build\n\nRust code was linked into CLI, Test and WASM builds but we left it out of the .so/.dylib builds.",
+                "commit_date": "Mon Jan 30 21:33:30 2023 -0500",
+                "added_functions": [
+                    "int sqlite3_crsqlrustbundle_init(sqlite3 *db, char **pzErrMsg,\n                                 const sqlite3_api_routines *pApi);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "sqlite3_crsqlrustbundle_init",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\bundle\\src\\lib.rs",
+        "commit_count": 4,
+        "commits": [
+            {
+                "commit_info": "54339a01602b80614de8e9e166fcc511afb8cadc",
+                "commit_title": "return ext_data from rust",
+                "commit_date": "Tue Oct 31 16:48:53 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn sqlite3_crsqlrustbundle_init(\n    db: *mut sqlite::sqlite3,\n    err_msg: *mut *mut c_char,\n    api: *mut sqlite::api_routines,\n) -> *mut ::core::ffi::c_void {"
+                ]
+            },
+            {
+                "commit_info": "e59866e92b9597ed64bf655e37b95cea81841e5d",
+                "commit_title": "make return values ffi safe, move tear down code into rust, move extern c code to appropriate modules",
+                "commit_date": "Tue Mar 21 16:17:41 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn sqlite3_crsqlrustbundle_init(\n    db: *mut sqlite::sqlite3,\n    err_msg: *mut *mut c_char,\n    api: *mut sqlite::api_routines,\n) -> c_int {"
+                ]
+            },
+            {
+                "commit_info": "cb9b2b4f0e08fb13e6188a0fcca58bd94e4477db",
+                "commit_title": "start switching compilation over to `bundle`",
+                "commit_date": "Fri Jan 27 12:20:45 2023 -0500",
+                "added_functions": [
+                    "pub extern \"C\" fn sqlite3_crsqlrustbundle_init(\n    db: *mut sqlite::sqlite3,\n    err_msg: *mut *mut c_char,\n    api: *mut sqlite::api_routines,\n) -> u32 {"
+                ]
+            },
+            {
+                "commit_info": "50d64f20ca82be7977f1630d386fb213ef2e6208",
+                "commit_title": "rust bundle for single entry to and target for  all crsqlite rust extensions",
+                "commit_date": "Fri Jan 27 12:07:59 2023 -0500",
+                "added_functions": [
+                    "pub extern \"C\" fn sqlite3_crsqlrustbundle_init(\n    db: *mut sqlite::sqlite3,\n    _err_msg: *mut *mut c_char,\n    api: *mut sqlite::api_routines,\n) -> u32 {"
+                ]
+            }
+        ]
+    }
+]

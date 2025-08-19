@@ -1,0 +1,11 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\changes-vtab.c,True,False,"int crsql_changes_best_index(sqlite3_vtab *tab, sqlite3_index_info *pIdxInfo);",1,"(140, 140)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\changes_vtab.rs,False,True,"pub unsafe extern ""C"" fn crsql_changes_best_index(
+    vtab: *mut sqlite::vtab,
+    index_info: *mut sqlite::index_info,
+) -> c_int {
+    match changes_best_index(vtab, index_info) {
+        Ok(rc) => rc as c_int,
+        Err(rc) => rc as c_int,
+    }
+}",9,"(51, 59)"

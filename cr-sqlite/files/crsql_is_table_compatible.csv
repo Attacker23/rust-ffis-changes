@@ -1,0 +1,15 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\rust.h,True,False,"int crsql_is_table_compatible(sqlite3 *db, const char *tblName, char **err);",1,"(18, 18)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\lib.rs,False,True,"pub extern ""C"" fn crsql_is_table_compatible(
+    db: *mut sqlite::sqlite3,
+    table: *const c_char,
+    err: *mut *mut c_char,
+) -> c_int {
+    if let Ok(table) = unsafe { CStr::from_ptr(table).to_str() } {
+        is_table_compatible(db, table, err)
+            .map(|x| x as c_int)
+            .unwrap_or_else(|err| (err as c_int) * -1)
+    } else {
+        (ResultCode::NOMEM as c_int) * -1
+    }
+}",13,"(836, 848)"

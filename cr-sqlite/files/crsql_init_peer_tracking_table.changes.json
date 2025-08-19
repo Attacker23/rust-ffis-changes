@@ -1,0 +1,50 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\bootstrap.rs:init_peer_tracking_table",
+    "older_commit": "7d449779c0e0448bdc2fb2b80fee68c253410a75",
+    "newer_commit": "a727a6415ab1f5167e4c75671943f7df0c834766",
+    "changes": {
+      "function_renamed": {
+        "old": "init_peer_tracking_table",
+        "new": "crsql_init_peer_tracking_table"
+      },
+      "return_type_changed": {
+        "old": "Result<ResultCode, ResultCode>",
+        "new": "c_int"
+      }
+    }
+  },
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\bootstrap.rs:step",
+    "older_commit": "45112195bdf19805ce0e2cd702b672ea0268ead8",
+    "newer_commit": "7d449779c0e0448bdc2fb2b80fee68c253410a75",
+    "changes": {
+      "function_renamed": {
+        "old": "step",
+        "new": "init_peer_tracking_table"
+      },
+      "added": [
+        {
+          "index_new": 0,
+          "name": "db",
+          "type": "*mut sqlite3"
+        }
+      ],
+      "param_count_changed": {
+        "added": [
+          {
+            "index_new": 0,
+            "name": "db",
+            "type": "*mut sqlite3"
+          }
+        ],
+        "removed": [],
+        "delta": 1
+      },
+      "return_type_changed": {
+        "old": "",
+        "new": "Result<ResultCode, ResultCode>"
+      }
+    }
+  }
+]

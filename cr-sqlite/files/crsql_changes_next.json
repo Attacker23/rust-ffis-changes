@@ -1,0 +1,45 @@
+[
+    {
+        "function_name": "crsql_changes_next",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\changes-vtab.c",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "002f4fb762fcd2c213bfdf4ac885f8960864795a",
+                "commit_title": "make changes_next a little bit more idiomatic rust",
+                "commit_date": "Tue Jul 18 15:12:52 2023 -0400",
+                "added_functions": [
+                    "int crsql_changes_next(sqlite3_vtab_cursor *cur);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_changes_next",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\changes_vtab.rs",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "002f4fb762fcd2c213bfdf4ac885f8960864795a",
+                "commit_title": "make changes_next a little bit more idiomatic rust",
+                "commit_date": "Tue Jul 18 15:12:52 2023 -0400",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn crsql_changes_next(cursor: *mut sqlite::vtab_cursor) -> c_int {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "next",
+                    "new_name": "crsql_changes_next"
+                }
+            },
+            {
+                "commit_info": "6ec4536d21eb7ebd5e456b27489ed1aea6167490",
+                "commit_title": "more of `next` implemented",
+                "commit_date": "Tue Jul 18 13:37:20 2023 -0400",
+                "added_functions": [
+                    "unsafe extern \"C\" fn next(cursor: *mut sqlite::vtab_cursor) -> c_int {"
+                ]
+            }
+        ]
+    }
+]

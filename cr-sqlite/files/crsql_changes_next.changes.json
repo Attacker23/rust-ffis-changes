@@ -1,0 +1,13 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\changes_vtab.rs:next",
+    "older_commit": "6ec4536d21eb7ebd5e456b27489ed1aea6167490",
+    "newer_commit": "002f4fb762fcd2c213bfdf4ac885f8960864795a",
+    "changes": {
+      "function_renamed": {
+        "old": "next",
+        "new": "crsql_changes_next"
+      }
+    }
+  }
+]

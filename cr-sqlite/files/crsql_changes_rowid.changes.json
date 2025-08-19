@@ -1,0 +1,13 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\changes_vtab.rs:rowid",
+    "older_commit": "a26736f05f024a25a42547d81b3786775e746c96",
+    "newer_commit": "20490c06e782a6162adba282498bb5fd1d1ce10e",
+    "changes": {
+      "function_renamed": {
+        "old": "rowid",
+        "new": "crsql_changes_rowid"
+      }
+    }
+  }
+]

@@ -1,0 +1,45 @@
+[
+    {
+        "function_name": "crsql_init_table_info_vec",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\ext-data.c",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "518121ee1abad64639d31f99863defdd48a2120d",
+                "commit_title": "Remove all references to `crsql_TableInfo` and `crsql_ColumnInfo`\n\nThis is a massive commit since it seems impossible to incrementally convert TableInfo.\n\nNext steps:\n\n- [ ] re-implementing `crsql_ensureTableInfosAreUpToDate` and `pullAllTableInfo`\n- [ ] getting everything compiling again\n- [ ] re-writing deleted tests that were in c\n- [ ] moving statement cache into TableInfo and removing b-tree dependency\n\nafter that point we can move on to finishing up the lookaside table for primary keys.",
+                "commit_date": "Thu Sep 14 16:16:45 2023 -0400",
+                "added_functions": [
+                    "void crsql_init_table_info_vec(crsql_ExtData *pExtData);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_init_table_info_vec",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\tableinfo.rs",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "518121ee1abad64639d31f99863defdd48a2120d",
+                "commit_title": "Remove all references to `crsql_TableInfo` and `crsql_ColumnInfo`\n\nThis is a massive commit since it seems impossible to incrementally convert TableInfo.\n\nNext steps:\n\n- [ ] re-implementing `crsql_ensureTableInfosAreUpToDate` and `pullAllTableInfo`\n- [ ] getting everything compiling again\n- [ ] re-writing deleted tests that were in c\n- [ ] moving statement cache into TableInfo and removing b-tree dependency\n\nafter that point we can move on to finishing up the lookaside table for primary keys.",
+                "commit_date": "Thu Sep 14 16:16:45 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_init_table_info_vec(ext_data: *mut crsql_ExtData) {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "Vec",
+                    "new_name": "crsql_init_table_info_vec"
+                }
+            },
+            {
+                "commit_info": "235165b2bee02f5b2f944be8c86eb8d72803dcf2",
+                "commit_title": "define rust version of table info",
+                "commit_date": "Thu Sep 14 10:36:01 2023 -0400",
+                "added_functions": [
+                    "pub nonPks: Vec<ColumnInfo>,"
+                ]
+            }
+        ]
+    }
+]

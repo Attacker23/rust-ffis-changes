@@ -1,0 +1,46 @@
+[
+    {
+        "function_name": "crsql_ensure_table_infos_are_up_to_date",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\changes-vtab.c",
+        "commit_count": 0,
+        "commits": []
+    },
+    {
+        "function_name": "crsql_ensure_table_infos_are_up_to_date",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\rust.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "6630ff0876695875c5309658d5abb1865c4f2c69",
+                "commit_title": "impl pull_all_table_info, ensure_table_info_up_to_date",
+                "commit_date": "Thu Sep 14 17:24:29 2023 -0400",
+                "added_functions": [
+                    "int crsql_ensure_table_infos_are_up_to_date(sqlite3 *db,\n                                            crsql_ExtData *pExtData,\n                                            char **err);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_ensure_table_infos_are_up_to_date",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\tableinfo.rs",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "b02f9f190fadc9eeb9aa69a9008fc0b565bfbb39",
+                "commit_title": "round of compile error fixes now that we've replace crsql_TableInfo",
+                "commit_date": "Thu Sep 14 21:53:27 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_ensure_table_infos_are_up_to_date(\n    db: *mut sqlite::sqlite3,\n    ext_data: *mut crsql_ExtData,\n    err: *mut *mut c_char,\n) -> c_int {"
+                ]
+            },
+            {
+                "commit_info": "6630ff0876695875c5309658d5abb1865c4f2c69",
+                "commit_title": "impl pull_all_table_info, ensure_table_info_up_to_date",
+                "commit_date": "Thu Sep 14 17:24:29 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_ensure_table_infos_are_up_to_date(\n    db: *mut sqlite3,\n    ext_data: *mut crsql_ExtData,\n    err: *mut *mut c_char,\n) -> c_int {"
+                ]
+            }
+        ]
+    }
+]

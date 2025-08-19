@@ -1,0 +1,16 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\rust.h,True,False,"int crsql_fill_db_version_if_needed(sqlite3 *db, crsql_ExtData *pExtData,
+                                    char **errmsg);",2,"(24, 25)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\db_version.rs,False,True,"pub extern ""C"" fn crsql_fill_db_version_if_needed(
+    db: *mut sqlite3,
+    ext_data: *mut crsql_ExtData,
+    errmsg: *mut *mut c_char,
+) -> c_int {
+    match fill_db_version_if_needed(db, ext_data) {
+        Ok(rc) => rc as c_int,
+        Err(msg) => {
+            errmsg.set(&msg);
+            ResultCode::ERROR as c_int
+        }
+    }
+}",13,"(20, 32)"

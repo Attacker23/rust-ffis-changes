@@ -1,0 +1,20 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\ext-data.h,True,False,"// to crsql_next_db_version()
+  // and re-set on transaction commit or rollback.
+  sqlite3_int64 dbVersion;",1,"(17, 19)"
+C,E:\rust_projects\c\cr-sqlite\core\src\rust.h,True,False,"sqlite_int64 crsql_next_db_version(sqlite3 *db, crsql_ExtData *pExtData,
+                                   sqlite3_int64 mergingVersion, char **errmsg);",2,"(26, 27)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\db_version.rs,False,True,"pub extern ""C"" fn crsql_next_db_version(
+    db: *mut sqlite3,
+    ext_data: *mut crsql_ExtData,
+    merging_version: sqlite::int64,
+    errmsg: *mut *mut c_char,
+) -> sqlite::int64 {
+    match next_db_version(db, ext_data, Some(merging_version)) {
+        Ok(version) => version,
+        Err(msg) => {
+            errmsg.set(&msg);
+            -1
+        }
+    }
+}",14,"(35, 48)"

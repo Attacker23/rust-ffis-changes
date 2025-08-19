@@ -1,0 +1,35 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\changes-vtab.c,True,False,"int crsql_changes_update(sqlite3_vtab *pVTab, int argc, sqlite3_value **argv,
+                         sqlite3_int64 *pRowid);",2,"(142, 143)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\changes_vtab.rs,False,True,"pub extern ""C"" fn crsql_changes_update(
+    vtab: *mut sqlite::vtab,
+    argc: c_int,
+    argv: *mut *mut sqlite::value,
+    row_id: *mut sqlite::int64,
+) -> c_int {
+    let args = sqlite::args!(argc, argv);
+    let arg = args[0];
+    if args.len() > 1 && arg.value_type() == ColumnType::Null {
+        // insert statement
+        // argv[1] is the rowid.. but why would it ever be filled for us?
+        let mut err_msg = null_mut();
+        let rc = unsafe { crsql_merge_insert(vtab, argc, argv, row_id, &mut err_msg as *mut _) };
+        if rc != ResultCode::OK as c_int {
+            unsafe {
+                (*vtab).zErrMsg = err_msg;
+            }
+        }
+        return rc;
+    } else {
+        if let Ok(err) = CString::new(
+            ""Only INSERT and SELECT statements are allowed against the crsql changes table"",
+        ) {
+            unsafe {
+                (*vtab).zErrMsg = err.into_raw();
+            }
+            return ResultCode::MISUSE as c_int;
+        } else {
+            return ResultCode::NOMEM as c_int;
+        }
+    }
+}",30,"(528, 559)"

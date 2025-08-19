@@ -1,0 +1,13 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\bootstrap.rs:crsql_create_schema_table_if_not_exists",
+    "older_commit": "a727a6415ab1f5167e4c75671943f7df0c834766",
+    "newer_commit": "d9baa592b859471cc3ca26e600c1ebcc7cde6d65",
+    "changes": {
+      "return_type_changed": {
+        "old": "c_int",
+        "new": "Result<ResultCode, ResultCode>"
+      }
+    }
+  }
+]

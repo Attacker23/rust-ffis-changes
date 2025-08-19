@@ -1,0 +1,17 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\crsqlite.c,True,False,"void *sqlite3_crsqlrustbundle_init(sqlite3 *db, char **pzErrMsg,
+                                   const sqlite3_api_routines *pApi);",2,"(60, 61)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\bundle\src\lib.rs,False,True,"pub extern ""C"" fn sqlite3_crsqlrustbundle_init(
+    db: *mut sqlite::sqlite3,
+    err_msg: *mut *mut c_char,
+    api: *mut sqlite::api_routines,
+) -> *mut ::core::ffi::c_void {
+    sqlite::EXTENSION_INIT2(api);
+
+    let rc = sqlite3_crsqlfractionalindex_init(db, err_msg, api);
+    if rc != 0 {
+        return core::ptr::null_mut();
+    }
+
+    sqlite3_crsqlcore_init(db, err_msg, api)
+}",12,"(41, 54)"

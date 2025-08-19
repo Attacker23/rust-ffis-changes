@@ -1,0 +1,74 @@
+[
+    {
+        "function_name": "crsql_maybe_update_db",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\rust.h",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "da00072c100601012f9c9c926e7a100acf5b1756",
+                "commit_title": "alert when the user is opening an unsupported db due to cr-sqlite upgrade",
+                "commit_date": "Sat Aug 5 18:01:58 2023 -0400",
+                "added_functions": [
+                    "int crsql_maybe_update_db(sqlite3 *db, char **pzErrMsg);"
+                ]
+            },
+            {
+                "commit_info": "a727a6415ab1f5167e4c75671943f7df0c834766",
+                "commit_title": "rm initPeerTrackingTable, createSchemaTable, maybeUpdateDb from C",
+                "commit_date": "Mon Jul 17 17:03:42 2023 -0400",
+                "added_functions": [
+                    "int crsql_maybe_update_db(sqlite3 *db);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_maybe_update_db",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\bootstrap.rs",
+        "commit_count": 4,
+        "commits": [
+            {
+                "commit_info": "da00072c100601012f9c9c926e7a100acf5b1756",
+                "commit_title": "alert when the user is opening an unsupported db due to cr-sqlite upgrade",
+                "commit_date": "Sat Aug 5 18:01:58 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_maybe_update_db(db: *mut sqlite3, err_msg: *mut *mut c_char) -> c_int {"
+                ]
+            },
+            {
+                "commit_info": "a727a6415ab1f5167e4c75671943f7df0c834766",
+                "commit_title": "rm initPeerTrackingTable, createSchemaTable, maybeUpdateDb from C",
+                "commit_date": "Mon Jul 17 17:03:42 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_maybe_update_db(db: *mut sqlite3) -> c_int {"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "maybe_update_db",
+                    "new_name": "crsql_maybe_update_db"
+                }
+            },
+            {
+                "commit_info": "7d449779c0e0448bdc2fb2b80fee68c253410a75",
+                "commit_title": "impl update and crsql_create_clock_table",
+                "commit_date": "Mon Jul 17 15:56:50 2023 -0400",
+                "added_functions": [
+                    "fn maybe_update_db(db: *mut sqlite3) -> Result<ResultCode, ResultCode> {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "step",
+                    "new_name": "maybe_update_db"
+                }
+            },
+            {
+                "commit_info": "45112195bdf19805ce0e2cd702b672ea0268ead8",
+                "commit_title": "impl create_site_id_and_site_id_table",
+                "commit_date": "Mon Jul 17 14:22:12 2023 -0400",
+                "added_functions": [
+                    "stmt.step()"
+                ]
+            }
+        ]
+    }
+]

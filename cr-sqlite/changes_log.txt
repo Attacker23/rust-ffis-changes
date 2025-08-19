@@ -1,0 +1,104 @@
+File: cr-sqlite\crsql_changes_begin.json
+Function: crsql_changes_begin
+commit_count: 2
+Dates: 2023.04.28, 2023.07.18
+------------------------------------------------------------
+File: cr-sqlite\crsql_changes_begin.json
+Function: crsql_changes_begin
+commit_count: 3
+Dates: 2023.07.18
+------------------------------------------------------------
+File: cr-sqlite\crsql_changes_best_index.json
+Function: crsql_changes_best_index
+commit_count: 6
+Dates: 2022.10.18, 2022.10.20, 2022.10.24, 2022.12.14, 2023.07.19
+------------------------------------------------------------
+File: cr-sqlite\crsql_changes_column.json
+Function: crsql_changes_column
+commit_count: 2
+Dates: 2023.07.18
+------------------------------------------------------------
+File: cr-sqlite\crsql_changes_commit.json
+Function: crsql_changes_commit
+commit_count: 2
+Dates: 2023.07.18
+------------------------------------------------------------
+File: cr-sqlite\crsql_changes_eof.json
+Function: crsql_changes_eof
+commit_count: 2
+Dates: 2023.07.18
+------------------------------------------------------------
+File: cr-sqlite\crsql_changes_filter.json
+Function: crsql_changes_filter
+commit_count: 6
+Dates: 2022.10.18, 2022.10.20, 2022.10.24, 2022.12.14, 2023.07.19
+------------------------------------------------------------
+File: cr-sqlite\crsql_changes_next.json
+Function: crsql_changes_next
+commit_count: 2
+Dates: 2023.07.18
+------------------------------------------------------------
+File: cr-sqlite\crsql_changes_rowid.json
+Function: crsql_changes_rowid
+commit_count: 2
+Dates: 2023.07.18
+------------------------------------------------------------
+File: cr-sqlite\crsql_changes_update.json
+Function: crsql_changes_update
+commit_count: 2
+Dates: 2023.07.18
+------------------------------------------------------------
+File: cr-sqlite\crsql_compact_post_alter.json
+Function: crsql_compact_post_alter
+commit_count: 5
+Dates: 2022.11.24, 2022.12.12, 2022.12.14, 2023.05.04, 2023.07.20
+------------------------------------------------------------
+File: cr-sqlite\crsql_create_schema_table_if_not_exists.json
+Function: crsql_create_schema_table_if_not_exists
+commit_count: 2
+Dates: 2023.07.17, 2023.08.06
+------------------------------------------------------------
+File: cr-sqlite\crsql_drop_table_info_vec.json
+Function: crsql_drop_table_info_vec
+commit_count: 2
+Dates: 2023.09.14, 2023.09.15
+------------------------------------------------------------
+File: cr-sqlite\crsql_ensure_table_infos_are_up_to_date.json
+Function: crsql_ensure_table_infos_are_up_to_date
+commit_count: 2
+Dates: 2023.09.14
+------------------------------------------------------------
+File: cr-sqlite\crsql_init_peer_tracking_table.json
+Function: crsql_init_peer_tracking_table
+commit_count: 3
+Dates: 2023.07.17
+------------------------------------------------------------
+File: cr-sqlite\crsql_init_table_info_vec.json
+Function: crsql_init_table_info_vec
+commit_count: 2
+Dates: 2023.09.14
+------------------------------------------------------------
+File: cr-sqlite\crsql_maybe_update_db.json
+Function: crsql_maybe_update_db
+commit_count: 2
+Dates: 2023.07.17, 2023.08.05
+------------------------------------------------------------
+File: cr-sqlite\crsql_maybe_update_db.json
+Function: crsql_maybe_update_db
+commit_count: 4
+Dates: 2023.07.17, 2023.08.05
+------------------------------------------------------------
+File: cr-sqlite\crsql_next_db_version.json
+Function: crsql_next_db_version
+commit_count: 2
+Dates: 2023.09.20, 2023.09.26
+------------------------------------------------------------
+File: cr-sqlite\sqlite3_crsqlrustbundle_init.json
+Function: sqlite3_crsqlrustbundle_init
+commit_count: 2
+Dates: 2023.01.30, 2023.10.31
+------------------------------------------------------------
+File: cr-sqlite\sqlite3_crsqlrustbundle_init.json
+Function: sqlite3_crsqlrustbundle_init
+commit_count: 4
+Dates: 2023.01.27, 2023.03.21, 2023.10.31

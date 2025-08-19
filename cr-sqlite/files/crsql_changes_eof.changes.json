@@ -1,0 +1,13 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\changes_vtab.rs:eof",
+    "older_commit": "aafac746f7d6db8a9a383b7172024e096f4a0e4b",
+    "newer_commit": "20490c06e782a6162adba282498bb5fd1d1ce10e",
+    "changes": {
+      "function_renamed": {
+        "old": "eof",
+        "new": "crsql_changes_eof"
+      }
+    }
+  }
+]

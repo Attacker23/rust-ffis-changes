@@ -1,0 +1,69 @@
+[
+    {
+        "function_name": "crsql_compact_post_alter",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\crsqlite.c",
+        "commit_count": 5,
+        "commits": [
+            {
+                "commit_info": "48f8da70bc774ac114d5a7e15e7d6639cf2e7e27",
+                "commit_title": "enable removing all references to sentinel values so we can only change Rust for re-insertion",
+                "commit_date": "Thu Jul 20 12:55:55 2023 -0400",
+                "added_functions": [
+                    "int crsql_compact_post_alter(sqlite3 *db, const char *tblName,\n                             crsql_ExtData *pExtData, char **errmsg);"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "crsql_compactPostAlter",
+                    "new_name": "crsql_compact_post_alter"
+                }
+            },
+            {
+                "commit_info": "b6a6f6c5a72aff66b6defb32735c249f6519221b",
+                "commit_title": "don't lose db version if migration drops rows, don't lost sentinel records\n\nnote: we need to improve upon this and not write records for columns created and set to default values",
+                "commit_date": "Thu May 4 15:55:16 2023 -0400",
+                "added_functions": [
+                    "int crsql_compactPostAlter(sqlite3 *db, const char *tblName,\n                           crsql_ExtData *pExtData, char **errmsg) {"
+                ]
+            },
+            {
+                "commit_info": "ebb8726b6d8fefda9fc93e5707d4027666af7103",
+                "commit_title": "add .clang-format fixes #105",
+                "commit_date": "Wed Dec 14 13:04:36 2022 -0500",
+                "added_functions": [
+                    "int crsql_compactPostAlter(sqlite3 *db, const char *tblName, char **errmsg) {"
+                ]
+            },
+            {
+                "commit_info": "f66f9fe04cf318b22d37a24423b140402458ba2d",
+                "commit_title": "add `-Wall` to test target",
+                "commit_date": "Mon Dec 12 10:04:28 2022 -0500",
+                "added_functions": [
+                    "int crsql_compactPostAlter(sqlite3 *db, const char *tblName, char **errmsg)\n{"
+                ]
+            },
+            {
+                "commit_info": "86fbe2c0219bcbb1de23a7570e5dfcadd76e3771",
+                "commit_title": "handle dropping of columns for the read changeset case",
+                "commit_date": "Thu Nov 24 07:53:47 2022 -0500",
+                "added_functions": [
+                    "int crsql_compactPostAlter(sqlite3 *db, const char *tblName, char **errmsg) {"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_compact_post_alter",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\alter.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "48f8da70bc774ac114d5a7e15e7d6639cf2e7e27",
+                "commit_title": "enable removing all references to sentinel values so we can only change Rust for re-insertion",
+                "commit_date": "Thu Jul 20 12:55:55 2023 -0400",
+                "added_functions": [
+                    "pub unsafe extern \"C\" fn crsql_compact_post_alter(\n    db: *mut sqlite3,\n    tbl_name: *const c_char,\n    ext_data: *mut crsql_ExtData,\n    errmsg: *mut *mut c_char,\n) -> c_int {"
+                ]
+            }
+        ]
+    }
+]

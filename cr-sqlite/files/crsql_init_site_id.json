@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "crsql_init_site_id",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\rust.h",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "8c1e7adf8ededc335395f9ba8514c72b259830cd",
+                "commit_title": "remove init_siteid from c",
+                "commit_date": "Mon Jul 17 16:37:46 2023 -0400",
+                "added_functions": [
+                    "int crsql_init_site_id(sqlite3 *db, unsigned char *ret);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_init_site_id",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\bootstrap.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "8c1e7adf8ededc335395f9ba8514c72b259830cd",
+                "commit_title": "remove init_siteid from c",
+                "commit_date": "Mon Jul 17 16:37:46 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_init_site_id(db: *mut sqlite3, ret: *mut u8) -> c_int {"
+                ]
+            }
+        ]
+    }
+]

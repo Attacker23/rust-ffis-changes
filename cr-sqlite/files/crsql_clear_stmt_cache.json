@@ -1,0 +1,32 @@
+[
+    {
+        "function_name": "crsql_clear_stmt_cache",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\ext-data.c",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "7aaa20bb01ea0726ea1c4c8b6f0b68715d78fc2f",
+                "commit_title": "manage statement cache in Rust",
+                "commit_date": "Thu Jul 20 00:24:13 2023 -0400",
+                "added_functions": [
+                    "void crsql_clear_stmt_cache(crsql_ExtData *pExtData);"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_clear_stmt_cache",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\stmt_cache.rs",
+        "commit_count": 1,
+        "commits": [
+            {
+                "commit_info": "7aaa20bb01ea0726ea1c4c8b6f0b68715d78fc2f",
+                "commit_title": "manage statement cache in Rust",
+                "commit_date": "Thu Jul 20 00:24:13 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_clear_stmt_cache(ext_data: *mut crsql_ExtData) {"
+                ]
+            }
+        ]
+    }
+]

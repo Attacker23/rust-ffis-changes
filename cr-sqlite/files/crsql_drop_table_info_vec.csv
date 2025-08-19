@@ -1,0 +1,7 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\ext-data.c,True,False,void crsql_drop_table_info_vec(crsql_ExtData *pExtData);,1,"(10, 10)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\tableinfo.rs,False,True,"pub extern ""C"" fn crsql_drop_table_info_vec(ext_data: *mut crsql_ExtData) {
+    unsafe {
+        drop(Box::from_raw((*ext_data).tableInfos as *mut Vec<TableInfo>));
+    }
+}",5,"(741, 745)"

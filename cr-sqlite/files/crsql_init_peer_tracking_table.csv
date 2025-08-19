@@ -1,0 +1,8 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\rust.h,True,False,int crsql_init_peer_tracking_table(sqlite3 *db);,1,"(15, 15)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\bootstrap.rs,False,True,"pub extern ""C"" fn crsql_init_peer_tracking_table(db: *mut sqlite3) -> c_int {
+    match db.exec_safe(""CREATE TABLE IF NOT EXISTS crsql_tracked_peers (\""site_id\"" BLOB NOT NULL, \""version\"" INTEGER NOT NULL, \""seq\"" INTEGER DEFAULT 0, \""tag\"" INTEGER, \""event\"" INTEGER, PRIMARY KEY (\""site_id\"", \""tag\"", \""event\"")) STRICT;"") {
+      Ok(_) => ResultCode::OK as c_int,
+      Err(code) => code as c_int
+    }
+}",6,"(52, 57)"

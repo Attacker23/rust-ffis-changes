@@ -1,0 +1,31 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\tableinfo.rs:into_raw_parts",
+    "older_commit": "518121ee1abad64639d31f99863defdd48a2120d",
+    "newer_commit": "4ee44bd828c6284983bb50b7c26200d54810b52a",
+    "changes": {
+      "function_renamed": {
+        "old": "into_raw_parts",
+        "new": "crsql_drop_table_info_vec"
+      },
+      "added": [
+        {
+          "index_new": 0,
+          "name": "ext_data",
+          "type": "*mut crsql_ExtData"
+        }
+      ],
+      "param_count_changed": {
+        "added": [
+          {
+            "index_new": 0,
+            "name": "ext_data",
+            "type": "*mut crsql_ExtData"
+          }
+        ],
+        "removed": [],
+        "delta": 1
+      }
+    }
+  }
+]

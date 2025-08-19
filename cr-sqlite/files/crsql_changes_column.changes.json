@@ -1,0 +1,27 @@
+[
+  {
+    "function_key": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\changes_vtab.rs:column",
+    "older_commit": "a39fd2948210331a75b7e67c1d1610b3ed8bb230",
+    "newer_commit": "20490c06e782a6162adba282498bb5fd1d1ce10e",
+    "changes": {
+      "function_renamed": {
+        "old": "column",
+        "new": "crsql_changes_column"
+      },
+      "name_changed": [
+        {
+          "index_old": 1,
+          "index_new": 1,
+          "old": "/* The cursor */\n    ctx",
+          "new": "/* The cursor */\n     ctx"
+        },
+        {
+          "index_old": 2,
+          "index_new": 2,
+          "old": "/* First argument to sqlite3_result_...() */\n    i",
+          "new": "/* First argument to sqlite3_result_...() */\n     i"
+        }
+      ]
+    }
+  }
+]

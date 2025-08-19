@@ -1,0 +1,9 @@
+side,file_path,has_no_body,extern_c,source,line_count,line_range
+C,E:\rust_projects\c\cr-sqlite\core\src\changes-vtab.c,True,False,int crsql_changes_commit(sqlite3_vtab *pVTab);,1,"(146, 146)"
+Rust,E:\rust_projects\c\cr-sqlite\core\rs\core\src\changes_vtab.rs,False,True,"pub extern ""C"" fn crsql_changes_commit(vtab: *mut sqlite::vtab) -> c_int {
+    let tab = vtab.cast::<crsql_Changes_vtab>();
+    unsafe {
+        (*(*tab).pExtData).rowsImpacted = 0;
+    }
+    ResultCode::OK as c_int
+}",7,"(568, 574)"

@@ -1,0 +1,66 @@
+[
+    {
+        "function_name": "crsql_changes_begin",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\src\\changes-vtab.c",
+        "commit_count": 2,
+        "commits": [
+            {
+                "commit_info": "20490c06e782a6162adba282498bb5fd1d1ce10e",
+                "commit_title": "rm c versions of --\n\nint crsql_changes_update(sqlite3_vtab *pVTab, int argc, sqlite3_value **argv,\n                         sqlite3_int64 *pRowid);\n// If xBegin is not defined xCommit is not called.\nint crsql_changes_begin(sqlite3_vtab *pVTab);\nint crsql_changes_commit(sqlite3_vtab *pVTab);\nint crsql_changes_rowid(sqlite3_vtab_cursor *cur, sqlite_int64 *pRowid);\nint crsql_changes_column(\n    sqlite3_vtab_cursor *cur, /* The cursor */\n    sqlite3_context *ctx,     /* First argument to sqlite3_result_...() */\n    int i                     /* Which column to return */\n);\nint crsql_changes_eof(sqlite3_vtab_cursor *cur);",
+                "commit_date": "Tue Jul 18 14:17:04 2023 -0400",
+                "added_functions": [
+                    "int crsql_changes_begin(sqlite3_vtab *pVTab);"
+                ],
+                "renamed": {
+                    "check": "True",
+                    "old_name": "xBegin",
+                    "new_name": "crsql_changes_begin"
+                }
+            },
+            {
+                "commit_info": "68cefa9f7c0aa9b1467dae73fad20d75d010fc67",
+                "commit_title": "implement crsql_rows_impacted to understand whether or not a merge changed anything",
+                "commit_date": "Fri Apr 28 11:33:56 2023 -0400",
+                "added_functions": [
+                    "static int xBegin(sqlite3_vtab *pVTab) { return SQLITE_OK; }"
+                ]
+            }
+        ]
+    },
+    {
+        "function_name": "crsql_changes_begin",
+        "file_name": "E:\\rust_projects\\c\\cr-sqlite\\core\\rs\\core\\src\\changes_vtab.rs",
+        "commit_count": 3,
+        "commits": [
+            {
+                "commit_info": "6be025bfb489f12bf0d2196bfa6ff552e266205d",
+                "commit_title": "convert changes_filter",
+                "commit_date": "Tue Jul 18 16:44:50 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_changes_begin(_vtab: *mut sqlite::vtab) -> c_int {"
+                ]
+            },
+            {
+                "commit_info": "20490c06e782a6162adba282498bb5fd1d1ce10e",
+                "commit_title": "rm c versions of --\n\nint crsql_changes_update(sqlite3_vtab *pVTab, int argc, sqlite3_value **argv,\n                         sqlite3_int64 *pRowid);\n// If xBegin is not defined xCommit is not called.\nint crsql_changes_begin(sqlite3_vtab *pVTab);\nint crsql_changes_commit(sqlite3_vtab *pVTab);\nint crsql_changes_rowid(sqlite3_vtab_cursor *cur, sqlite_int64 *pRowid);\nint crsql_changes_column(\n    sqlite3_vtab_cursor *cur, /* The cursor */\n    sqlite3_context *ctx,     /* First argument to sqlite3_result_...() */\n    int i                     /* Which column to return */\n);\nint crsql_changes_eof(sqlite3_vtab_cursor *cur);",
+                "commit_date": "Tue Jul 18 14:17:04 2023 -0400",
+                "added_functions": [
+                    "pub extern \"C\" fn crsql_changes_begin(vtab: *mut sqlite::vtab) -> c_int {"
+                ],
+                "renamed": {
+                    "check": "None",
+                    "old_name": "begin",
+                    "new_name": "crsql_changes_begin"
+                }
+            },
+            {
+                "commit_info": "34e44627e723c0bd4de4c4d2dd15b0f58ba5b66f",
+                "commit_title": "start converting `changes_vtab` to rust -- xCommit, xBegin, xUpdate",
+                "commit_date": "Tue Jul 18 09:40:17 2023 -0400",
+                "added_functions": [
+                    "extern \"C\" fn begin(vtab: *mut sqlite::vtab) -> c_int {"
+                ]
+            }
+        ]
+    }
+]
